@@ -1,61 +1,71 @@
-# 02 — IT Delivery & Agile Management
+# 02. Gestión de Proyectos y Entrega Ágil
 
-## Overview
+## Seguimiento, control y evolución de equipos y proyectos
 
-Dashboard de gestión de proyectos y equipos TI orientado a medir la evolución del proceso de entrega, la predictibilidad, el cumplimiento de objetivos y la eficiencia del flujo de trabajo.
+### 1. Objetivo
 
-Su propósito es entregar información accionable para Project Managers, Scrum Masters, Delivery Managers, Product Owners y equipos de desarrollo.
+Presentar un modelo de seguimiento de proyectos y equipos que permita evaluar la ejecución de los compromisos, identificar desviaciones y mejorar progresivamente el flujo de entrega mediante prácticas de gestión ágil.
 
-## Target Audience
+El enfoque considera una línea base inicial para observar la evolución del proceso y facilitar decisiones sustentadas en indicadores.
 
-- IT Project Managers
-- Scrum Masters
-- Delivery Managers
-- Product Owners
-- Development & QA Teams
+### 2. Audiencia
 
-## Dashboard Objectives
+- Project Managers.
+- Scrum Masters.
+- Delivery Managers.
+- Product Owners.
+- Equipos de desarrollo y QA.
+- Stakeholders de proyectos.
 
-- Establecer una línea base del proceso de entrega.
-- Medir la evolución de las prácticas ágiles.
-- Evaluar el cumplimiento de los objetivos de Sprint.
-- Identificar bloqueos, dependencias y trabajo no planificado.
-- Mejorar la visibilidad de compromisos y entregables.
-- Facilitar decisiones de gestión basadas en evidencia.
+### 3. Componentes de gestión
 
-## Dashboard Structure
+#### 3.1. Línea Base Ágil
 
-### 1. Agile Baseline
-- Prácticas actuales de trabajo.
-- Cadencia de planificación y seguimiento.
-- Estado de definición y priorización del backlog.
-- Línea base de flujo y predictibilidad.
+Establece el punto de partida del equipo y su forma de trabajo.
 
-### 2. Sprint Performance
-- Sprint Goal Success Rate.
+Considera:
+- Forma de planificación y seguimiento.
+- Organización de ceremonias Scrum.
+- Definición y seguimiento de Sprint Goals.
+- Gestión del backlog.
+- Identificación de bloqueos y dependencias.
+- Calidad de la información registrada.
+
+#### 3.2. Desempeño de Sprint
+
+Permite observar el cumplimiento de los objetivos y compromisos de cada Sprint.
+
+Indicadores:
+- Cumplimiento de Sprint Goal.
 - Trabajo comprometido versus completado.
-- Carry-over entre Sprints.
+- Carry-over: trabajo pendiente trasladado al siguiente Sprint.
 - Trabajo no planificado.
+- Evolución de la ejecución.
 
-### 3. Flow Management
-- Throughput.
-- Cycle Time.
-- Lead Time.
-- Work in Progress (WIP).
-- Aging Work Items.
+#### 3.3. Flujo de Entrega
 
-### 4. Quality & Blockers
-- Defectos detectados.
-- Reapertura de tareas.
-- Impedimentos.
-- Tiempo de resolución de bloqueos.
+Permite analizar cómo fluye el trabajo durante el proceso de desarrollo.
 
-### 5. Evolution & Improvement
-- Comparación de línea base versus situación actual.
-- Tendencias por Sprint.
-- Acciones de mejora.
-- Evolución de compromisos y resultados.
+Indicadores:
+- Throughput: cantidad de elementos de trabajo completados.
+- Cycle Time: tiempo desde que comienza el trabajo hasta su finalización.
+- Lead Time: tiempo desde que se solicita un elemento hasta que se entrega.
+- WIP: trabajo en curso.
+- Antigüedad de elementos pendientes.
 
-## Key Management Principles
+#### 3.4. Calidad y Bloqueos
 
-- La velocidad no representa productividad individual ni
+Seguimiento de factores que afectan la entrega.
+
+Considera:
+- Defectos identificados.
+- Bloqueos activos.
+- Tiempo de resolución de impedimentos.
+- Dependencias entre equipos.
+- Retrabajo, cuando exista información disponible.
+
+#### 3.5. Evolución de la Gestión Ágil
+
+Compara la situación inicial con los períodos posteriores para identificar mejoras y oportunidades.
+
+Consider

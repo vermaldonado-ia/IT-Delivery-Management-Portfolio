@@ -140,20 +140,30 @@ Cumplimiento Sprint Goal (%) = (Sprints con objetivo alcanzado / Sprints evaluad
 - Un Sprint puede completar muchos elementos y no alcanzar su objetivo.
 - Los Sprints en curso no deben incluirse en el cálculo de Sprints finalizados.
 
-### 3.2 Cumplimiento del compromiso
+### 3.2 Cumplimiento del compromiso del Sprint
 
-**Definición:** mide la proporción de elementos comprometidos que fueron completados durante el Sprint.
+**Definición:** proporción de elementos comprometidos al inicio del Sprint que fueron completados durante el período.
 
 **Fórmula:**
 
-Cumplimiento del compromiso (%) = (Elementos completados / Elementos comprometidos) × 100
+Cumplimiento del compromiso (%) = ((Elementos comprometidos − Carry-over) / Elementos comprometidos) × 100
 
 **Fuente:** `agile-delivery.csv`
 
+**Campos utilizados:**
+- `elementos_comprometidos`
+- `carry_over`
+
+**Interpretación:** permite evaluar en qué medida el equipo completó el trabajo que se había comprometido a realizar al inicio del Sprint.
+
 **Consideraciones:**
-- Debe conservarse el compromiso registrado al inicio del Sprint.
-- Los elementos agregados posteriormente deben identificarse como trabajo no planificado.
-- No debe confundirse con el cumplimiento del Sprint Goal.
+- El cálculo considera exclusivamente el compromiso inicial y los elementos comprometidos que quedaron pendientes.
+- El trabajo no planificado debe analizarse por separado y no debe incorporarse al numerador de esta fórmula.
+- No debe confundirse el cumplimiento del compromiso con el cumplimiento del Sprint Goal.
+- Si no existen elementos comprometidos, el indicador debe registrarse como "No aplica".
+- S12, al encontrarse en curso al corte del 7 de noviembre de 2026, debe excluirse de las comparaciones de Sprints finalizados.
+
+**Limitación de los datos DEMO:** el cálculo depende de que `carry_over` represente correctamente los elementos del compromiso inicial que quedaron sin completar.
 
 ### 3.3 Carry-over
 

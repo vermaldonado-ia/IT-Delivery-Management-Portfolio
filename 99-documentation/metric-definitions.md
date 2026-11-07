@@ -157,15 +157,31 @@ Cumplimiento del compromiso (%) = (Elementos completados / Elementos comprometid
 
 ### 3.3 Carry-over
 
-**Definición:** cantidad de elementos comprometidos que no fueron completados y se trasladan a un período posterior.
+**Definición:** cantidad de elementos comprometidos que no fueron completados durante el Sprint y se trasladan a un período posterior.
 
-**Fórmula:**
+**Indicadores:**
 
-Carry-over (%) = (Elementos no completados del compromiso / Elementos comprometidos) × 100
+- Carry-over (elementos): cantidad de elementos comprometidos que quedaron pendientes.
+- Carry-over (%): proporción de elementos comprometidos que no fueron completados.
+
+**Fórmulas:**
+
+Carry-over (elementos) = Conteo de elementos comprometidos no completados.
+
+Carry-over (%) = (Elementos comprometidos no completados / Elementos comprometidos) × 100
 
 **Fuente:** `agile-delivery.csv`
 
+**Campo disponible:** `carry_over`.
+
 **Interpretación:** permite identificar compromisos que se trasladan entre Sprints y analizar posibles problemas de planificación, capacidad o dependencias.
+
+**Consideraciones:**
+- El valor absoluto se obtiene directamente del campo `carry_over`.
+- El porcentaje se calcula respecto de los elementos comprometidos al inicio del Sprint.
+- Si no existen elementos comprometidos, el porcentaje debe registrarse como "No aplica".
+- Debe mantenerse un criterio consistente para identificar los elementos pendientes.
+- S12, al encontrarse en curso al corte del 7 de noviembre, no debe tratarse como un Sprint finalizado.
 
 ### 3.4 Trabajo no planificado
 

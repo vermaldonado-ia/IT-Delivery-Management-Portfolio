@@ -436,13 +436,16 @@ Tasa de errores (%) = (Solicitudes con error / Total de solicitudes) × 100
 - `trafico_entrada_gb`
 - `trafico_salida_gb`
 
-**Unidad:** gigabytes (GB) por período.
+**Unidad:** gigabytes por semana (GB/semana).
 
 **Fuente:** `cloud-monitoring.csv`
 
-**Consideración sobre los datos DEMO:**
+**Criterio aplicado en los datos DEMO:**
 
-Los campos disponibles representan volúmenes de tráfico en GB por período. No representan una tasa de transferencia instantánea ni una velocidad de red.
+- `trafico_entrada_gb`: volumen semanal de tráfico entrante.
+- `trafico_salida_gb`: volumen semanal de tráfico saliente.
+- Los valores representan volúmenes semanales, no tasas instantáneas de transferencia ni velocidades de red.
+- Esta convención se adopta para el modelo DEMO y no constituye una validación de datos provenientes de una plataforma Cloud real.
 
 Para calcular una tasa de transferencia se necesitarían datos de volumen asociados a una duración conocida y una fórmula de conversión consistente.
 
@@ -450,12 +453,17 @@ Para calcular una tasa de transferencia se necesitarían datos de volumen asocia
 
 **Definición:** costo asociado al consumo de servicios cloud durante el período evaluado.
 
-**Unidad:** dólares estadounidenses (USD).
+**Unidad:** dólares estadounidenses por semana (USD/semana).
 
 **Fuente:** `cloud-monitoring.csv`
 
+**Criterio aplicado en los datos DEMO:**
+
+- `costo_cloud_usd` representa el costo semanal de servicios Cloud.
+- Los valores se interpretan como costos de cada semana, no como acumulados.
+- Esta convención se adopta para el modelo DEMO y no constituye una validación de información de facturación real.
+
 **Consideraciones:**
-- El período de facturación o agregación debe quedar explícito.
 - Los costos deben analizarse por servicio y proveedor cuando exista información.
 - No deben compararse períodos de distinta duración sin normalización.
 - Los datos DEMO deben identificarse como ficticios.

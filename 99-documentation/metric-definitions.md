@@ -125,20 +125,29 @@ Disponibilidad (%) = (Tiempo disponible / Tiempo total medido) × 100
 
 ### 3.1 Cumplimiento del Sprint Goal
 
-**Definición:** mide si el equipo alcanzó el objetivo comprometido para el Sprint.
+**Definición:** proporción de Sprints finalizados en los que el equipo alcanzó el objetivo definido para el Sprint.
 
 **Fórmula:**
 
-Cumplimiento Sprint Goal (%) = (Sprints con objetivo alcanzado / Sprints evaluados) × 100
+Cumplimiento del Sprint Goal (%) = (Sprints finalizados con Sprint Goal alcanzado / Total de Sprints finalizados evaluables) × 100
 
 **Fuente:** `agile-delivery.csv`
 
-**Interpretación:** permite evaluar el cumplimiento del propósito del Sprint, más allá de la cantidad de elementos completados.
+**Campo disponible:** `sprint_goal_alcanzado`.
+
+**Valores registrados:** `Si` y `No`.
+
+**Interpretación:** permite evaluar si los equipos lograron el objetivo que orientó el trabajo del Sprint, más allá de la cantidad de elementos completados.
 
 **Consideraciones:**
-- El Sprint Goal debe definirse antes de iniciar el Sprint.
-- Un Sprint puede completar muchos elementos y no alcanzar su objetivo.
-- Los Sprints en curso no deben incluirse en el cálculo de Sprints finalizados.
+- El cálculo considera únicamente Sprints finalizados y evaluables.
+- Los registros con valor `Si` se consideran objetivos alcanzados.
+- Los registros con valor `No` se consideran objetivos no alcanzados, siempre que el Sprint haya finalizado.
+- S12, correspondiente al período del 2 al 15 de noviembre de 2026, se encuentra en curso al corte del 7 de noviembre y debe excluirse del cálculo.
+- No debe confundirse con el porcentaje de elementos completados ni con el cumplimiento del compromiso.
+- Un Sprint puede completar todos sus elementos comprometidos y no alcanzar el Sprint Goal, o alcanzar el objetivo aunque algunos elementos hayan quedado pendientes.
+
+**Limitación de los datos DEMO:** el campo registra el resultado del Sprint Goal como texto (`Si`/`No`). Para una medición real, el resultado debe validarse al cierre del Sprint con el equipo y los criterios de aceptación del objetivo.
 
 ### 3.2 Cumplimiento del compromiso del Sprint
 

@@ -94,7 +94,7 @@ Un registro representa un equipo durante un Sprint.
 | `proyecto` | Texto | Proyecto asociado |
 | `sprint` | Texto | Identificador del Sprint |
 | `sprint_goal` | Texto | Objetivo del Sprint |
-| `sprint_goal_alcanzado` | Booleano | Indica si se alcanzó el objetivo |
+| `sprint_goal_alcanzado` | Texto | Resultado registrado del Sprint Goal, con valores Si o No |
 | `capacidad_horas` | Decimal | Capacidad disponible expresada en horas |
 | `elementos_comprometidos` | Entero | Elementos comprometidos al inicio |
 | `elementos_completados` | Entero | Elementos completados |
@@ -137,7 +137,9 @@ Un registro representa un equipo durante un Sprint.
 - Los Sprints tienen una duración planificada de catorce días.
 - El Sprint S12 corresponde al período del 2 al 15 de noviembre de 2026.
 - Al corte del 7 de noviembre, S12 se encuentra en curso.
-- S12 debe identificarse como período parcial y excluirse de comparaciones de Sprints finalizados.
+- El campo `sprint_goal_alcanzado` contiene valores de texto `Si` y `No`; no corresponde a un campo booleano.
+- El valor `No` registrado para S12 no debe interpretarse como un Sprint Goal definitivamente incumplido, porque el Sprint todavía está en curso.
+- S12 debe identificarse como período parcial y excluirse de comparaciones de Sprints finalizados y del cálculo definitivo de cumplimiento del Sprint Goal.
 - La capacidad se expresa en horas y no debe confundirse con puntos de historia.
 - Throughput y elementos completados deben mantener criterios de conteo consistentes.
 - La información es ficticia y no representa resultados de equipos reales.
@@ -159,7 +161,7 @@ Un registro representa un despliegue individual.
 | Campo | Tipo | Descripción |
 |---|---|---|
 | `deployment_id` | Texto | Identificador único del despliegue |
-| `fecha_despliegue` | Fecha y hora | Fecha y hora del despliegue |
+| `fecha_despliegue` | Fecha | Fecha del despliegue |
 | `servicio_id` | Texto | Identificador del servicio |
 | `servicio` | Texto | Nombre del servicio |
 | `entorno` | Texto | Entorno donde se realiza el despliegue |
@@ -186,6 +188,7 @@ Un registro representa un despliegue individual.
 - Todos los despliegues registrados corresponden al entorno de producción.
 - Siete despliegues están clasificados como fallidos.
 - Los siete despliegues fallidos tienen identificadores de incidentes asociados.
+- El campo `fecha_despliegue` contiene únicamente la fecha, sin información de hora.
 - El campo `lead_time_cambios_horas` no dispone de los timestamps de commit y despliegue necesarios para calcular estrictamente DORA Lead Time for Changes.
 - Para una medición real se necesitará relacionar el timestamp del commit con el timestamp del despliegue en producción.
 - La clasificación de un despliegue como fallido debe basarse en un criterio documentado y consistente.
@@ -198,8 +201,7 @@ Con los datos disponibles:
 
 - Despliegues totales: 48.
 - Despliegues fallidos: 7.
-
-CFR = (7 / 48) × 100 = 14,58 %
+- CFR = (7 / 48) × 100 = 14,58 %.
 
 Este resultado corresponde exclusivamente a la muestra DEMO.
 
@@ -239,9 +241,9 @@ Un registro representa un servicio en una fecha de corte semanal.
 | `cpu_promedio_pct` | Decimal | Utilización promedio de CPU |
 | `memoria_promedio_pct` | Decimal | Utilización promedio de memoria |
 | `almacenamiento_usado_pct` | Decimal | Porcentaje de almacenamiento utilizado |
-| `trafico_entrada_gb` | Decimal | Volumen de tráfico de entrada en GB |
-| `trafico_salida_gb` | Decimal | Volumen de tráfico de salida en GB |
-| `costo_cloud_usd` | Decimal | Costo cloud expresado en USD |
+| `trafico_entrada_gb` | Decimal | Volumen semanal de tráfico de entrada, en GB/semana |
+| `trafico_salida_gb` | Decimal | Volumen semanal de tráfico de salida, en GB/semana |
+| `costo_cloud_usd` | Decimal | Costo semanal de servicios Cloud, en USD/semana |
 | `alertas_criticas` | Entero | Cantidad de alertas críticas |
 | `origen_dato` | Texto | Fuente de origen |
 | `tipo_dato` | Texto | Clasificación del registro, DEMO |
@@ -258,14 +260,26 @@ Un registro representa un servicio en una fecha de corte semanal.
 - Costo cloud.
 - Alertas críticas.
 
+### Interpretación del período de medición
+
+Para este conjunto de datos DEMO, cada registro representa un corte semanal de monitoreo.
+
+- `trafico_entrada_gb`: volumen de tráfico entrante durante la semana, expresado en GB/semana.
+- `trafico_salida_gb`: volumen de tráfico saliente durante la semana, expresado en GB/semana.
+- `costo_cloud_usd`: costo de servicios Cloud correspondiente a esa semana, expresado en USD/semana.
+
+**Criterio de interpretación:** los valores representan volúmenes y costos semanales, no acumulados. Esta convención se adopta para el modelo DEMO con el propósito de permitir el análisis de tendencias entre semanas. No constituye una validación de datos provenientes de una plataforma Cloud real.
+
+Los valores numéricos originales se mantienen sin modificaciones.
+
 ### Consideraciones
 
 - El dataset contiene veinte registros.
 - Se consideran cuatro servicios y cinco cortes semanales de septiembre de 2026.
 - Los datos representan observaciones agregadas por corte y no telemetría continua.
-- Los campos de tráfico representan volúmenes en GB por período, no tasas instantáneas de transferencia.
-- El período exacto al que corresponde cada volumen de tráfico debe validarse con la fuente antes de utilizarlo para comparaciones.
-- El costo cloud está expresado en USD. Debe confirmarse si representa el costo de la semana, un acumulado o una estimación del período.
+- Los campos de tráfico representan volúmenes semanales en GB, no tasas instantáneas de transferencia.
+- Para este modelo DEMO, los volúmenes de tráfico se interpretan como valores semanales. Esta convención es una definición del modelo y no una validación de una fuente real.
+- El costo cloud se interpreta como costo semanal en USD, conforme al criterio definido para este conjunto de datos DEMO.
 - No deben compararse costos o volúmenes de períodos de distinta duración sin normalización.
 - Los registros no permiten reconstruir por sí solos el comportamiento minuto a minuto del servicio.
 
@@ -360,48 +374,6 @@ El modelo utiliza identificadores para mantener la trazabilidad entre servicios,
 | `cloud-monitoring.csv` | `servicio_id` | `deployments.csv` | `servicio_id` |
 | `incidents.csv` | `servicio_id` | `deployments.csv` | `servicio_id` |
 
-### Diagrama lógico
-
-```mermaid
-erDiagram
-    EXECUTIVE_KPIS {
-        string iniciativa_id
-        date fecha_corte
-        decimal avance_real_pct
-        decimal avance_planificado_pct
-    }
-
-    AGILE_DELIVERY {
-        string equipo_id
-        string sprint
-        boolean sprint_goal_alcanzado
-        integer elementos_completados
-    }
-
-    DEPLOYMENTS {
-        string deployment_id
-        string servicio_id
-        string incidente_id
-        boolean fallo_cambio
-    }
-
-    CLOUD_MONITORING {
-        date fecha_corte
-        string servicio_id
-        decimal disponibilidad_pct
-        decimal latencia_p95_ms
-    }
-
-    INCIDENTS {
-        string incidente_id
-        string deployment_id
-        string servicio_id
-        integer tiempo_recuperacion_minutos
-    }
-
-    DEPLOYMENTS ||--o| INCIDENTS : "se relaciona con"
-```
-
 ### Reglas de relación
 
 - `deployment_id` identifica de forma única cada despliegue.
@@ -457,8 +429,9 @@ Cada dataset debe permitir identificar:
 | Executive KPIs | Último corte parcial | No comparar directamente con meses completos |
 | Agile Delivery | Sprint S12 en curso | Excluirlo de comparaciones de Sprints finalizados |
 | Deployments | Sin timestamp de commit | Lead Time for Changes es una aproximación |
+| Deployments | Fecha de despliegue sin hora | No permite análisis de precisión horaria |
 | Cloud Monitoring | Cinco cortes semanales | No representa telemetría continua |
-| Cloud Monitoring | Período de costo y tráfico pendiente de validar | No asumir que los valores son semanales hasta confirmar su definición |
+| Cloud Monitoring | Período semanal definido como convención DEMO | No constituye validación de datos de una fuente real |
 | Incidents | Todos los incidentes resueltos | No permite analizar incidentes abiertos |
 | Incidents | Inicio del impacto aproximado por detección | Recovery Time DORA es una aproximación DEMO |
 

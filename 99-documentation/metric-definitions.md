@@ -195,18 +195,35 @@ Carry-over (%) = (Elementos comprometidos no completados / Elementos comprometid
 
 ### 3.4 Trabajo no planificado
 
-**Definición:** cantidad de trabajo incorporado durante el Sprint que no formaba parte del compromiso inicial.
+**Definición:** cantidad de elementos de trabajo incorporados durante el Sprint que no formaban parte del compromiso inicial.
 
-**Fórmula:**
+**Indicadores:**
 
-Trabajo no planificado (%) = (Elementos de trabajo no planificado / Elementos totales gestionados) × 100
+- Trabajo no planificado (elementos): cantidad de elementos incorporados fuera del compromiso inicial.
+- Trabajo no planificado (%): proporción de elementos no planificados respecto del total de elementos gestionados durante el Sprint.
+
+**Fórmulas:**
+
+Trabajo no planificado (elementos) = Conteo de elementos incorporados fuera del compromiso inicial.
+
+Trabajo no planificado (%) = (Elementos de trabajo no planificado / (Elementos comprometidos + Elementos de trabajo no planificado)) × 100
 
 **Fuente:** `agile-delivery.csv`
 
+**Campos utilizados:**
+- `elementos_comprometidos`
+- `trabajo_no_planificado`
+
+**Interpretación:** permite identificar cuánto trabajo adicional se incorporó durante el Sprint y analizar su posible impacto sobre la capacidad y los compromisos iniciales.
+
 **Consideraciones:**
-- Debe existir un criterio uniforme para clasificar trabajo planificado y no planificado.
-- Es importante identificar si el trabajo adicional responde a incidentes, urgencias, cambios de prioridad o dependencias.
+- El porcentaje considera como denominador la suma de elementos comprometidos y elementos no planificados.
+- Los elementos no planificados deben identificarse por separado del compromiso inicial.
+- Se debe mantener un criterio uniforme para clasificar el trabajo adicional.
+- Es importante identificar si responde a incidentes, urgencias, cambios de prioridad o dependencias.
 - No debe interpretarse automáticamente como una falla del equipo.
+- Si el total de elementos gestionados es cero, el indicador debe registrarse como "No aplica".
+- La fórmula presupone que ambos campos representan cantidades de elementos comparables y no duplicados.
 
 ### 3.5 Throughput
 

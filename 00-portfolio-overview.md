@@ -1,46 +1,79 @@
-# IT Delivery Management Portfolio
+# Portafolio Profesional de Gestión y Entrega TI
 
-## Professional Overview
+## Gestión de Proyectos TI | Agile Delivery | Transformación Digital | Operaciones Tecnológicas
 
-Portafolio profesional enfocado en la gestión integral de proyectos TI, Agile Delivery, gestión ejecutiva y operaciones tecnológicas.
+### 1. Presentación
 
-### Portfolio Products
+Este portafolio reúne ejemplos de gestión, seguimiento y control de proyectos y servicios tecnológicos, con foco en la entrega de valor, la gestión ágil, la visibilidad ejecutiva y la continuidad operacional.
 
-**01. Executive IT Management Dashboard**
+Su propósito es demostrar cómo se puede estructurar información técnica y de gestión para facilitar el seguimiento, identificar desviaciones, anticipar riesgos y apoyar la toma de decisiones.
 
-Visión ejecutiva consolidada de entrega, tecnología, operaciones, riesgos y resultados de negocio.
+### 2. Líneas de trabajo
 
-**02. IT Delivery & Agile Management**
+El portafolio se organiza en tres productos:
 
-Gestión de equipos y proyectos mediante indicadores de flujo, predictibilidad, objetivos de Sprint, impedimentos y calidad.
+#### 01. Dashboard Ejecutivo de Gestión TI
 
-**03. Technical Delivery & Operations**
+Visión consolidada para subgerencia, dirección y stakeholders.
 
-Seguimiento de métricas DORA, Cloud Monitoring, observabilidad, disponibilidad, incidentes y niveles de servicio.
+Incluye:
+- Estado general de iniciativas y proyectos.
+- Cumplimiento de hitos y compromisos.
+- Riesgos, dependencias y desviaciones.
+- Indicadores de entrega tecnológica y operación.
+- Resultados y decisiones de gestión.
 
-## Management Framework
+#### 02. Gestión de Proyectos y Entrega Ágil
 
-**Baseline → Evolution → Outcome → Decision**
+Seguimiento de equipos, proyectos y procesos de entrega bajo marcos ágiles.
 
-- Establecimiento de línea base.
-- Seguimiento de evolución.
-- Análisis de variaciones.
-- Evaluación de resultados.
-- Recomendaciones para la toma de decisiones.
+Incluye:
+- Línea base de gestión ágil.
+- Seguimiento de Sprint Goals.
+- Trabajo comprometido versus completado.
+- Carry-over, Throughput y Cycle Time.
+- Bloqueos, dependencias y calidad.
+- Evolución de la madurez de la gestión.
 
-## Data Governance
+#### 03. Entrega Técnica y Operaciones TI
 
-Todos los datos de demostración son ficticios y estarán identificados como DEMO.
+Seguimiento de la capacidad de entrega tecnológica, confiabilidad y continuidad operacional.
 
-Los indicadores sin información confiable se identificarán como No medido o Sin dato.
+Incluye:
+- Métricas DORA.
+- Monitoreo Cloud y observabilidad.
+- Disponibilidad, latencia y errores.
+- Gestión de incidentes y MTTR.
+- Cumplimiento de SLA y SLO.
+- Riesgos técnicos y continuidad del servicio.
 
-## Professional Focus
+### 3. Enfoque de gestión
 
-- IT Project Management
-- Scrum & Agile Delivery
-- Delivery Management
-- Executive Reporting
-- KPI & OKR Management
-- Technical Delivery
-- Cloud & DevOps Coordination
-- Risk Management
+Los análisis se estructuran mediante la siguiente secuencia:
+
+**Línea base → Evolución → Resultado → Decisión**
+
+Este enfoque permite establecer un punto de partida, observar tendencias, evaluar resultados y proponer acciones sustentadas en información.
+
+### 4. Criterios de medición y gobierno
+
+Los indicadores deben contar con:
+- Definición y propósito.
+- Fórmula de cálculo.
+- Fuente de información.
+- Periodicidad de actualización.
+- Responsable del indicador.
+- Línea base y período de medición.
+- Criterios de interpretación.
+
+No se deben presentar datos sin contexto ni establecer comparaciones entre equipos sin considerar sus características y condiciones de trabajo.
+
+### 5. Datos de demostración
+
+Los ejemplos, registros y visualizaciones identificados como **DEMO** utilizan información ficticia creada exclusivamente para mostrar la estructura y el funcionamiento del portafolio.
+
+No representan resultados reales de empresas, clientes ni proyectos.
+
+### 6. Orientación profesional
+
+Este portafolio refleja un enfoque de gestión de proyectos TI, Agile Delivery y coordinación de iniciativas tecnológicas, integrando la perspectiva de negocio con el entendimiento técnico necesario para facilitar la comunicación entre equipos, áreas de tecnología y stakeholders.

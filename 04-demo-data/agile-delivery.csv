@@ -1,7 +1,49 @@
-fecha_corte,equipo,proyecto,sprint,sprint_goal,sprint_goal_alcanzado,elementos_comprometidos,elementos_completados,carry_over,trabajo_no_planificado,throughput,cycle_time_dias,lead_time_dias,wip,impedimentos,tipo_dato
-2026-09-30,Equipo A,Proyecto Digital,Sprint 01,Implementar autenticacion,No,20,15,5,4,15,5.2,12.5,8,3,DEMO
-2026-10-15,Equipo A,Proyecto Digital,Sprint 02,Completar flujo de acceso,Si,22,19,3,2,19,4.8,10.2,6,2,DEMO
-2026-10-31,Equipo A,Proyecto Digital,Sprint 03,Entregar modulo de usuarios,Si,24,22,2,1,22,4.1,9.0,5,1,DEMO
-2026-09-30,Equipo B,Proyecto Integracion,Sprint 01,Integrar servicio externo,No,18,13,5,5,13,7.0,15.0,9,4,DEMO
-2026-10-15,Equipo B,Proyecto Integracion,Sprint 02,Completar integracion API,Si,20,17,3,3,17,6.0,13.0,7,2,DEMO
-2026-10-31,Equipo B,Proyecto Integracion,Sprint 03,Validar integracion,Si,21,19,2,1,19,5.0,11.0,5,1,DEMO
+fecha_inicio,fecha_fin,equipo_id,equipo,proyecto,sprint,sprint_goal,sprint_goal_alcanzado,capacidad_horas,elementos_comprometidos,elementos_completados,carry_over,trabajo_no_planificado,throughput,cycle_time_mediana_dias,lead_time_mediana_dias,wip_promedio,impedimentos,defectos,retrabajo_elementos,tipo_dato
+2026-06-01,2026-06-14,EQ-01,Equipo A,Canales Digitales,S01,Completar acceso digital,No,320,20,15,5,4,15,5.2,12.5,8,3,5,3,DEMO
+2026-06-15,2026-06-28,EQ-01,Equipo A,Canales Digitales,S02,Completar validacion de usuarios,Si,320,22,19,3,2,19,4.8,10.2,6,2,4,2,DEMO
+2026-06-29,2026-07-12,EQ-01,Equipo A,Canales Digitales,S03,Entregar modulo de perfiles,Si,320,24,22,2,1,22,4.1,9.0,5,1,3,1,DEMO
+2026-07-13,2026-07-26,EQ-01,Equipo A,Canales Digitales,S04,Integrar notificaciones,No,320,25,20,5,4,20,5.5,11.5,8,3,6,3,DEMO
+2026-07-27,2026-08-09,EQ-01,Equipo A,Canales Digitales,S05,Completar notificaciones,Si,320,23,21,2,2,21,4.6,10.0,6,2,3,1,DEMO
+2026-08-10,2026-08-23,EQ-01,Equipo A,Canales Digitales,S06,Optimizar experiencia digital,Si,320,24,23,1,1,23,3.9,8.5,5,1,2,1,DEMO
+2026-08-24,2026-09-06,EQ-01,Equipo A,Canales Digitales,S07,Mejorar rendimiento,Si,320,25,23,2,2,23,4.2,9.0,5,1,3,1,DEMO
+2026-09-07,2026-09-20,EQ-01,Equipo A,Canales Digitales,S08,Completar pruebas funcionales,No,320,26,20,6,5,20,6.1,13.0,9,4,7,4,DEMO
+2026-09-21,2026-10-04,EQ-01,Equipo A,Canales Digitales,S09,Corregir defectos criticos,Si,320,24,22,2,1,22,4.7,10.0,6,2,4,2,DEMO
+2026-10-05,2026-10-18,EQ-01,Equipo A,Canales Digitales,S10,Entregar nueva version,Si,320,25,24,1,1,24,4.0,8.8,5,1,2,1,DEMO
+2026-10-19,2026-11-01,EQ-01,Equipo A,Canales Digitales,S11,Estabilizar aplicacion,Si,320,26,24,2,2,24,4.3,9.2,5,1,3,1,DEMO
+2026-11-02,2026-11-15,EQ-01,Equipo A,Canales Digitales,S12,Completar mejoras de acceso,No,320,25,14,11,3,14,5.8,12.0,8,3,5,2,DEMO
+2026-06-01,2026-06-14,EQ-02,Equipo B,Integraciones,S01,Conectar servicio externo,No,300,18,13,5,5,13,7.0,15.0,9,4,6,3,DEMO
+2026-06-15,2026-06-28,EQ-02,Equipo B,Integraciones,S02,Completar integracion API,Si,300,20,17,3,3,17,6.0,13.0,7,2,5,2,DEMO
+2026-06-29,2026-07-12,EQ-02,Equipo B,Integraciones,S03,Validar intercambio de datos,Si,300,21,19,2,1,19,5.0,11.0,5,1,4,1,DEMO
+2026-07-13,2026-07-26,EQ-02,Equipo B,Integraciones,S04,Completar autenticacion,No,300,22,16,6,4,16,7.5,16.0,10,4,8,4,DEMO
+2026-07-27,2026-08-09,EQ-02,Equipo B,Integraciones,S05,Resolver errores de integracion,Si,300,20,18,2,2,18,6.2,13.5,7,2,5,2,DEMO
+2026-08-10,2026-08-23,EQ-02,Equipo B,Integraciones,S06,Automatizar validaciones,Si,300,22,20,2,2,20,5.4,12.0,6,2,4,1,DEMO
+2026-08-24,2026-09-06,EQ-02,Equipo B,Integraciones,S07,Mejorar trazabilidad,No,300,23,17,6,5,17,7.8,17.0,10,5,9,4,DEMO
+2026-09-07,2026-09-20,EQ-02,Equipo B,Integraciones,S08,Completar monitoreo,Si,300,21,19,2,1,19,6.0,13.0,7,2,5,2,DEMO
+2026-09-21,2026-10-04,EQ-02,Equipo B,Integraciones,S09,Reducir errores de servicio,Si,300,22,20,2,2,20,5.5,12.0,6,2,4,1,DEMO
+2026-10-05,2026-10-18,EQ-02,Equipo B,Integraciones,S10,Completar pruebas de carga,No,300,23,18,5,4,18,7.0,15.0,9,4,7,3,DEMO
+2026-10-19,2026-11-01,EQ-02,Equipo B,Integraciones,S11,Optimizar rendimiento,Si,300,21,20,1,1,20,5.2,11.5,6,1,3,1,DEMO
+2026-11-02,2026-11-15,EQ-02,Equipo B,Integraciones,S12,Estabilizar integracion,No,300,22,13,9,3,13,7.4,16.0,10,4,8,3,DEMO
+2026-06-01,2026-06-14,EQ-03,Equipo C,Plataforma de Datos,S01,Preparar modelo de datos,Si,280,16,15,1,1,15,4.8,10.0,5,1,3,1,DEMO
+2026-06-15,2026-06-28,EQ-03,Equipo C,Plataforma de Datos,S02,Integrar fuentes de informacion,Si,280,18,17,1,1,17,4.5,9.5,5,1,2,1,DEMO
+2026-06-29,2026-07-12,EQ-03,Equipo C,Plataforma de Datos,S03,Validar calidad de datos,Si,280,19,18,1,1,18,4.2,9.0,4,1,2,1,DEMO
+2026-07-13,2026-07-26,EQ-03,Equipo C,Plataforma de Datos,S04,Automatizar procesamiento,No,280,20,15,5,3,15,6.0,13.0,8,3,5,2,DEMO
+2026-07-27,2026-08-09,EQ-03,Equipo C,Plataforma de Datos,S05,Completar procesamiento,Si,280,18,17,1,1,17,4.7,10.0,5,1,3,1,DEMO
+2026-08-10,2026-08-23,EQ-03,Equipo C,Plataforma de Datos,S06,Mejorar calidad de informacion,Si,280,20,19,1,1,19,4.0,8.5,4,1,2,1,DEMO
+2026-08-24,2026-09-06,EQ-03,Equipo C,Plataforma de Datos,S07,Optimizar consultas,Si,280,21,20,1,1,20,3.9,8.2,4,1,2,1,DEMO
+2026-09-07,2026-09-20,EQ-03,Equipo C,Plataforma de Datos,S08,Completar catalogo de datos,No,280,20,15,5,4,15,6.5,14.0,8,3,6,3,DEMO
+2026-09-21,2026-10-04,EQ-03,Equipo C,Plataforma de Datos,S09,Corregir inconsistencias,Si,280,19,18,1,1,18,4.8,10.0,5,1,3,1,DEMO
+2026-10-05,2026-10-18,EQ-03,Equipo C,Plataforma de Datos,S10,Completar integracion analitica,Si,280,21,20,1,1,20,4.1,8.8,4,1,2,1,DEMO
+2026-10-19,2026-11-01,EQ-03,Equipo C,Plataforma de Datos,S11,Optimizar disponibilidad,Si,280,20,19,1,1,19,4.3,9.0,4,1,2,1,DEMO
+2026-11-02,2026-11-15,EQ-03,Equipo C,Plataforma de Datos,S12,Completar mejoras de plataforma,No,280,21,12,9,3,12,6.8,14.5,8,3,6,2,DEMO
+2026-06-01,2026-06-14,EQ-04,Equipo D,Ciberseguridad,S01,Completar controles de acceso,Si,260,15,14,1,1,14,4.5,9.5,4,1,2,1,DEMO
+2026-06-15,2026-06-28,EQ-04,Equipo D,Ciberseguridad,S02,Implementar auditoria,Si,260,16,15,1,1,15,4.3,9.0,4,1,2,1,DEMO
+2026-06-29,2026-07-12,EQ-04,Equipo D,Ciberseguridad,S03,Validar controles,Si,260,17,16,1,1,16,4.0,8.5,4,1,2,1,DEMO
+2026-07-13,2026-07-26,EQ-04,Equipo D,Ciberseguridad,S04,Completar gestion de accesos,No,260,18,14,4,3,14,5.8,12.0,7,2,4,2,DEMO
+2026-07-27,2026-08-09,EQ-04,Equipo D,Ciberseguridad,S05,Corregir hallazgos,Si,260,16,15,1,1,15,4.6,9.8,4,1,2,1,DEMO
+2026-08-10,2026-08-23,EQ-04,Equipo D,Ciberseguridad,S06,Automatizar controles,Si,260,18,17,1,1,17,4.1,8.8,4,1,2,1,DEMO
+2026-08-24,2026-09-06,EQ-04,Equipo D,Ciberseguridad,S07,Mejorar trazabilidad,Si,260,19,18,1,1,18,3.9,8.2,4,1,2,1,DEMO
+2026-09-07,2026-09-20,EQ-04,Equipo D,Ciberseguridad,S08,Validar cumplimiento,No,260,18,13,5,4,13,6.2,13.5,8,3,5,3,DEMO
+2026-09-21,2026-10-04,EQ-04,Equipo D,Ciberseguridad,S09,Resolver observaciones,Si,260,17,16,1,1,16,4.7,10.0,4,1,2,1,DEMO
+2026-10-05,2026-10-18,EQ-04,Equipo D,Ciberseguridad,S10,Completar monitoreo,Si,260,19,18,1,1,18,4.0,8.6,4,1,2,1,DEMO
+2026-10-19,2026-11-01,EQ-04,Equipo D,Ciberseguridad,S11,Optimizar alertas,Si,260,18,17,1,1,17,4.2,9.0,4,1,2,1,DEMO
+2026-11-02,2026-11-15,EQ-04,Equipo D,Ciberseguridad,S12,Completar controles finales,No,260,19,11,8,3,11,6.5,14.0,8,3,5,2,DEMO

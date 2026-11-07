@@ -1,80 +1,55 @@
-# 03 — Technical Delivery & Operations
+# 03. Entrega Técnica y Operaciones TI
 
-## Overview
+## Desempeño tecnológico, confiabilidad y continuidad operacional
 
-Dashboard orientado al seguimiento del desempeño técnico, la confiabilidad de servicios y la operación de plataformas tecnológicas.
+### 1. Objetivo
 
-Su objetivo es entregar visibilidad sobre la calidad de las entregas de software, la salud de los servicios y la continuidad operacional.
+Establecer un modelo de seguimiento de la entrega técnica y las operaciones TI que permita observar la frecuencia y estabilidad de los despliegues, la salud de los servicios tecnológicos y la capacidad de respuesta ante incidentes.
 
-## Target Audience
+El enfoque integra indicadores técnicos y operacionales para facilitar el control, identificar riesgos y apoyar decisiones de gestión.
 
-- DevOps Teams
-- SRE Teams
-- Infrastructure Teams
-- IT Operations
-- Technical Delivery Managers
-- IT Management
+### 2. Audiencia
 
-## Dashboard Structure
+- Delivery Managers.
+- Líderes de tecnología.
+- Equipos DevOps y SRE.
+- Infraestructura y Cloud.
+- Operaciones TI.
+- Gestión de servicios tecnológicos.
 
-### 1. DORA — Software Delivery Performance
+### 3. Componentes de seguimiento
 
-Indicadores para evaluar la velocidad y estabilidad del proceso de entrega de software.
+#### 3.1. Métricas DORA
 
-- Deployment Frequency.
-- Lead Time for Changes.
-- Change Failure Rate.
-- Failed Deployment Recovery Time.
-
-### 2. Cloud Monitoring & Observability
-
-Seguimiento de infraestructura y aplicaciones mediante fuentes como AWS CloudWatch, Azure Monitor, Datadog, Grafana o Prometheus, según la plataforma utilizada.
+Permiten evaluar el desempeño de la entrega de software desde la perspectiva de velocidad y estabilidad.
 
 Indicadores:
+- Deployment Frequency: frecuencia de despliegues.
+- Lead Time for Changes: tiempo desde que un cambio se confirma en el repositorio hasta que llega a producción.
+- Change Failure Rate: porcentaje de despliegues que generan fallas o requieren corrección.
+- Failed Deployment Recovery Time: tiempo necesario para recuperar el servicio después de un despliegue fallido.
 
-- Availability.
-- Response Time / Latency p95.
-- Error Rate.
-- CPU Utilization.
-- Memory Utilization.
-- Storage Utilization.
-- Network Traffic.
-- Cloud Cost & Consumption.
+Estas métricas deben interpretarse en conjunto y considerando el contexto de cada servicio y equipo.
 
-### 3. IT Service Operations
+#### 3.2. Monitoreo Cloud y Observabilidad
 
-Seguimiento de la continuidad y calidad del servicio.
+Seguimiento de la salud y comportamiento de aplicaciones e infraestructura tecnológica.
 
-- Incidents by Severity.
-- Mean Time to Restore (MTTR).
-- SLA Compliance.
-- Service Availability.
-- Critical Incidents.
-- Operational Backlog.
+Indicadores:
+- Disponibilidad de servicios.
+- Latencia, incluyendo percentil 95 (p95).
+- Tasa de errores.
+- Uso de CPU y memoria.
+- Capacidad de almacenamiento.
+- Tráfico y comportamiento de red.
+- Alertas y eventos relevantes.
+- Costos de infraestructura Cloud.
 
-### 4. Technical Risk & Reliability
+Las herramientas pueden incluir AWS CloudWatch, Azure Monitor, Datadog, Grafana o Prometheus, según la plataforma utilizada.
 
-- Servicios críticos.
-- Riesgos de disponibilidad.
-- Alertas relevantes.
-- Capacidad y consumo.
-- Dependencias tecnológicas.
-- Acciones preventivas.
+#### 3.3. Operaciones y Gestión de Servicios TI
 
-## Management Principles
+Permite evaluar la continuidad y capacidad de respuesta operacional.
 
-- DORA mide desempeño de entrega de software, no valor de negocio.
-- Cloud Monitoring mide salud y comportamiento técnico de servicios e infraestructura.
-- IT Service Operations mide continuidad y cumplimiento de niveles de servicio.
-- Un incidente no debe atribuirse a un despliegue sin evidencia de correlación.
-- Los indicadores deben tener definiciones y fuentes consistentes.
-
-## Management Framework
-
-**Baseline → Evolution → Outcome → Decision**
-
-## Data Governance
-
-Todos los datos de demostración son ficticios y se identifican como DEMO.
-
-Los indicadores sin información validada se mostrarán como No medido o
+Indicadores:
+- Cant

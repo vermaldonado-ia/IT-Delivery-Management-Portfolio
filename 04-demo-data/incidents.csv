@@ -1,1 +1,16 @@
-
+incidente_id,fecha_apertura,fecha_deteccion,fecha_recuperacion,servicio_id,servicio,severidad,categoria,origen,relacion_despliegue,deployment_id,tiempo_resolucion_minutos,tiempo_recuperacion_minutos,sla_objetivo_minutos,sla_cumplido,causa_raiz,estado,origen_dato,tipo_dato
+INC-001,2026-06-10 10:00,2026-06-10 10:05,2026-06-10 11:40,SVC-03,Plataforma de Datos,Alta,Aplicación,Monitoreo,Si,DEP-003,100,95,120,Si,Error de configuración,Resuelto,Service Desk,DEMO
+INC-002,2026-06-22 14:00,2026-06-22 14:08,2026-06-22 16:28,SVC-04,Ciberseguridad,Alta,Infraestructura,Monitoreo,Si,DEP-008,148,140,120,No,Incompatibilidad de versión,Resuelto,Service Desk,DEMO
+INC-003,2026-07-06 09:00,2026-07-06 09:04,2026-07-06 10:54,SVC-02,Integraciones,Alta,Integración,Monitoreo,Si,DEP-014,114,110,120,Si,Error de integración,Resuelto,Service Desk,DEMO
+INC-004,2026-07-19 16:00,2026-07-19 16:06,2026-07-19 17:31,SVC-04,Ciberseguridad,Alta,Aplicación,Monitoreo,Si,DEP-020,91,85,120,Si,Regresión funcional,Resuelto,Service Desk,DEMO
+INC-005,2026-08-04 11:00,2026-08-04 11:03,2026-08-04 12:18,SVC-03,Plataforma de Datos,Alta,Aplicación,Monitoreo,Si,DEP-027,78,75,120,Si,Error en componente,Resuelto,Service Desk,DEMO
+INC-006,2026-08-20 13:00,2026-08-20 13:07,2026-08-20 14:12,SVC-02,Integraciones,Alta,Integración,Monitoreo,Si,DEP-034,72,65,120,Si,Timeout de servicio,Resuelto,Service Desk,DEMO
+INC-007,2026-09-09 08:00,2026-09-09 08:04,2026-09-09 08:59,SVC-03,Plataforma de Datos,Alta,Aplicación,Monitoreo,Si,DEP-043,59,55,120,Si,Error de aplicación,Resuelto,Service Desk,DEMO
+INC-008,2026-09-12 10:00,2026-09-12 10:12,2026-09-12 11:30,SVC-01,Canales Digitales,Media,Rendimiento,Usuario,No,,90,78,240,Si,Degradación de rendimiento,Resuelto,Service Desk,DEMO
+INC-009,2026-09-17 15:00,2026-09-17 15:10,2026-09-17 19:20,SVC-02,Integraciones,Alta,Infraestructura,Monitoreo,No,,260,250,120,No,Saturación de recursos,Resuelto,Service Desk,DEMO
+INC-010,2026-09-21 12:00,2026-09-21 12:20,2026-09-21 13:10,SVC-04,Ciberseguridad,Baja,Acceso,Usuario,No,,70,50,480,Si,Permisos de usuario,Resuelto,Service Desk,DEMO
+INC-011,2026-09-23 09:00,2026-09-23 09:06,2026-09-23 10:36,SVC-03,Plataforma de Datos,Media,Base de datos,Monitoreo,No,,96,90,240,Si,Consulta de alto consumo,Resuelto,Service Desk,DEMO
+INC-012,2026-09-25 17:00,2026-09-25 17:05,2026-09-25 18:45,SVC-01,Canales Digitales,Alta,Aplicación,Usuario,No,,105,100,120,Si,Error de sesión,Resuelto,Service Desk,DEMO
+INC-013,2026-09-27 08:00,2026-09-27 08:15,2026-09-27 12:45,SVC-02,Integraciones,Crítica,Infraestructura,Monitoreo,No,,285,270,120,No,Interrupción de servicio,Resuelto,Service Desk,DEMO
+INC-014,2026-09-28 14:00,2026-09-28 14:08,2026-09-28 15:28,SVC-04,Ciberseguridad,Media,Seguridad,Monitoreo,No,,88,80,240,Si,Alerta de seguridad,Resuelto,Service Desk,DEMO
+INC-015,2026-09-30 11:00,2026-09-30 11:10,2026-09-30 12:20,SVC-01,Canales Digitales,Media,Rendimiento,Monitoreo,No,,80,70,240,Si,Latencia elevada,Resuelto,Service Desk,DEMO

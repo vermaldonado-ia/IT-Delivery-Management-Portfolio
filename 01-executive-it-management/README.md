@@ -1,70 +1,75 @@
-# 01 — Executive IT Management Dashboard
+# 01. Dashboard Ejecutivo de Gestión TI
 
-## Executive Overview
+## Visibilidad estratégica, control y toma de decisiones
 
-Dashboard ejecutivo diseñado para entregar a Subgerencia, Dirección y stakeholders una visión consolidada del desempeño de TI, facilitando el seguimiento de objetivos, riesgos, resultados y decisiones.
+### 1. Objetivo
 
-El enfoque es convertir información de proyectos, equipos, tecnología y operaciones en información útil para la gestión.
+Diseñar una visión ejecutiva consolidada de la gestión tecnológica que permita a subgerencia, dirección y stakeholders conocer el estado de las iniciativas, evaluar el desempeño de la entrega y detectar oportunamente riesgos que requieran atención o decisiones.
 
-## Target Audience
+El dashboard busca transformar información de proyectos, equipos y operaciones en indicadores claros y accionables.
 
-- Subgerencia de Tecnología
-- Gerencia de TI
-- Dirección
-- Stakeholders de negocio
+### 2. Audiencia
 
-## Dashboard Objectives
+- Subgerencia de Tecnología.
+- Dirección y gerencias.
+- Project Managers y Delivery Managers.
+- Stakeholders de negocio.
 
-- Visualizar el estado general del portafolio de iniciativas TI.
-- Monitorear cumplimiento de hitos y compromisos.
-- Identificar desviaciones, riesgos y dependencias.
-- Consolidar indicadores de Delivery y operaciones.
-- Facilitar decisiones oportunas basadas en datos.
+### 3. Componentes del dashboard
 
-## Executive Dashboard Structure
+#### 3.1. Resumen Ejecutivo
 
-### 1. Executive Summary
-- Estado general de iniciativas.
-- Cumplimiento de hitos.
-- Riesgos críticos.
-- Decisiones pendientes.
+- Estado general del portafolio de iniciativas.
+- Avance de proyectos y cumplimiento de hitos.
+- Desviaciones relevantes.
+- Riesgos críticos y dependencias.
+- Principales alertas y decisiones pendientes.
 
-### 2. IT Delivery Performance
-- Predictibilidad de entrega.
+#### 3.2. Desempeño de Entrega TI
+
+- Cumplimiento de compromisos.
+- Evolución del avance de iniciativas.
 - Hitos planificados versus realizados.
-- Desviaciones de cronograma.
-- Evolución de compromisos.
+- Tendencias de entrega.
+- Bloqueos que afectan la ejecución.
 
-### 3. Technical Delivery & Operations
+#### 3.3. Entrega Técnica y Operaciones
+
+Indicadores consolidados provenientes de la gestión técnica y operacional:
+
+- Frecuencia de despliegues.
 - Disponibilidad de servicios.
-- Incidentes críticos.
-- Cumplimiento de SLA.
-- Indicadores consolidados de Cloud y operaciones.
+- Incidentes relevantes.
+- Tiempo de recuperación.
+- Cumplimiento de SLA y SLO.
 
-### 4. Business Outcomes
-- Resultados asociados a iniciativas.
-- Beneficios esperados versus obtenidos.
-- Mejoras de procesos.
-- Indicadores de adopción, cuando existan datos confiables.
+El detalle de telemetría, infraestructura y monitoreo técnico se desarrolla en el producto **03. Entrega Técnica y Operaciones TI**.
 
-### 5. Governance & Risk
-- Riesgos abiertos.
-- Dependencias críticas.
-- Acciones pendientes.
-- Decisiones requeridas por la dirección.
+#### 3.4. Resultados de Negocio
 
-## Management Method
+- Beneficios esperados y obtenidos, cuando exista información verificable.
+- Cumplimiento de objetivos asociados a las iniciativas.
+- Impacto en procesos y servicios.
+- Indicadores de resultado y valor entregado.
 
-**Baseline → Evolution → Outcome → Decision**
+#### 3.5. Gobierno, Riesgos y Decisiones
 
-Cada indicador debe permitir identificar su línea base, situación actual, variación, interpretación y acción recomendada.
+- Riesgos de alto impacto.
+- Dependencias entre iniciativas.
+- Desviaciones de alcance, plazo y capacidad.
+- Decisiones requeridas.
+- Responsables y acciones de seguimiento.
 
-## Data Governance
+### 4. Enfoque de medición
 
-Todos los valores utilizados en esta demostración son ficticios y se identifican como DEMO.
+La lectura ejecutiva se organiza en cuatro etapas:
 
-Los indicadores sin información validada se mostrarán como No medido o Sin dato.
+**Línea base → Evolución → Resultado → Decisión**
 
-## Expected Value
+Cada indicador debe permitir identificar su situación inicial, evolución durante el período, resultado observado y posibles acciones de gestión.
 
-Entregar una visión ejecutiva clara, trazable y orientada a decisiones, conectando la gestión de proyectos TI con el desempeño tecnológico y los resultados del negocio.
+### 5. Criterios de diseño
+
+- Priorizar indicadores relevantes para la toma de decisiones.
+- Evitar la sobrecarga de información técnica.
+- Mostrar tendencias

@@ -1,0 +1,7 @@
+fecha_corte,iniciativa,estado,avance_porcentual,hitos_planificados,hitos_cumplidos,riesgos_criticos, cumplimiento_sla,disponibilidad,origen_dato,tipo_dato
+2026-09-30,Migracion Cloud,En curso,45,10,4,3,96,99.5,Datos ficticios,DEMO
+2026-10-31,Migracion Cloud,En curso,68,10,7,2,97,99.7,Datos ficticios,DEMO
+2026-09-30,Modernizacion Aplicaciones,En curso,35,8,3,2,94,99.2,Datos ficticios,DEMO
+2026-10-31,Modernizacion Aplicaciones,En curso,62,8,6,1,98,99.6,Datos ficticios,DEMO
+2026-09-30,Automatizacion Procesos,En curso,50,6,3,1,95,99.4,Datos ficticios,DEMO
+2026-10-31,Automatizacion Procesos,En curso,80,6,5,0,98,99.8,Datos ficticios,DEMO

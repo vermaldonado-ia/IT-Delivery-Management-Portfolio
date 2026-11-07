@@ -52,4 +52,43 @@ Las herramientas pueden incluir AWS CloudWatch, Azure Monitor, Datadog, Grafana 
 Permite evaluar la continuidad y capacidad de respuesta operacional.
 
 Indicadores:
-- Cant
+- Cantidad de incidentes.
+- Clasificación por severidad.
+- MTTR: tiempo medio de resolución.
+- Disponibilidad del servicio.
+- Cumplimiento de SLA.
+- Cumplimiento de SLO.
+- Incidentes recurrentes.
+
+#### 3.4. Riesgo Técnico y Confiabilidad
+
+Seguimiento de condiciones que pueden comprometer la continuidad o estabilidad de los servicios.
+
+Considera:
+- Fallas recurrentes.
+- Despliegues con incidentes asociados, cuando exista trazabilidad.
+- Componentes críticos.
+- Dependencias tecnológicas.
+- Capacidad y utilización de recursos.
+- Riesgos de continuidad operacional.
+
+### 4. Enfoque de gestión
+
+**Línea base → Evolución → Resultado → Acción correctiva o preventiva**
+
+El seguimiento permite identificar tendencias, evaluar la estabilidad de los servicios y priorizar acciones según el impacto y nivel de riesgo.
+
+### 5. Criterios de interpretación
+
+- Las métricas DORA miden el desempeño de la entrega de software, no el valor de negocio.
+- El monitoreo Cloud permite observar el comportamiento de infraestructura y aplicaciones.
+- Los incidentes operacionales deben analizarse según su impacto y causa.
+- No se debe atribuir un incidente a un despliegue sin evidencia que respalde esa relación.
+- SLA y SLO deben interpretarse según sus definiciones y compromisos.
+- Los indicadores deben considerar el período de medición y el contexto del servicio.
+
+### 6. Datos de demostración
+
+Los datos utilizados en este producto son ficticios y están identificados como **DEMO**.
+
+No representan información real de infraestructura, empresas, clientes ni servicios productivos.

@@ -227,20 +227,34 @@ Trabajo no planificado (%) = (Elementos de trabajo no planificado / (Elementos c
 
 ### 3.5 Throughput
 
-**Definición:** cantidad de elementos de trabajo completados durante un período.
+**Definición:** cantidad de elementos de trabajo completados durante un Sprint o período determinado.
 
 **Fórmula:**
 
-Throughput = Conteo de elementos completados en el período
+Throughput = Conteo de elementos completados durante el período.
 
 **Fuente:** `agile-delivery.csv`
 
-**Interpretación:** permite observar el volumen de trabajo entregado por un equipo a lo largo del tiempo.
+**Campo disponible:** `throughput`.
+
+**Unidad:** cantidad de elementos completados.
+
+**Interpretación:** permite observar el volumen de trabajo terminado por un equipo a lo largo del tiempo.
 
 **Consideraciones:**
 - No equivale a productividad individual.
-- No debe utilizarse para comparar equipos sin considerar el tamaño y complejidad de los elementos.
-- Debe analizarse junto con Cycle Time, calidad y resultados.
+- No debe utilizarse para comparar equipos sin considerar el tamaño y la complejidad de los elementos.
+- Debe analizarse junto con Cycle Time, calidad y cumplimiento del Sprint Goal.
+- No debe confundirse con el cumplimiento del compromiso inicial.
+- El trabajo no planificado debe identificarse y analizarse por separado.
+
+**Limitación de los datos DEMO:**
+
+En la muestra actual, `throughput` presenta los mismos valores que `elementos_completados`. No existe un campo independiente que identifique cuántos elementos de trabajo no planificado fueron completados durante el Sprint.
+
+Por esta razón, el indicador debe interpretarse como el volumen registrado en el campo `throughput`, sin atribuirle una separación entre trabajo planificado y no planificado.
+
+S12 debe identificarse como Sprint en curso y no compararse directamente con Sprints finalizados.
 
 ### 3.6 Cycle Time
 

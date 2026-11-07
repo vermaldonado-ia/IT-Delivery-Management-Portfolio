@@ -1,114 +1,170 @@
-# Modelo de Datos del Portafolio de Gestión TI
+# Modelo de Datos del Portafolio
 
 ## 1. Objetivo
 
-Definir la estructura y organización de los datos que alimentarán los tres productos del portafolio:
+Este documento define la estructura de los conjuntos de datos utilizados en el portafolio de Gestión y Delivery TI.
 
-1. Dashboard Ejecutivo de Gestión TI.
-2. Gestión de Proyectos y Entrega Ágil.
-3. Entrega Técnica y Operaciones TI.
+El modelo permite construir indicadores, dashboards ejecutivos y análisis de evolución, manteniendo trazabilidad entre los datos, las métricas y las decisiones de gestión.
 
-El modelo busca mantener consistencia entre las fuentes de información, los indicadores, las visualizaciones y los reportes ejecutivos.
+Todos los registros de este repositorio son **datos ficticios de demostración (DEMO)**. No representan información de clientes ni de organizaciones reales.
 
-## 2. Principios de diseño
+## 2. Arquitectura de datos
 
-- Separar los datos por dominio de gestión.
-- Mantener trazabilidad de las fuentes.
-- Utilizar períodos de medición consistentes.
-- Diferenciar datos reales, estimados y ficticios.
-- Evitar duplicidad de registros.
-- Permitir consolidación ejecutiva sin perder el detalle operativo.
-- Mantener correspondencia con el Diccionario de Indicadores de Gestión TI.
+El portafolio utiliza tres dominios de información:
 
-## 3. Organización de los datos
+| Dominio | Archivo principal | Propósito |
+|---|---|---|
+| Gestión ejecutiva | `executive-kpis.csv` | Seguimiento de iniciativas, avance, hitos, riesgos y SLA |
+| Entrega ágil | `agile-delivery.csv` | Seguimiento de equipos, Sprints, cumplimiento y flujo de trabajo |
+| Entrega técnica y operaciones | En desarrollo | Seguimiento de despliegues, servicios, infraestructura e incidentes |
 
-### 3.1. Gestión Ejecutiva TI
+## 3. Dataset: Gestión ejecutiva
 
-Archivo de referencia: `executive-kpis.csv`
+**Archivo:** `04-demo-data/executive-kpis.csv`
 
-| Campo | Descripción |
-|---|---|
-| fecha_corte | Fecha de actualización |
-| iniciativa | Nombre de la iniciativa |
-| estado | Estado general |
-| avance_porcentual | Porcentaje de avance |
-| hitos_planificados | Hitos comprometidos |
-| hitos_cumplidos | Hitos completados a tiempo |
-| riesgos_criticos | Riesgos críticos abiertos |
-| cumplimiento_sla | Porcentaje de cumplimiento |
-| disponibilidad | Porcentaje de disponibilidad |
-| origen_dato | Fuente de información |
-| tipo_dato | DEMO o REAL |
+**Unidad de análisis:** una iniciativa en una fecha de corte.
 
-### 3.2. Gestión de Proyectos y Entrega Ágil
-
-Archivo de referencia: `agile-delivery.csv`
+### Campos
 
 | Campo | Descripción |
 |---|---|
-| fecha_corte | Fecha de medición |
-| equipo | Equipo evaluado |
-| proyecto | Proyecto asociado |
-| sprint | Identificador del Sprint |
-| sprint_goal | Objetivo del Sprint |
-| sprint_goal_alcanzado | Resultado del objetivo |
-| elementos_comprometidos | Elementos comprometidos al inicio |
-| elementos_completados | Elementos completados |
-| carry_over | Elementos pendientes |
-| trabajo_no_planificado | Elementos incorporados durante el Sprint |
-| throughput | Elementos completados |
-| cycle_time | Tiempo de ciclo |
-| lead_time | Tiempo de entrega |
-| wip | Trabajo en curso |
-| impedimentos | Elementos bloqueados |
-| tipo_dato | DEMO o REAL |
+| `fecha_corte` | Fecha de referencia del registro |
+| `iniciativa_id` | Identificador único de la iniciativa |
+| `iniciativa` | Nombre de la iniciativa |
+| `estado` | Estado general de la iniciativa |
+| `avance_planificado_pct` | Porcentaje de avance planificado |
+| `avance_real_pct` | Porcentaje de avance real |
+| `hitos_planificados_periodo` | Hitos planificados para el período |
+| `hitos_cumplidos_a_tiempo` | Hitos cumplidos dentro del plazo |
+| `riesgos_criticos_abiertos` | Cantidad de riesgos críticos abiertos |
+| `casos_sla_elegibles` | Casos considerados para medir cumplimiento de SLA |
+| `casos_sla_cumplidos` | Casos que cumplieron el SLA |
+| `disponibilidad_pct` | Porcentaje de disponibilidad del servicio |
+| `origen_dato` | Fuente de los datos |
+| `tipo_dato` | Identifica si el registro es DEMO o real |
 
-### 3.3. Entrega Técnica y Operaciones TI
+### Indicadores derivados
 
-Archivo de referencia: `technical-operations.csv`
+- Desviación del avance: avance real menos avance planificado.
+- Cumplimiento de hitos: hitos cumplidos a tiempo / hitos planificados.
+- Cumplimiento de SLA: casos SLA cumplidos / casos SLA elegibles.
+- Evolución de riesgos críticos.
+- Tendencia de disponibilidad.
+
+**Consideración:** cuando el denominador sea cero o no existan datos suficientes, el indicador debe mostrarse como no disponible, no como 0%.
+
+## 4. Dataset: Gestión de proyectos y entrega ágil
+
+**Archivo:** `04-demo-data/agile-delivery.csv`
+
+**Unidad de análisis:** un equipo durante un Sprint.
+
+### Campos
 
 | Campo | Descripción |
 |---|---|
-| fecha_corte | Fecha de medición |
-| servicio | Aplicación o servicio evaluado |
-| frecuencia_despliegues | Despliegues exitosos |
-| lead_time_cambios | Tiempo de entrega de cambios |
-| tasa_fallas_cambios | Porcentaje de fallas asociadas a cambios |
-| tiempo_recuperacion | Tiempo de recuperación |
-| disponibilidad | Porcentaje de disponibilidad |
-| latencia_p95 | Latencia del percentil 95 |
-| tasa_errores | Porcentaje de solicitudes con error |
-| utilizacion_cpu | Porcentaje de CPU utilizada |
-| utilizacion_memoria | Porcentaje de memoria utilizada |
-| almacenamiento | Porcentaje de almacenamiento utilizado |
-| trafico_red | Volumen de tráfico |
-| costo_cloud | Costo de infraestructura |
-| incidentes | Cantidad de incidentes |
-| mttr | Tiempo medio de recuperación |
-| tipo_dato | DEMO o REAL |
+| `fecha_inicio` | Fecha de inicio del Sprint |
+| `fecha_fin` | Fecha programada de término del Sprint |
+| `equipo_id` | Identificador del equipo |
+| `equipo` | Nombre del equipo |
+| `proyecto` | Proyecto o producto asociado |
+| `sprint` | Número o identificador del Sprint |
+| `sprint_goal` | Objetivo comprometido para el Sprint |
+| `sprint_goal_alcanzado` | Indica si se alcanzó el Sprint Goal |
+| `capacidad_horas` | Capacidad disponible del equipo en horas |
+| `elementos_comprometidos` | Elementos comprometidos al inicio |
+| `elementos_completados` | Elementos completados durante el Sprint |
+| `carry_over` | Elementos pendientes trasladados al siguiente Sprint |
+| `trabajo_no_planificado` | Trabajo incorporado después de la planificación |
+| `throughput` | Cantidad de elementos completados |
+| `cycle_time_mediana_dias` | Mediana de días desde inicio de trabajo hasta finalización |
+| `lead_time_mediana_dias` | Mediana de días desde solicitud hasta entrega |
+| `wip_promedio` | Promedio de elementos en curso |
+| `impedimentos` | Cantidad de impedimentos registrados |
+| `defectos` | Cantidad de defectos identificados |
+| `retrabajo_elementos` | Cantidad de elementos que requirieron retrabajo |
+| `tipo_dato` | Identifica si el registro es DEMO o real |
 
-## 4. Reglas de calidad de datos
+### Indicadores derivados
 
-- Las fechas deben utilizar un formato consistente: `YYYY-MM-DD`.
-- Los porcentajes deben almacenarse como valores numéricos.
-- Los tiempos deben identificar su unidad de medida.
-- Los campos sin información no deben completarse con valores inventados.
-- Los registros DEMO deben identificarse claramente.
-- Los indicadores calculados deben conservar la trazabilidad de sus datos de origen.
-- Los valores agregados deben respetar la definición del diccionario de indicadores.
+- Cumplimiento del Sprint Goal.
+- Cumplimiento del compromiso.
+- Carry-over.
+- Trabajo no planificado.
+- Throughput por Sprint.
+- Cycle Time y Lead Time.
+- WIP promedio.
+- Impedimentos, defectos y retrabajo.
+- Evolución de la capacidad y predictibilidad del equipo.
 
-## 5. Relación entre los productos
+### Reglas de interpretación
 
-El Dashboard Ejecutivo consolida información proveniente de la gestión ágil y de la entrega técnica y operacional.
+1. El cumplimiento del Sprint Goal debe analizarse separadamente del porcentaje de elementos completados.
+2. La velocidad o cantidad de elementos completados no debe utilizarse como medida aislada de productividad.
+3. No se deben comparar equipos sin considerar diferencias de contexto, capacidad, tipo de trabajo y tamaño de los elementos.
+4. Los Sprints en curso deben distinguirse de los Sprints cerrados.
+5. El Sprint 12 del conjunto DEMO se encuentra en curso al 7 de noviembre de 2026. Sus valores son parciales y no deben compararse directamente con Sprints cerrados.
+6. El throughput representa cantidad de elementos completados; no equivale necesariamente a valor de negocio entregado.
 
-Los productos especializados conservan el detalle necesario para analizar las causas, tendencias y desviaciones.
+## 5. Dataset: Entrega técnica y operaciones TI
 
-La consolidación ejecutiva no debe reemplazar el análisis operativo ni ocultar las diferencias entre proyectos, equipos y servicios.
+**Estado:** pendiente de construcción.
 
-## 6. Consideraciones
+Este dominio incorporará información para analizar tres dimensiones:
 
-Este modelo constituye una estructura inicial para datos de demostración.
+### 5.1. DORA y despliegues
 
-Los campos y fuentes definitivas podrán ajustarse según los sistemas disponibles, la calidad de los datos y las necesidades de gestión.
+- Frecuencia de despliegue.
+- Lead Time for Changes.
+- Change Failure Rate.
+- Failed Deployment Recovery Time.
 
-Todos los datos ficticios deben estar identificados como DEMO y no representan información real de ninguna organización.
+### 5.2. Cloud Monitoring y Observabilidad
+
+- Disponibilidad.
+- Latencia p95.
+- Tasa de errores.
+- Uso de CPU y memoria.
+- Capacidad de almacenamiento.
+- Tráfico de red.
+- Costos de infraestructura.
+
+### 5.3. Operaciones TI
+
+- Incidentes.
+- Severidad.
+- MTTR.
+- Cumplimiento de SLA.
+- Continuidad operacional.
+
+Estos indicadores se analizarán según su contexto y fuente de información. No se atribuirán incidentes a despliegues sin evidencia de relación causal.
+
+## 6. Reglas generales de calidad de datos
+
+- Cada dataset debe tener una unidad de análisis claramente definida.
+- Las fechas deben utilizar el formato `YYYY-MM-DD`.
+- Los porcentajes deben expresarse de forma consistente.
+- Los valores desconocidos deben identificarse como no disponibles, no reemplazarse arbitrariamente por cero.
+- Los datos DEMO deben identificarse explícitamente.
+- Los registros deben mantener consistencia entre períodos, equipos e iniciativas.
+- Los indicadores calculados deben tener una definición documentada.
+- Los datos parciales deben distinguirse de los períodos cerrados.
+
+## 7. Trazabilidad y uso en dashboards
+
+Los datos se utilizarán para construir visualizaciones que permitan:
+
+1. Establecer una línea base.
+2. Observar la evolución por período.
+3. Identificar desviaciones y tendencias.
+4. Interpretar riesgos y problemas de entrega.
+5. Evaluar resultados y cumplimiento.
+6. Facilitar decisiones de gestión.
+
+La información ejecutiva debe presentar indicadores consolidados y relevantes para la toma de decisiones. El detalle operativo y técnico debe permanecer en los módulos especializados.
+
+## 8. Principio de gestión
+
+**Línea base → Evolución → Resultado → Decisión**
+
+El propósito del modelo no es solamente visualizar indicadores, sino convertir datos de gestión y entrega TI en información útil para la toma de decisiones.

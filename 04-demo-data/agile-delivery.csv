@@ -1,0 +1,7 @@
+fecha_corte,equipo,proyecto,sprint,sprint_goal,sprint_goal_alcanzado,elementos_comprometidos,elementos_completados,carry_over,trabajo_no_planificado,throughput,cycle_time_dias,lead_time_dias,wip,impedimentos,tipo_dato
+2026-09-30,Equipo A,Proyecto Digital,Sprint 01,Implementar autenticacion,No,20,15,5,4,15,5.2,12.5,8,3,DEMO
+2026-10-15,Equipo A,Proyecto Digital,Sprint 02,Completar flujo de acceso,Si,22,19,3,2,19,4.8,10.2,6,2,DEMO
+2026-10-31,Equipo A,Proyecto Digital,Sprint 03,Entregar modulo de usuarios,Si,24,22,2,1,22,4.1,9.0,5,1,DEMO
+2026-09-30,Equipo B,Proyecto Integracion,Sprint 01,Integrar servicio externo,No,18,13,5,5,13,7.0,15.0,9,4,DEMO
+2026-10-15,Equipo B,Proyecto Integracion,Sprint 02,Completar integracion API,Si,20,17,3,3,17,6.0,13.0,7,2,DEMO
+2026-10-31,Equipo B,Proyecto Integracion,Sprint 03,Validar integracion,Si,21,19,2,1,19,5.0,11.0,5,1,DEMO

@@ -1,0 +1,49 @@
+deployment_id,fecha_despliegue,servicio_id,servicio,entorno,tipo_despliegue,lead_time_cambios_horas,estado_despliegue,fallo_cambio,incidente_id,tiempo_recuperacion_minutos,origen_dato,tipo_dato
+DEP-001,2026-06-05,SVC-01,Canales Digitales,Produccion,Estándar,18,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-002,2026-06-08,SVC-02,Integraciones,Produccion,Estándar,24,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-003,2026-06-10,SVC-03,Plataforma de Datos,Produccion,Estándar,32,Fallido,Si,INC-001,95,Pipeline CI-CD,DEMO
+DEP-004,2026-06-12,SVC-04,Ciberseguridad,Produccion,Estándar,28,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-005,2026-06-16,SVC-01,Canales Digitales,Produccion,Estándar,16,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-006,2026-06-18,SVC-02,Integraciones,Produccion,Estándar,27,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-007,2026-06-20,SVC-03,Plataforma de Datos,Produccion,Estándar,35,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-008,2026-06-22,SVC-04,Ciberseguridad,Produccion,Estándar,26,Fallido,Si,INC-002,140,Pipeline CI-CD,DEMO
+DEP-009,2026-06-25,SVC-01,Canales Digitales,Produccion,Estándar,15,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-010,2026-06-27,SVC-02,Integraciones,Produccion,Estándar,23,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-011,2026-06-29,SVC-03,Plataforma de Datos,Produccion,Estándar,30,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-012,2026-07-01,SVC-04,Ciberseguridad,Produccion,Estándar,25,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-013,2026-07-04,SVC-01,Canales Digitales,Produccion,Estándar,14,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-014,2026-07-06,SVC-02,Integraciones,Produccion,Estándar,21,Fallido,Si,INC-003,110,Pipeline CI-CD,DEMO
+DEP-015,2026-07-08,SVC-03,Plataforma de Datos,Produccion,Estándar,29,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-016,2026-07-10,SVC-04,Ciberseguridad,Produccion,Estándar,24,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-017,2026-07-13,SVC-01,Canales Digitales,Produccion,Estándar,13,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-018,2026-07-15,SVC-02,Integraciones,Produccion,Estándar,20,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-019,2026-07-17,SVC-03,Plataforma de Datos,Produccion,Estándar,27,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-020,2026-07-19,SVC-04,Ciberseguridad,Produccion,Estándar,23,Fallido,Si,INC-004,85,Pipeline CI-CD,DEMO
+DEP-021,2026-07-22,SVC-01,Canales Digitales,Produccion,Estándar,12,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-022,2026-07-24,SVC-02,Integraciones,Produccion,Estándar,19,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-023,2026-07-26,SVC-03,Plataforma de Datos,Produccion,Estándar,25,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-024,2026-07-28,SVC-04,Ciberseguridad,Produccion,Estándar,22,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-025,2026-07-31,SVC-01,Canales Digitales,Produccion,Estándar,11,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-026,2026-08-02,SVC-02,Integraciones,Produccion,Estándar,18,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-027,2026-08-04,SVC-03,Plataforma de Datos,Produccion,Estándar,24,Fallido,Si,INC-005,75,Pipeline CI-CD,DEMO
+DEP-028,2026-08-06,SVC-04,Ciberseguridad,Produccion,Estándar,21,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-029,2026-08-09,SVC-01,Canales Digitales,Produccion,Estándar,10,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-030,2026-08-11,SVC-02,Integraciones,Produccion,Estándar,17,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-031,2026-08-13,SVC-03,Plataforma de Datos,Produccion,Estándar,22,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-032,2026-08-15,SVC-04,Ciberseguridad,Produccion,Estándar,20,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-033,2026-08-18,SVC-01,Canales Digitales,Produccion,Estándar,9,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-034,2026-08-20,SVC-02,Integraciones,Produccion,Estándar,16,Fallido,Si,INC-006,65,Pipeline CI-CD,DEMO
+DEP-035,2026-08-22,SVC-03,Plataforma de Datos,Produccion,Estándar,20,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-036,2026-08-24,SVC-04,Ciberseguridad,Produccion,Estándar,18,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-037,2026-08-27,SVC-01,Canales Digitales,Produccion,Estándar,8,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-038,2026-08-29,SVC-02,Integraciones,Produccion,Estándar,15,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-039,2026-08-31,SVC-03,Plataforma de Datos,Produccion,Estándar,18,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-040,2026-09-02,SVC-04,Ciberseguridad,Produccion,Estándar,17,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-041,2026-09-05,SVC-01,Canales Digitales,Produccion,Estándar,8,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-042,2026-09-07,SVC-02,Integraciones,Produccion,Estándar,14,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-043,2026-09-09,SVC-03,Plataforma de Datos,Produccion,Estándar,17,Fallido,Si,INC-007,55,Pipeline CI-CD,DEMO
+DEP-044,2026-09-11,SVC-04,Ciberseguridad,Produccion,Estándar,16,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-045,2026-09-14,SVC-01,Canales Digitales,Produccion,Estándar,7,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-046,2026-09-16,SVC-02,Integraciones,Produccion,Estándar,13,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-047,2026-09-18,SVC-03,Plataforma de Datos,Produccion,Estándar,16,Exitoso,No,,0,Pipeline CI-CD,DEMO
+DEP-048,2026-09-20,SVC-04,Ciberseguridad,Produccion,Estándar,15,Exitoso,No,,0,Pipeline CI-CD,DEMO

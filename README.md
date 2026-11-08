@@ -1,81 +1,81 @@
-# IT Delivery Management Portfolio
+# Portafolio de IT Delivery Management
 
-Professional portfolio showcasing IT Project Management, Executive IT Management, Agile Delivery, Technical Delivery, Cloud Monitoring and IT Operations.
+Portafolio profesional que reúne ejemplos de gestión de proyectos TI, gestión ejecutiva, Agile Delivery, entrega técnica, monitoreo Cloud y operaciones tecnológicas.
 
-The portfolio demonstrates an integrated approach to IT Delivery Management, connecting business objectives, project execution, technical delivery and operational performance.
+El objetivo es demostrar un enfoque integral de IT Delivery Management, conectando los objetivos del negocio con la ejecución de proyectos, la entrega tecnológica y el desempeño operacional.
 
-## Portfolio Structure
+## Estructura del portafolio
 
-### 01. Executive IT Management
+### 01. Gestión Ejecutiva de TI
 
-Executive visibility into IT initiatives, project performance and management indicators.
+Visibilidad ejecutiva sobre iniciativas tecnológicas, desempeño de proyectos e indicadores de gestión.
 
-Includes:
-- Executive KPIs and management dashboards.
-- Project progress and milestone tracking.
-- Risks, dependencies and deviations.
-- Delivery performance and management decisions.
+Incluye:
+- KPIs ejecutivos y dashboards de gestión.
+- Seguimiento de avances e hitos.
+- Gestión de riesgos, dependencias y desviaciones.
+- Desempeño de entrega y apoyo a decisiones.
 
-[Explore Executive IT Management](01-executive-it-management/README.md)
+[Explorar Gestión Ejecutiva de TI](01-executive-it-management/README.md)
 
-### 02. IT Delivery & Agile Management
+### 02. Gestión de Proyectos y Entrega Ágil
 
-Project and team delivery tracking using Agile practices and performance indicators.
+Seguimiento de proyectos y equipos mediante prácticas ágiles e indicadores de desempeño.
 
-Includes:
+Incluye:
 - Sprint Goal Achievement.
 - Sprint Commitment Reliability.
-- Carry-over and Throughput.
+- Carry-over y Throughput.
 - Cycle Time.
-- Team delivery trends and improvement opportunities.
+- Evolución de la entrega y oportunidades de mejora.
 
-[Explore IT Delivery & Agile Management](02-it-delivery-agile/README.md)
+[Explorar Gestión de Proyectos y Entrega Ágil](02-it-delivery-agile/README.md)
 
-### 03. Technical Delivery & IT Operations
+### 03. Entrega Técnica y Operaciones TI
 
-Technical delivery performance, cloud monitoring and operational reliability.
+Seguimiento del desempeño de la entrega tecnológica, monitoreo Cloud y confiabilidad operacional.
 
-Includes:
-- DORA metrics.
-- Production deployment performance.
-- Cloud monitoring and observability.
-- Incident management and recovery times.
-- SLA and SLO monitoring, subject to available data.
+Incluye:
+- Métricas DORA.
+- Desempeño de despliegues en producción.
+- Cloud Monitoring y observabilidad.
+- Gestión de incidentes y tiempos de recuperación.
+- Seguimiento de SLA y SLO, sujeto a la disponibilidad de datos.
 
-[Explore Technical Delivery & IT Operations](03-technical-delivery-operations/README.md)
+[Explorar Entrega Técnica y Operaciones TI](03-technical-delivery-operations/README.md)
 
-## Demo Data
+## Datos de demostración
 
-The portfolio includes five fictional datasets designed to demonstrate management indicators, delivery performance and operational monitoring:
+El portafolio incluye cinco datasets ficticios para demostrar indicadores de gestión, desempeño de entrega y monitoreo operacional.
 
-| Dataset | Description |
+| Dataset | Descripción |
 |---|---|
-| `executive-kpis.csv` | Executive KPIs and IT initiative tracking. |
-| `agile-delivery.csv` | Agile team and Sprint performance. |
-| `deployments.csv` | Production deployments and technical delivery metrics. |
-| `cloud-monitoring.csv` | Cloud service monitoring observations. |
-| `incidents.csv` | Incident resolution times and SLA compliance. |
+| `executive-kpis.csv` | KPIs ejecutivos y seguimiento de iniciativas TI. |
+| `agile-delivery.csv` | Desempeño de equipos ágiles y Sprints. |
+| `deployments.csv` | Despliegues en producción y métricas de entrega técnica. |
+| `cloud-monitoring.csv` | Observaciones de monitoreo de servicios Cloud. |
+| `incidents.csv` | Tiempos de resolución de incidentes y cumplimiento de SLA. |
 
-[Explore Demo Data](04-demo-data/README.md)
+[Explorar datasets DEMO](04-demo-data/README.md)
 
-**Important:** All datasets and results marked as DEMO are fictional. They do not represent actual company, client or project performance.
+**Importante:** Todos los datasets y resultados identificados como DEMO utilizan información ficticia. No representan resultados reales de empresas, clientes ni proyectos.
 
-Metrics must be interpreted according to their definitions, source data, measurement periods and known limitations.
+Los indicadores deben interpretarse considerando sus definiciones, fuentes de información, períodos de medición y limitaciones conocidas.
 
-## Documentation
+## Documentación
 
-The portfolio includes a metric dictionary describing indicator definitions, calculation formulas, data sources and interpretation criteria.
+El portafolio incluye un diccionario de indicadores con definiciones, fórmulas de cálculo, fuentes de información y criterios de interpretación.
 
-[Explore Metric Definitions](99-documentation/metric-definitions.md)
+[Consultar diccionario de indicadores](99-documentation/metric-definitions.md)
 
-## Management Approach
+## Enfoque de gestión
 
-The portfolio follows a continuous management approach:
+El portafolio utiliza la siguiente secuencia de análisis:
 
-**Baseline → Evolution → Results → Decisions**
+**Línea base → Evolución → Resultado → Decisión**
 
-This approach supports performance monitoring, risk identification, delivery transparency and evidence-based decision-making.
+Este enfoque permite realizar seguimiento del desempeño, identificar riesgos, mejorar la visibilidad de la entrega y apoyar la toma de decisiones basadas en información.
 
-## Professional Focus
+## Orientación profesional
 
-IT Project Management | PMP | Scrum Master | Agile Delivery | IT Delivery Management | Cloud & DevOps Transformation | Technical Delivery | IT Operations
+Gestión de Proyectos TI | PMP | Scrum Master | IT Delivery Management | Agile Delivery | Cloud & DevOps Transformation | Entrega Técnica | Operaciones TI

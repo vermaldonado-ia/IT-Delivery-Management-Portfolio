@@ -84,14 +84,9 @@ Un resultado porcentual favorable no necesariamente representa una mejora operac
 
 **Definición:** representa la proporción de hitos cumplidos oportunamente respecto del total de hitos planificados para el período.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Cumplimiento de hitos (\%)} =
-\frac{\text{Hitos cumplidos a tiempo}}
-{\text{Hitos planificados}}
-\times 100
-\]
+Cumplimiento de hitos (%) = (Hitos cumplidos a tiempo / Hitos planificados) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -107,13 +102,9 @@ Debe analizarse considerando cambios de alcance, reprogramaciones y modificacion
 
 **Definición:** mide la diferencia entre el porcentaje de avance real y el porcentaje de avance planificado para una fecha de corte.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Desviación del avance (pp)} =
-\text{Avance real (\%)} -
-\text{Avance planificado (\%)}
-\]
+Desviación del avance (pp) = Avance real (%) - Avance planificado (%)
 
 **Unidad de medida:** puntos porcentuales (pp).
 
@@ -133,12 +124,9 @@ La desviación debe interpretarse considerando el alcance y las condiciones de e
 
 **Definición:** representa la cantidad de riesgos clasificados como críticos que permanecen abiertos en una fecha de corte.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Riesgos críticos abiertos} =
-\text{Cantidad de riesgos críticos abiertos}
-\]
+Riesgos críticos abiertos = Cantidad de riesgos críticos abiertos
 
 **Unidad de medida:** cantidad de riesgos.
 
@@ -154,14 +142,9 @@ Este indicador debe complementarse con el seguimiento de responsables, acciones 
 
 **Definición:** representa la proporción de casos elegibles que cumplen el acuerdo de nivel de servicio establecido.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Cumplimiento SLA (\%)} =
-\frac{\text{Casos elegibles que cumplen el SLA}}
-{\text{Total de casos elegibles}}
-\times 100
-\]
+Cumplimiento SLA (%) = (Casos elegibles que cumplen el SLA / Total de casos elegibles) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -179,12 +162,7 @@ El cálculo debe considerar exclusivamente los casos elegibles y las reglas de m
 
 **Fórmula general:**
 
-\[
-\text{Disponibilidad (\%)} =
-\frac{\text{Tiempo disponible}}
-{\text{Tiempo total del período}}
-\times 100
-\]
+Disponibilidad (%) = (Tiempo disponible / Tiempo total del período) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -204,14 +182,9 @@ El cálculo debe considerar exclusivamente los casos elegibles y las reglas de m
 
 **Definición:** representa la proporción de Sprints cerrados cuyo objetivo fue alcanzado.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Sprint Goal Achievement (\%)} =
-\frac{\text{Sprints con objetivo alcanzado}}
-{\text{Total de Sprints cerrados}}
-\times 100
-\]
+Sprint Goal Achievement (%) = (Sprints con objetivo alcanzado / Total de Sprints cerrados) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -225,17 +198,15 @@ En el conjunto de datos DEMO, el Sprint S12 se encuentra en curso al corte del 7
 
 Por lo tanto, debe excluirse de las comparaciones de Sprints cerrados.
 
-En los datos DEMO:
+**Resultado DEMO:**
 
 - Sprints cerrados: 44.
 - Sprints con objetivo alcanzado: 33.
 - Sprints con objetivo no alcanzado: 11.
 
-**Resultado DEMO:**
+Cálculo:
 
-\[
-\frac{33}{44}\times100 = 75\%
-\]
+Sprint Goal Achievement = (33 / 44) × 100 = 75 %
 
 El cumplimiento del objetivo del Sprint es del 75 %.
 
@@ -245,14 +216,9 @@ El cumplimiento del objetivo del Sprint es del 75 %.
 
 **Definición:** representa la proporción de elementos comprometidos que fueron completados durante el Sprint.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Sprint Commitment Reliability (\%)} =
-\frac{\text{Elementos comprometidos completados}}
-{\text{Elementos comprometidos inicialmente}}
-\times 100
-\]
+Sprint Commitment Reliability (%) = (Elementos comprometidos completados / Elementos comprometidos inicialmente) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -270,14 +236,9 @@ No debe confundirse con el cumplimiento del objetivo del Sprint, ya que ambos in
 
 **Definición:** mide la proporción de elementos pendientes respecto del total de elementos comprometidos inicialmente.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Carry-over (\%)} =
-\frac{\text{Elementos pendientes trasladados}}
-{\text{Elementos comprometidos}}
-\times 100
-\]
+Carry-over (%) = (Elementos pendientes trasladados / Elementos comprometidos) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -295,12 +256,7 @@ Debe analizarse junto con la fiabilidad del compromiso y el cumplimiento del obj
 
 **Fórmula general:**
 
-\[
-\text{Trabajo no planificado (\%)} =
-\frac{\text{Trabajo no planificado}}
-{\text{Trabajo total considerado}}
-\times 100
-\]
+Trabajo no planificado (%) = (Trabajo no planificado / Trabajo total considerado) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -316,12 +272,9 @@ Debe analizarse junto con la fiabilidad del compromiso y el cumplimiento del obj
 
 **Definición:** representa la cantidad de elementos finalizados dentro del período de observación.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Throughput} =
-\text{Cantidad de elementos completados}
-\]
+Throughput = Cantidad de elementos completados
 
 **Unidad de medida:** cantidad de elementos.
 
@@ -341,11 +294,7 @@ No debe utilizarse como medida aislada de productividad ni compararse entre equi
 
 **Fórmula conceptual:**
 
-\[
-\text{Cycle Time} =
-\text{Fecha de finalización} -
-\text{Fecha de inicio del trabajo}
-\]
+Cycle Time = Fecha de finalización - Fecha de inicio del trabajo
 
 **Unidad de medida:** horas o días.
 
@@ -367,12 +316,9 @@ El valor registrado debe interpretarse como una métrica agregada y no como un c
 
 **Definición:** representa la cantidad de despliegues exitosos realizados en el ambiente de producción durante un período determinado.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Deployment Frequency} =
-\text{Cantidad de despliegues exitosos en producción}
-\]
+Deployment Frequency = Cantidad de despliegues exitosos en producción
 
 **Unidad de medida:** cantidad de despliegues por período.
 
@@ -390,11 +336,7 @@ El valor registrado debe interpretarse como una métrica agregada y no como un c
 
 **Fórmula conceptual:**
 
-\[
-\text{Lead Time for Changes} =
-\text{Fecha de despliegue} -
-\text{Fecha de inicio del cambio}
-\]
+Lead Time for Changes = Fecha de despliegue - Fecha de inicio del cambio
 
 **Unidad de medida:** horas o días.
 
@@ -412,14 +354,9 @@ Por esta razón, el valor debe interpretarse como una aproximación registrada y
 
 **Definición:** representa el porcentaje de despliegues que resultan fallidos respecto del total de despliegues realizados en producción.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Change Failure Rate (\%)} =
-\frac{\text{Despliegues fallidos}}
-{\text{Total de despliegues en producción}}
-\times 100
-\]
+Change Failure Rate (%) = (Despliegues fallidos / Total de despliegues en producción) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -427,19 +364,17 @@ Por esta razón, el valor debe interpretarse como una aproximación registrada y
 
 **Interpretación:** un valor elevado indica mayor proporción de cambios que generan fallas.
 
-En el conjunto de datos DEMO se registran:
+**Resultado DEMO:**
 
 - Total de despliegues en producción: 48.
 - Despliegues exitosos: 41.
 - Despliegues fallidos: 7.
 
-**Resultado DEMO:**
+Cálculo:
 
-\[
-\frac{7}{48}\times100 = 14,58\%
-\]
+Change Failure Rate = (7 / 48) × 100 = 14,58 %
 
-El resultado representa una tasa de fallas por cambios del 14,58 %.
+La tasa de fallas por cambios es del 14,58 %.
 
 ### 5.4 Tiempo de recuperación de despliegues fallidos (Failed Deployment Recovery Time)
 
@@ -447,13 +382,9 @@ El resultado representa una tasa de fallas por cambios del 14,58 %.
 
 **Definición:** representa el tiempo transcurrido desde la detección de la falla hasta la recuperación del servicio.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Tiempo promedio de recuperación} =
-\frac{\sum \text{Tiempos de recuperación}}
-{\text{Cantidad de despliegues fallidos}}
-\]
+Tiempo promedio de recuperación = Suma de tiempos de recuperación / Cantidad de despliegues fallidos
 
 **Unidad de medida:** minutos.
 
@@ -461,7 +392,9 @@ El resultado representa una tasa de fallas por cambios del 14,58 %.
 
 **Interpretación:** un menor tiempo de recuperación refleja una mayor capacidad de respuesta ante fallas de despliegue.
 
-En los datos DEMO se registran siete despliegues fallidos, con los siguientes tiempos de recuperación:
+**Resultado DEMO:**
+
+Los siete despliegues fallidos registran los siguientes tiempos de recuperación:
 
 - 95 minutos.
 - 140 minutos.
@@ -471,12 +404,11 @@ En los datos DEMO se registran siete despliegues fallidos, con los siguientes ti
 - 65 minutos.
 - 55 minutos.
 
-**Resultado DEMO:**
+Cálculo:
 
-\[
-\frac{95+140+110+85+75+65+55}{7}
-= 89,29 \text{ minutos}
-\]
+Tiempo promedio de recuperación = (95 + 140 + 110 + 85 + 75 + 65 + 55) / 7
+
+Resultado = 625 / 7 = 89,29 minutos.
 
 El tiempo promedio de recuperación de despliegues fallidos es de aproximadamente 89,3 minutos.
 
@@ -488,13 +420,9 @@ Este indicador debe diferenciarse del tiempo de resolución operacional de incid
 
 **Definición:** representa el tiempo transcurrido desde la apertura del incidente hasta su recuperación o resolución operacional, según el criterio definido en el conjunto de datos.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{MTTR operacional} =
-\frac{\sum \text{Tiempos de resolución}}
-{\text{Cantidad de incidentes resueltos}}
-\]
+MTTR operacional = Suma de tiempos de resolución / Cantidad de incidentes resueltos
 
 **Unidad de medida:** minutos.
 
@@ -502,16 +430,14 @@ Este indicador debe diferenciarse del tiempo de resolución operacional de incid
 
 **Interpretación:** permite evaluar la capacidad operacional para resolver incidentes.
 
-En los datos DEMO se registran:
+**Resultado DEMO:**
 
 - Incidentes resueltos: 15.
 - Tiempo acumulado de resolución: 1.736 minutos.
 
-**Resultado DEMO:**
+Cálculo:
 
-\[
-\frac{1736}{15} = 115,73 \text{ minutos}
-\]
+MTTR operacional = 1.736 / 15 = 115,73 minutos.
 
 El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
@@ -523,14 +449,9 @@ El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
 **Definición:** representa la proporción de incidentes que cumplen el acuerdo de nivel de servicio respecto del total de incidentes elegibles evaluados.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Incident SLA Compliance (\%)} =
-\frac{\text{Incidentes que cumplen el SLA}}
-{\text{Total de incidentes elegibles}}
-\times 100
-\]
+Incident SLA Compliance (%) = (Incidentes que cumplen el SLA / Total de incidentes elegibles) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -538,16 +459,14 @@ El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
 **Interpretación:** un valor elevado refleja mayor cumplimiento de los compromisos de resolución.
 
-En los datos DEMO:
+**Resultado DEMO:**
 
 - Incidentes evaluados: 15.
 - Incidentes que cumplen el SLA: 12.
 
-**Resultado DEMO:**
+Cálculo:
 
-\[
-\frac{12}{15}\times100 = 80\%
-\]
+Incident SLA Compliance = (12 / 15) × 100 = 80 %
 
 El cumplimiento del SLA de incidentes es del 80 %.
 
@@ -557,12 +476,9 @@ El cumplimiento del SLA de incidentes es del 80 %.
 
 **Definición:** representa el número de incidentes clasificados como críticos dentro del período evaluado.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Incidentes críticos} =
-\text{Cantidad de incidentes con severidad Crítica}
-\]
+Incidentes críticos = Cantidad de incidentes con severidad Crítica
 
 **Unidad de medida:** cantidad de incidentes.
 
@@ -582,12 +498,7 @@ En los datos DEMO se registra un incidente con severidad Crítica.
 
 **Fórmula general:**
 
-\[
-\text{Disponibilidad Cloud (\%)} =
-\frac{\text{Tiempo disponible}}
-{\text{Tiempo total observado}}
-\times 100
-\]
+Disponibilidad Cloud (%) = (Tiempo disponible / Tiempo total observado) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -612,12 +523,7 @@ En los datos DEMO se registra un incidente con severidad Crítica.
 
 **Fórmula general:**
 
-\[
-\text{Utilización del recurso (\%)} =
-\frac{\text{Recurso utilizado}}
-{\text{Capacidad total del recurso}}
-\times 100
-\]
+Utilización del recurso (%) = (Recurso utilizado / Capacidad total del recurso) × 100
 
 **Unidad de medida:** porcentaje.
 
@@ -635,12 +541,9 @@ La interpretación debe considerar el tipo de recurso, la capacidad provisionada
 
 **Definición:** representa el valor monetario registrado para los servicios o recursos monitoreados durante el período evaluado.
 
-**Fórmula:**
+**Fórmula de cálculo:**
 
-\[
-\text{Costo Cloud} =
-\sum \text{Costos registrados}
-\]
+Costo Cloud = Suma de costos registrados
 
 **Unidad de medida:** dólares estadounidenses (USD).
 
@@ -784,19 +687,17 @@ En los datos DEMO, los siete despliegues fallidos tienen incidentes asociados:
 
 **Promedio de recuperación de despliegues fallidos:**
 
-\[
-\frac{95+140+110+85+75+65+55}{7}
-= 89,29 \text{ minutos}
-\]
+Tiempo promedio = (95 + 140 + 110 + 85 + 75 + 65 + 55) / 7
+
+Resultado = 625 / 7 = 89,29 minutos.
 
 El promedio de recuperación de despliegues fallidos es de aproximadamente 89,3 minutos.
 
 **MTTR operacional:**
 
-\[
-\frac{1736}{15}
-= 115,73 \text{ minutos}
-\]
+MTTR = 1.736 / 15
+
+Resultado = 115,73 minutos.
 
 El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 

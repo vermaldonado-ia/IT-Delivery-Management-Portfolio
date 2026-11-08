@@ -51,7 +51,7 @@ Incluye:
 
 - Métricas DORA.
 - Monitoreo Cloud y observabilidad.
-- Disponibilidad, latencia y errores.
+- Seguimiento de disponibilidad, latencia y errores, según la granularidad y cobertura de los datos disponibles.
 - Gestión de incidentes y tiempos de recuperación.
 - Indicadores de SLA y SLO, cuando existen datos suficientes para su medición.
 - Riesgos técnicos y continuidad del servicio.
@@ -104,7 +104,7 @@ Los datasets disponibles son:
 | `executive-kpis.csv` | Indicadores ejecutivos y seguimiento de iniciativas. |
 | `agile-delivery.csv` | Seguimiento de equipos, Sprints y métricas de entrega ágil. |
 | `deployments.csv` | Despliegues en producción y métricas de entrega técnica. |
-| `cloud-monitoring.csv` | Observaciones de monitoreo de servicios Cloud. |
+| `cloud-monitoring.csv` | Observaciones semanales DEMO de servicios Cloud, recursos y costos. |
 | `incidents.csv` | Incidentes, tiempos de resolución y cumplimiento de SLA. |
 
 Los datos no representan resultados reales de empresas, clientes ni proyectos.

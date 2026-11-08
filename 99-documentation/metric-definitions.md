@@ -14,8 +14,6 @@ Los indicadores se organizan en tres dimensiones:
 
 Los datos utilizados en este portafolio son de carácter demostrativo (DEMO) y tienen como finalidad ilustrar la aplicación de los indicadores. No representan resultados operacionales reales.
 
----
-
 ## 2. Modelo común de medición
 
 ### 2.1 Definición de un indicador
@@ -74,8 +72,6 @@ Su análisis debe considerar:
 
 Un resultado porcentual favorable no necesariamente representa una mejora operacional si existen diferencias en la población evaluada o en los criterios de medición.
 
----
-
 ## 3. Indicadores de Gestión Ejecutiva TI
 
 ### 3.1 Cumplimiento de hitos (Milestone Predictability)
@@ -86,7 +82,7 @@ Un resultado porcentual favorable no necesariamente representa una mejora operac
 
 **Fórmula de cálculo:**
 
-Cumplimiento de hitos (%) = (Hitos cumplidos a tiempo / Hitos planificados) × 100
+`Cumplimiento de hitos (%) = (Hitos cumplidos a tiempo / Hitos planificados) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -104,7 +100,7 @@ Debe analizarse considerando cambios de alcance, reprogramaciones y modificacion
 
 **Fórmula de cálculo:**
 
-Desviación del avance (pp) = Avance real (%) - Avance planificado (%)
+`Desviación del avance (pp) = Avance real (%) - Avance planificado (%)`
 
 **Unidad de medida:** puntos porcentuales (pp).
 
@@ -112,9 +108,9 @@ Desviación del avance (pp) = Avance real (%) - Avance planificado (%)
 
 **Interpretación:**
 
-- Resultado positivo: avance real superior al planificado.
-- Resultado igual a cero: avance real coincidente con el plan.
-- Resultado negativo: avance real inferior al planificado.
+- **Resultado positivo:** avance real superior al planificado.
+- **Resultado igual a cero:** avance real coincidente con el plan.
+- **Resultado negativo:** avance real inferior al planificado.
 
 La desviación debe interpretarse considerando el alcance y las condiciones de ejecución de la iniciativa.
 
@@ -126,7 +122,7 @@ La desviación debe interpretarse considerando el alcance y las condiciones de e
 
 **Fórmula de cálculo:**
 
-Riesgos críticos abiertos = Cantidad de riesgos críticos abiertos
+`Riesgos críticos abiertos = Cantidad de riesgos críticos abiertos`
 
 **Unidad de medida:** cantidad de riesgos.
 
@@ -144,7 +140,7 @@ Este indicador debe complementarse con el seguimiento de responsables, acciones 
 
 **Fórmula de cálculo:**
 
-Cumplimiento SLA (%) = (Casos elegibles que cumplen el SLA / Total de casos elegibles) × 100
+`Cumplimiento SLA (%) = (Casos elegibles que cumplen el SLA / Total de casos elegibles) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -162,7 +158,7 @@ El cálculo debe considerar exclusivamente los casos elegibles y las reglas de m
 
 **Fórmula general:**
 
-Disponibilidad (%) = (Tiempo disponible / Tiempo total del período) × 100
+`Disponibilidad (%) = (Tiempo disponible / Tiempo total del período) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -171,8 +167,6 @@ Disponibilidad (%) = (Tiempo disponible / Tiempo total del período) × 100
 **Interpretación:** un valor elevado representa mayor disponibilidad del servicio durante el período evaluado.
 
 **Limitación:** no se debe calcular ni atribuir disponibilidad ejecutiva directamente desde los datos de monitoreo si no existe un mapeo completo entre iniciativas, servicios y períodos de observación compatibles.
-
----
 
 ## 4. Indicadores de Gestión de Proyectos y Entrega Ágil
 
@@ -184,7 +178,7 @@ Disponibilidad (%) = (Tiempo disponible / Tiempo total del período) × 100
 
 **Fórmula de cálculo:**
 
-Sprint Goal Achievement (%) = (Sprints con objetivo alcanzado / Total de Sprints cerrados) × 100
+`Sprint Goal Achievement (%) = (Sprints con objetivo alcanzado / Total de Sprints cerrados) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -204,9 +198,9 @@ Por lo tanto, debe excluirse de las comparaciones de Sprints cerrados.
 - Sprints con objetivo alcanzado: 33.
 - Sprints con objetivo no alcanzado: 11.
 
-Cálculo:
+**Cálculo:**
 
-Sprint Goal Achievement = (33 / 44) × 100 = 75 %
+`Sprint Goal Achievement = (33 / 44) × 100 = 75 %`
 
 El cumplimiento del objetivo del Sprint es del 75 %.
 
@@ -218,7 +212,7 @@ El cumplimiento del objetivo del Sprint es del 75 %.
 
 **Fórmula de cálculo:**
 
-Sprint Commitment Reliability (%) = (Elementos comprometidos completados / Elementos comprometidos inicialmente) × 100
+`Sprint Commitment Reliability (%) = (Elementos comprometidos completados / Elementos comprometidos inicialmente) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -238,7 +232,7 @@ No debe confundirse con el cumplimiento del objetivo del Sprint, ya que ambos in
 
 **Fórmula de cálculo:**
 
-Carry-over (%) = (Elementos pendientes trasladados / Elementos comprometidos) × 100
+`Carry-over (%) = (Elementos pendientes trasladados / Elementos comprometidos) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -256,7 +250,7 @@ Debe analizarse junto con la fiabilidad del compromiso y el cumplimiento del obj
 
 **Fórmula general:**
 
-Trabajo no planificado (%) = (Trabajo no planificado / Trabajo total considerado) × 100
+`Trabajo no planificado (%) = (Trabajo no planificado / Trabajo total considerado) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -274,7 +268,7 @@ Trabajo no planificado (%) = (Trabajo no planificado / Trabajo total considerado
 
 **Fórmula de cálculo:**
 
-Throughput = Cantidad de elementos completados
+`Throughput = Cantidad de elementos completados`
 
 **Unidad de medida:** cantidad de elementos.
 
@@ -294,7 +288,7 @@ No debe utilizarse como medida aislada de productividad ni compararse entre equi
 
 **Fórmula conceptual:**
 
-Cycle Time = Fecha de finalización - Fecha de inicio del trabajo
+`Cycle Time = Fecha de finalización - Fecha de inicio del trabajo`
 
 **Unidad de medida:** horas o días.
 
@@ -306,8 +300,6 @@ Cycle Time = Fecha de finalización - Fecha de inicio del trabajo
 
 El valor registrado debe interpretarse como una métrica agregada y no como un cálculo recalculable desde eventos individuales.
 
----
-
 ## 5. Indicadores de Entrega Técnica y Operaciones TI
 
 ### 5.1 Frecuencia de despliegues (Deployment Frequency)
@@ -318,7 +310,7 @@ El valor registrado debe interpretarse como una métrica agregada y no como un c
 
 **Fórmula de cálculo:**
 
-Deployment Frequency = Cantidad de despliegues exitosos en producción
+`Deployment Frequency = Cantidad de despliegues exitosos en producción`
 
 **Unidad de medida:** cantidad de despliegues por período.
 
@@ -336,7 +328,7 @@ Deployment Frequency = Cantidad de despliegues exitosos en producción
 
 **Fórmula conceptual:**
 
-Lead Time for Changes = Fecha de despliegue - Fecha de inicio del cambio
+`Lead Time for Changes = Fecha de despliegue - Fecha de inicio del cambio`
 
 **Unidad de medida:** horas o días.
 
@@ -356,7 +348,7 @@ Por esta razón, el valor debe interpretarse como una aproximación registrada y
 
 **Fórmula de cálculo:**
 
-Change Failure Rate (%) = (Despliegues fallidos / Total de despliegues en producción) × 100
+`Change Failure Rate (%) = (Despliegues fallidos / Total de despliegues en producción) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -370,9 +362,9 @@ Change Failure Rate (%) = (Despliegues fallidos / Total de despliegues en produc
 - Despliegues exitosos: 41.
 - Despliegues fallidos: 7.
 
-Cálculo:
+**Cálculo:**
 
-Change Failure Rate = (7 / 48) × 100 = 14,58 %
+`Change Failure Rate = (7 / 48) × 100 = 14,58 %`
 
 La tasa de fallas por cambios es del 14,58 %.
 
@@ -384,7 +376,7 @@ La tasa de fallas por cambios es del 14,58 %.
 
 **Fórmula de cálculo:**
 
-Tiempo promedio de recuperación = Suma de tiempos de recuperación / Cantidad de despliegues fallidos
+`Tiempo promedio de recuperación = Suma de tiempos de recuperación / Cantidad de despliegues fallidos`
 
 **Unidad de medida:** minutos.
 
@@ -404,15 +396,17 @@ Los siete despliegues fallidos registran los siguientes tiempos de recuperación
 - 65 minutos.
 - 55 minutos.
 
-Cálculo:
+**Cálculo:**
 
-Tiempo promedio de recuperación = (95 + 140 + 110 + 85 + 75 + 65 + 55) / 7
+`Tiempo promedio de recuperación = (95 + 140 + 110 + 85 + 75 + 65 + 55) / 7`
 
-Resultado = 625 / 7 = 89,29 minutos.
+`Resultado = 625 / 7 = 89,29 minutos`
 
 El tiempo promedio de recuperación de despliegues fallidos es de aproximadamente 89,3 minutos.
 
-Este indicador debe diferenciarse del tiempo de resolución operacional de incidentes, ya que ambos pueden utilizar puntos de inicio distintos.
+Este indicador corresponde al tiempo de recuperación asociado a despliegues fallidos y se relaciona con la métrica DORA *Failed Deployment Recovery Time*. Su interpretación debe respetar el punto de inicio y término definidos en la fuente de datos.
+
+Debe diferenciarse del tiempo de resolución operacional de incidentes, ya que ambos pueden utilizar puntos de inicio distintos.
 
 ### 5.5 Tiempo medio de resolución de incidentes (Operational MTTR)
 
@@ -422,7 +416,7 @@ Este indicador debe diferenciarse del tiempo de resolución operacional de incid
 
 **Fórmula de cálculo:**
 
-MTTR operacional = Suma de tiempos de resolución / Cantidad de incidentes resueltos
+`MTTR operacional = Suma de tiempos de resolución / Cantidad de incidentes resueltos`
 
 **Unidad de medida:** minutos.
 
@@ -435,9 +429,9 @@ MTTR operacional = Suma de tiempos de resolución / Cantidad de incidentes resue
 - Incidentes resueltos: 15.
 - Tiempo acumulado de resolución: 1.736 minutos.
 
-Cálculo:
+**Cálculo:**
 
-MTTR operacional = 1.736 / 15 = 115,73 minutos.
+`MTTR operacional = 1.736 / 15 = 115,73 minutos`
 
 El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
@@ -451,7 +445,7 @@ El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
 **Fórmula de cálculo:**
 
-Incident SLA Compliance (%) = (Incidentes que cumplen el SLA / Total de incidentes elegibles) × 100
+`Incident SLA Compliance (%) = (Incidentes que cumplen el SLA / Total de incidentes elegibles) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -464,9 +458,9 @@ Incident SLA Compliance (%) = (Incidentes que cumplen el SLA / Total de incident
 - Incidentes evaluados: 15.
 - Incidentes que cumplen el SLA: 12.
 
-Cálculo:
+**Cálculo:**
 
-Incident SLA Compliance = (12 / 15) × 100 = 80 %
+`Incident SLA Compliance = (12 / 15) × 100 = 80 %`
 
 El cumplimiento del SLA de incidentes es del 80 %.
 
@@ -478,7 +472,7 @@ El cumplimiento del SLA de incidentes es del 80 %.
 
 **Fórmula de cálculo:**
 
-Incidentes críticos = Cantidad de incidentes con severidad Crítica
+`Incidentes críticos = Cantidad de incidentes con severidad Crítica`
 
 **Unidad de medida:** cantidad de incidentes.
 
@@ -486,7 +480,7 @@ Incidentes críticos = Cantidad de incidentes con severidad Crítica
 
 **Interpretación:** permite identificar eventos de alta severidad que requieren atención prioritaria y seguimiento ejecutivo.
 
-**Criterio de clasificación:** deben contabilizarse exclusivamente los incidentes cuya severidad esté registrada como `Crítica`. Los incidentes clasificados como `Alta` no deben incorporarse a este indicador.
+**Criterio de clasificación:** deben contabilizarse exclusivamente los incidentes cuya severidad esté registrada como Crítica. Los incidentes clasificados como Alta no deben incorporarse a este indicador.
 
 En los datos DEMO se registra un incidente con severidad Crítica.
 
@@ -498,7 +492,7 @@ En los datos DEMO se registra un incidente con severidad Crítica.
 
 **Fórmula general:**
 
-Disponibilidad Cloud (%) = (Tiempo disponible / Tiempo total observado) × 100
+`Disponibilidad Cloud (%) = (Tiempo disponible / Tiempo total observado) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -515,6 +509,8 @@ Disponibilidad Cloud (%) = (Tiempo disponible / Tiempo total observado) × 100
 - No deben interpretarse como mediciones en tiempo real.
 - La disponibilidad calculada debe considerar la granularidad de las observaciones y no asumir que los registros representan automáticamente todo el tiempo del período.
 
+Con la granularidad disponible no se debe presentar una disponibilidad temporal real sin contar con registros de estado y duración suficientes para cubrir el período evaluado.
+
 ### 5.9 Utilización de recursos Cloud (Cloud Resource Utilization)
 
 **Objetivo:** observar el nivel de utilización de los recursos tecnológicos en infraestructura Cloud.
@@ -523,7 +519,7 @@ Disponibilidad Cloud (%) = (Tiempo disponible / Tiempo total observado) × 100
 
 **Fórmula general:**
 
-Utilización del recurso (%) = (Recurso utilizado / Capacidad total del recurso) × 100
+`Utilización del recurso (%) = (Recurso utilizado / Capacidad total del recurso) × 100`
 
 **Unidad de medida:** porcentaje.
 
@@ -533,7 +529,7 @@ Utilización del recurso (%) = (Recurso utilizado / Capacidad total del recurso)
 
 La interpretación debe considerar el tipo de recurso, la capacidad provisionada y el comportamiento del servicio.
 
-**Limitación:** los valores agregados de monitoreo permiten analizar las observaciones registradas, pero no deben interpretarse como una medición continua de utilización si la fuente no proporciona esa granularidad.
+**Limitación:** los valores agregados de monitoreo permiten analizar las observaciones registradas, pero no deben interpretarse como una medición continua de utilización si la fuente no proporciona esa granularidad. El cálculo porcentual requiere disponer de valores de utilización y capacidad total compatibles para el recurso evaluado.
 
 ### 5.10 Costo de infraestructura Cloud (Cloud Cost)
 
@@ -543,7 +539,7 @@ La interpretación debe considerar el tipo de recurso, la capacidad provisionada
 
 **Fórmula de cálculo:**
 
-Costo Cloud = Suma de costos registrados
+`Costo Cloud = Suma de costos registrados`
 
 **Unidad de medida:** dólares estadounidenses (USD).
 
@@ -552,8 +548,6 @@ Costo Cloud = Suma de costos registrados
 **Interpretación:** permite observar la evolución de los costos y detectar variaciones que puedan requerir análisis de optimización.
 
 **Limitación:** los valores de `costo_cloud_usd` del conjunto de datos son demostrativos. No representan facturación real de AWS ni deben utilizarse como evidencia de ahorro o gasto operacional.
-
----
 
 ## 6. Gobierno de los Indicadores
 
@@ -631,8 +625,6 @@ La frecuencia indicada es una referencia de gestión. La disponibilidad efectiva
 
 Los resultados deben identificar la fecha de corte utilizada para evitar comparaciones entre períodos incompatibles.
 
----
-
 ## 7. Principios de Interpretación Ejecutiva
 
 ### 7.1 Interpretación contextual
@@ -687,29 +679,29 @@ En los datos DEMO, los siete despliegues fallidos tienen incidentes asociados:
 
 **Promedio de recuperación de despliegues fallidos:**
 
-Tiempo promedio = (95 + 140 + 110 + 85 + 75 + 65 + 55) / 7
+`Tiempo promedio = (95 + 140 + 110 + 85 + 75 + 65 + 55) / 7`
 
-Resultado = 625 / 7 = 89,29 minutos.
+`Resultado = 625 / 7 = 89,29 minutos`
 
 El promedio de recuperación de despliegues fallidos es de aproximadamente 89,3 minutos.
 
 **MTTR operacional:**
 
-MTTR = 1.736 / 15
+`MTTR = 1.736 / 15`
 
-Resultado = 115,73 minutos.
+`Resultado = 115,73 minutos`
 
 El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
 Aunque existe relación entre ambos indicadores, no deben compararse directamente como si midieran exactamente el mismo intervalo temporal.
+
+La asociación entre los siete despliegues fallidos y sus incidentes permite analizar ambos registros de manera complementaria, pero no elimina la diferencia entre sus respectivos puntos de inicio y término.
 
 ### 7.5 Uso responsable de los indicadores
 
 Los indicadores deben utilizarse para facilitar la toma de decisiones y promover mejoras en los procesos.
 
 No deben emplearse de manera aislada para evaluar el desempeño individual de las personas ni para establecer comparaciones entre equipos sin considerar diferencias de contexto, alcance y complejidad.
-
----
 
 ## 8. Aplicación del Diccionario en el Portafolio
 
@@ -803,8 +795,6 @@ Las futuras mejoras pueden considerar:
 - Incorporación de criterios de gobierno y calidad de datos.
 
 Toda incorporación debe mantener la trazabilidad entre la fuente, la fórmula y el resultado presentado.
-
----
 
 ## 9. Principio de Gestión
 

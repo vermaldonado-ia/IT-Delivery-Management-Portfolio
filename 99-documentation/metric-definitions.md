@@ -2,1309 +2,603 @@
 
 ## Objetivo
 
-Establecer un marco común de medición para los tres productos del portafolio. Cada indicador debe contar con una definición, fórmula de cálculo, fuente de información, período de medición, responsable y criterios de interpretación.
+Definir los indicadores utilizados en los tres productos del portafolio, estableciendo su propósito, fórmula de cálculo, fuente de datos y criterios básicos de interpretación.
 
-El diccionario busca asegurar que los indicadores sean consistentes, comparables y útiles para la toma de decisiones.
+El diccionario busca mantener una medición consistente y trazable para apoyar la gestión ejecutiva, la entrega ágil y la operación tecnológica.
 
 ## 1. Modelo común de medición
 
-Cada indicador debe considerar los siguientes elementos:
+Los indicadores utilizan los siguientes atributos para facilitar su seguimiento y análisis:
 
-| Elemento | Descripción |
+| Atributo | Descripción |
 |---|---|
-| Indicador | Nombre del indicador de gestión |
-| Definición | Qué mide y qué representa |
-| Fórmula | Método de cálculo |
-| Línea base | Valor inicial de referencia |
-| Valor actual | Último valor calculado |
-| Variación | Diferencia respecto de la línea base o período anterior |
-| Meta | Resultado esperado, cuando exista |
-| Estado | Situación del indicador frente a la meta |
-| Tendencia | Evolución del indicador en el tiempo |
-| Período | Intervalo temporal considerado |
-| Fuente | Sistema o dataset de origen |
-| Responsable | Rol encargado de validar y analizar el indicador |
-| Calidad del dato | Nivel de confiabilidad y completitud de la información |
+| Indicador | Nombre del KPI o métrica. |
+| Definición | Qué mide y qué representa. |
+| Fórmula | Método de cálculo, cuando corresponda. |
+| Línea base | Valor de referencia para comparar. |
+| Valor actual | Último valor disponible. |
+| Variación | Diferencia respecto de la línea base o período anterior. |
+| Meta | Resultado esperado, si está definido. |
+| Estado | Cumplimiento respecto de la meta. |
+| Tendencia | Evolución del indicador en el tiempo. |
+| Período | Intervalo utilizado para la medición. |
+| Fuente | Dataset o sistema de origen. |
+| Responsable | Rol encargado de su seguimiento. |
+| Calidad del dato | Estado de integridad y confiabilidad de la información. |
 
-### Criterios generales
+**Criterios de medición**
 
-- La línea base debe indicar período, alcance y población considerada.
-- Los períodos parciales deben identificarse y no compararse directamente con períodos completos.
-- Los datos faltantes deben registrarse como "Sin dato", "No medido" o "Pendiente de validación".
-- Los datos ficticios deben identificarse explícitamente como DEMO.
-- Las comparaciones entre equipos deben considerar capacidad, contexto, tipo de trabajo y complejidad.
-- Las variaciones deben interpretarse considerando el contexto y no únicamente el valor numérico.
+- Comparar períodos con igual duración, alcance y población.
+- Identificar los períodos parciales y evitar compararlos directamente con períodos completos.
+- Diferenciar los valores reales de los datos DEMO o pendientes de validación.
+- No reemplazar datos faltantes por cero ni utilizar estimaciones sin identificarlas.
+- Interpretar las variaciones considerando el contexto operativo y los objetivos del indicador.
 
 ## 2. Gestión Ejecutiva de TI
 
-### 2.1 Predictibilidad de entrega
+Esta categoría reúne indicadores para monitorear el desempeño general de iniciativas y servicios tecnológicos, considerando cumplimiento, avance, riesgos y niveles de servicio.
 
-**Definición:** mide el cumplimiento de los compromisos de entrega dentro del período evaluado.
+### 2.1 Predictibilidad de hitos
 
-**Fórmula:**
-
-Predictibilidad (%) = (Hitos cumplidos a tiempo / Hitos planificados del período) × 100
-
-Si no existen hitos planificados y evaluables en el período, el indicador debe registrarse como **“No aplica”** y no como 0%.
-
-**Fuente:** `executive-kpis.csv`
-
-**Interpretación:** permite evaluar la capacidad de cumplimiento de los compromisos establecidos.
-
-**Consideraciones:**
-- El indicador se calcula sobre hitos cuyo cumplimiento puede evaluarse en el período.
-- Un hito no cumplido dentro de su fecha comprometida no se considera cumplido a tiempo.
-- Si el denominador es cero, no corresponde calcular el porcentaje.
-- Debe analizarse junto con cambios de alcance, dependencias y riesgos.
-
-### 2.2 Desviación del avance respecto del plan
-
-**Definición:** compara el avance real de una iniciativa con el avance planificado.
+**Definición:** mide el porcentaje de hitos planificados que se cumplen dentro de la fecha comprometida.
 
 **Fórmula:**
 
-Desviación de avance (pp) = Avance real (%) − Avance planificado (%)
+\[
+\frac{\text{Hitos cumplidos a tiempo}}{\text{Hitos planificados}} \times 100
+\]
 
 **Fuente:** `executive-kpis.csv`
 
-**Interpretación:**
-- Resultado positivo: avance superior al planificado.
-- Resultado negativo: avance inferior al planificado.
-- Resultado igual a cero: avance alineado con el plan.
+**Unidad:** porcentaje (%).
 
-La desviación se expresa en puntos porcentuales (pp), no como porcentaje relativo.
+**Interpretación:** un resultado alto refleja mayor predictibilidad en el cumplimiento de los compromisos. Si no existen hitos planificados en el período, el indicador se considera No aplica.
+
+### 2.2 Desviación del avance
+
+**Definición:** mide la diferencia entre el avance real y el avance planificado de una iniciativa.
+
+**Fórmula:**
+
+\[
+\text{Avance real (\%)}-\text{Avance planificado (\%)}
+\]
+
+**Fuente:** `executive-kpis.csv`
+
+**Unidad:** puntos porcentuales (pp).
+
+**Interpretación:** un resultado positivo indica adelanto respecto del plan; uno negativo representa atraso. Debe analizarse considerando el período y el estado de la iniciativa.
 
 ### 2.3 Riesgos críticos abiertos
 
-**Definición:** cantidad agregada de riesgos clasificados como críticos que permanecen abiertos al momento del corte.
+**Definición:** representa la cantidad de riesgos críticos que permanecen abiertos en el período.
 
-**Fórmula:**
+**Fuente:** `executive-kpis.csv`, campo `riesgos_criticos_abiertos`.
 
-Riesgos críticos abiertos = `riesgos_criticos_abiertos`
+**Unidad:** cantidad de riesgos.
 
-El indicador utiliza directamente el valor agregado disponible en `executive-kpis.csv`.
-
-**Fuente:** `executive-kpis.csv`
-
-**Interpretación:** permite identificar exposición relevante para la continuidad y los compromisos de las iniciativas.
-
-**Limitación de los datos DEMO:**
-- `executive-kpis.csv` contiene el indicador agregado `riesgos_criticos_abiertos`.
-- No existe un dataset individual de riesgos con severidad, estado, responsable, fecha de apertura y fecha de cierre.
-- Por lo tanto, el indicador permite visualizar el nivel agregado reportado, pero no auditar ni analizar individualmente los registros de riesgo.
+**Interpretación:** permite visualizar la exposición agregada al riesgo. El dataset contiene el total consolidado, no el detalle de cada riesgo ni su historial de seguimiento.
 
 ### 2.4 Cumplimiento de SLA
 
-**Definición:** porcentaje de casos elegibles que cumplen el tiempo objetivo de resolución establecido en el SLA.
+**Definición:** mide el porcentaje de incidentes que cumplen el tiempo objetivo de resolución establecido.
+
+**Fuente ejecutiva:** `executive-kpis.csv`.
+
+**Fuente de detalle operacional:** `incidents.csv`.
 
 **Fórmula:**
 
-Cumplimiento SLA (%) = (Casos SLA cumplidos / Casos SLA elegibles) × 100
+\[
+\frac{\text{Incidentes resueltos dentro del SLA}}{\text{Incidentes elegibles}} \times 100
+\]
 
-**Fuentes y roles de los datos:**
-- `executive-kpis.csv`: contiene los valores consolidados de gestión ejecutiva, incluyendo `casos_sla_elegibles` y `casos_sla_cumplidos`.
-- `incidents.csv`: contiene el detalle operacional de incidentes, incluyendo `sla_cumplido`, `tiempo_resolucion_minutos` y `sla_objetivo_minutos`.
+**Interpretación:** permite evaluar el cumplimiento de los compromisos de servicio. Para los criterios operacionales, el tratamiento de incidentes y tiempos de resolución, consultar la sección **6.4 SLA**.
 
-**Criterio aplicado en los datos DEMO:**
-- El cumplimiento se determina utilizando el tiempo de resolución.
-- El tiempo de resolución se calcula desde la apertura del incidente hasta la recuperación del servicio.
-- Se compara con el objetivo de SLA definido para el incidente.
+### 2.5 Disponibilidad de servicios
 
-**Consideraciones:**
-- Para el reporte ejecutivo se deben utilizar los valores consolidados de `executive-kpis.csv`.
-- `incidents.csv` puede utilizarse para análisis y trazabilidad operacional cuando el alcance y período correspondan.
-- No se deben sumar ni combinar indiscriminadamente ambos datasets, ya que podría producir doble conteo.
-- El denominador debe incluir únicamente los casos elegibles.
-- Los casos sin información suficiente no deben clasificarse automáticamente como cumplidos.
-- La regla de cálculo debe mantenerse consistente entre períodos.
+**Definición:** mide el porcentaje de tiempo en que un servicio permanece disponible durante un período determinado.
 
-### 2.5 Disponibilidad del servicio
+**Fuente ejecutiva:** `executive-kpis.csv`.
 
-**Definición:** porcentaje del tiempo del período durante el cual un servicio estuvo disponible según el criterio de medición definido.
+**Fuente de monitoreo:** `cloud-monitoring.csv`.
 
-**Fórmula general:**
+**Unidad:** porcentaje (%).
 
-Disponibilidad (%) = (Tiempo disponible / Tiempo total medido) × 100
-
-**Fuentes y niveles de agregación:**
-- `executive-kpis.csv`: contiene el KPI consolidado utilizado para la visión ejecutiva.
-- `cloud-monitoring.csv`: contiene observaciones agregadas semanalmente por servicio para el análisis técnico.
-
-**Interpretación:** permite evaluar la continuidad del servicio.
-
-**Consideraciones:**
-- Los dos datasets tienen diferentes niveles de agregación y alcance.
-- No se deben combinar, promediar ni comparar directamente sin validar servicios incluidos, períodos, ponderaciones y reglas de cálculo.
-- Para la visión ejecutiva debe utilizarse el valor consolidado previamente validado.
-- Para el análisis técnico por servicio puede utilizarse `cloud-monitoring.csv`.
-- Se debe documentar el período de medición.
-- Debe definirse cómo se consideran las ventanas de mantenimiento.
-- La disponibilidad no equivale a ausencia de incidentes.
-- Los datos DEMO disponibles representan cortes agregados, no telemetría continua.
+**Interpretación:** permite evaluar la continuidad del servicio. Para la definición técnica y los criterios de medición, consultar la sección **5.1 Disponibilidad**.
 
 ## 3. Gestión de Proyectos y Entrega Ágil
 
-### 3.1 Cumplimiento del Sprint Goal
+Esta categoría reúne indicadores para monitorear el cumplimiento de los objetivos de los Sprints, la capacidad de entrega, el flujo de trabajo y los factores que afectan la ejecución de los equipos ágiles.
 
-**Definición:** proporción de Sprints finalizados en los que el equipo alcanzó el objetivo definido para el Sprint.
+**Fuente principal:** `agile-delivery.csv`.
 
-**Fórmula:**
+**Consideración sobre los datos:** los indicadores corresponden a datos DEMO agregados por equipo y Sprint. No se dispone del historial individual completo de las tareas para recalcular algunas métricas desde sus eventos originales. El Sprint S12 (2 al 15 de noviembre de 2026) se encuentra en curso al corte del 7 de noviembre, por lo que sus resultados no deben compararse con los de Sprints finalizados.
 
-Cumplimiento del Sprint Goal (%) = (Sprints finalizados con Sprint Goal alcanzado / Total de Sprints finalizados evaluables) × 100
+### 3.1 Cumplimiento del objetivo del Sprint
 
-**Fuente:** `agile-delivery.csv`
-
-**Campo disponible:** `sprint_goal_alcanzado`.
-
-**Valores registrados:** `Si` y `No`.
-
-**Interpretación:** permite evaluar si los equipos lograron el objetivo que orientó el trabajo del Sprint, más allá de la cantidad de elementos completados.
-
-**Consideraciones:**
-- El cálculo considera únicamente Sprints finalizados y evaluables.
-- Los registros con valor `Si` se consideran objetivos alcanzados.
-- Los registros con valor `No` se consideran objetivos no alcanzados, siempre que el Sprint haya finalizado.
-- S12, correspondiente al período del 2 al 15 de noviembre de 2026, se encuentra en curso al corte del 7 de noviembre y debe excluirse del cálculo.
-- No debe confundirse con el porcentaje de elementos completados ni con el cumplimiento del compromiso.
-- Un Sprint puede completar todos sus elementos comprometidos y no alcanzar el Sprint Goal, o alcanzar el objetivo aunque algunos elementos hayan quedado pendientes.
-
-**Limitación de los datos DEMO:** el campo registra el resultado del Sprint Goal como texto (`Si`/`No`). Para una medición real, el resultado debe validarse al cierre del Sprint con el equipo y los criterios de aceptación del objetivo.
-
-### 3.2 Cumplimiento del compromiso del Sprint
-
-**Definición:** proporción de elementos comprometidos al inicio del Sprint que fueron completados durante el período.
+**Definición:** mide el porcentaje de Sprints finalizados en los que se alcanza el objetivo comprometido.
 
 **Fórmula:**
 
-Cumplimiento del compromiso (%) = ((Elementos comprometidos − Carry-over) / Elementos comprometidos) × 100
+\[
+\frac{\text{Sprints con objetivo alcanzado}}{\text{Sprints finalizados}} \times 100
+\]
 
-**Fuente:** `agile-delivery.csv`
+**Campo:** `sprint_goal_alcanzado`.
 
-**Campos utilizados:**
-- `elementos_comprometidos`
-- `carry_over`
+**Unidad:** porcentaje (%).
 
-**Interpretación:** permite evaluar en qué medida el equipo completó el trabajo que se había comprometido a realizar al inicio del Sprint.
+**Interpretación:** refleja el cumplimiento del propósito del Sprint. No representa el porcentaje de tareas completadas.
 
-**Consideraciones:**
-- El cálculo considera exclusivamente el compromiso inicial y los elementos comprometidos que quedaron pendientes.
-- El trabajo no planificado debe analizarse por separado y no debe incorporarse al numerador de esta fórmula.
-- No debe confundirse el cumplimiento del compromiso con el cumplimiento del Sprint Goal.
-- Si no existen elementos comprometidos, el indicador debe registrarse como "No aplica".
-- S12, al encontrarse en curso al corte del 7 de noviembre de 2026, debe excluirse de las comparaciones de Sprints finalizados.
+### 3.2 Confiabilidad del compromiso del Sprint
 
-**Limitación de los datos DEMO:** el cálculo depende de que `carry_over` represente correctamente los elementos del compromiso inicial que quedaron sin completar.
+**Definición:** mide el porcentaje de elementos comprometidos que se completan durante el Sprint, considerando los elementos que quedan pendientes.
 
-### 3.3 Carry-over
+**Fórmula:**
 
-**Definición:** cantidad de elementos comprometidos que no fueron completados durante el Sprint y se trasladan a un período posterior.
+\[
+\frac{\text{Elementos comprometidos}-\text{Trabajo pendiente}}{\text{Elementos comprometidos}} \times 100
+\]
 
-**Indicadores:**
+**Campos:** `elementos_comprometidos`, `carry_over`.
 
-- Carry-over (elementos): cantidad de elementos comprometidos que quedaron pendientes.
-- Carry-over (%): proporción de elementos comprometidos que no fueron completados.
+**Unidad:** porcentaje (%).
 
-**Fórmulas:**
+**Interpretación:** permite evaluar la confiabilidad de los compromisos del equipo. No debe confundirse con productividad ni con velocidad.
 
-Carry-over (elementos) = Conteo de elementos comprometidos no completados.
+El cálculo supone que los elementos pendientes corresponden a compromisos iniciales no completados y que no existen cancelaciones u otros ajustes que alteren su contabilización.
 
-Carry-over (%) = (Elementos comprometidos no completados / Elementos comprometidos) × 100
+### 3.3 Trabajo pendiente entre Sprints (Carry-over)
 
-**Fuente:** `agile-delivery.csv`
+**Definición:** mide la cantidad de elementos comprometidos que no se completan al finalizar el Sprint y pasan al siguiente período.
 
-**Campo disponible:** `carry_over`.
+**Campo:** `carry_over`.
 
-**Interpretación:** permite identificar compromisos que se trasladan entre Sprints y analizar posibles problemas de planificación, capacidad o dependencias.
+**Unidad:** cantidad de elementos y porcentaje respecto del compromiso inicial.
 
-**Consideraciones:**
-- El valor absoluto se obtiene directamente del campo `carry_over`.
-- El porcentaje se calcula respecto de los elementos comprometidos al inicio del Sprint.
-- Si no existen elementos comprometidos, el porcentaje debe registrarse como "No aplica".
-- Debe mantenerse un criterio consistente para identificar los elementos pendientes.
-- S12, al encontrarse en curso al corte del 7 de noviembre, no debe tratarse como un Sprint finalizado.
+\[
+\frac{\text{Elementos pendientes}}{\text{Elementos comprometidos}} \times 100
+\]
+
+**Interpretación:** un valor elevado puede indicar problemas de planificación, dependencias, capacidad o interrupciones. Debe analizarse considerando el contexto del Sprint.
 
 ### 3.4 Trabajo no planificado
 
-**Definición:** cantidad de elementos de trabajo incorporados durante el Sprint que no formaban parte del compromiso inicial.
-
-**Indicadores:**
-
-- Trabajo no planificado (elementos): cantidad de elementos incorporados fuera del compromiso inicial.
-- Trabajo no planificado (%): proporción de elementos no planificados respecto del total de elementos gestionados durante el Sprint.
-
-**Fórmulas:**
-
-Trabajo no planificado (elementos) = Conteo de elementos incorporados fuera del compromiso inicial.
-
-Trabajo no planificado (%) = (Elementos de trabajo no planificado / (Elementos comprometidos + Elementos de trabajo no planificado)) × 100
-
-**Fuente:** `agile-delivery.csv`
-
-**Campos utilizados:**
-- `elementos_comprometidos`
-- `trabajo_no_planificado`
-
-**Interpretación:** permite identificar cuánto trabajo adicional se incorporó durante el Sprint y analizar su posible impacto sobre la capacidad y los compromisos iniciales.
-
-**Consideraciones:**
-- El porcentaje considera como denominador la suma de elementos comprometidos y elementos no planificados.
-- Los elementos no planificados deben identificarse por separado del compromiso inicial.
-- Se debe mantener un criterio uniforme para clasificar el trabajo adicional.
-- Es importante identificar si responde a incidentes, urgencias, cambios de prioridad o dependencias.
-- No debe interpretarse automáticamente como una falla del equipo.
-- Si el total de elementos gestionados es cero, el indicador debe registrarse como "No aplica".
-- La fórmula presupone que ambos campos representan cantidades de elementos comparables y no duplicados.
-
-### 3.5 Throughput
-
-**Definición:** cantidad de elementos de trabajo completados durante un Sprint o período determinado.
+**Definición:** mide el trabajo que se incorpora durante el Sprint sin formar parte del compromiso inicial.
 
 **Fórmula:**
 
-Throughput = Conteo de elementos completados durante el período.
+\[
+\frac{\text{Trabajo no planificado}}{\text{Elementos comprometidos}+\text{Trabajo no planificado}} \times 100
+\]
 
-**Fuente:** `agile-delivery.csv`
+**Campos:** `trabajo_no_planificado`, `elementos_comprometidos`.
 
-**Campo disponible:** `throughput`.
+**Unidad:** cantidad de elementos y porcentaje (%).
 
-**Unidad:** cantidad de elementos completados.
+**Interpretación:** permite identificar interrupciones o cambios de prioridad que afectan la capacidad comprometida. Los elementos deben contabilizarse sin duplicidades.
 
-**Interpretación:** permite observar el volumen de trabajo terminado por un equipo a lo largo del tiempo.
+### 3.5 Flujo de entrega (Throughput)
 
-**Consideraciones:**
-- No equivale a productividad individual.
-- No debe utilizarse para comparar equipos sin considerar el tamaño y la complejidad de los elementos.
-- Debe analizarse junto con Cycle Time, calidad y cumplimiento del Sprint Goal.
-- No debe confundirse con el cumplimiento del compromiso inicial.
-- El trabajo no planificado debe identificarse y analizarse por separado.
+**Definición:** mide la cantidad de elementos de trabajo completados durante un período.
 
-**Limitación de los datos DEMO:**
+**Campo:** `throughput`.
 
-En la muestra actual, `throughput` presenta los mismos valores que `elementos_completados`. No existe un campo independiente que identifique cuántos elementos de trabajo no planificado fueron completados durante el Sprint.
+**Unidad:** cantidad de elementos.
 
-Por esta razón, el indicador debe interpretarse como el volumen registrado en el campo `throughput`, sin atribuirle una separación entre trabajo planificado y no planificado.
+**Interpretación:** permite observar la capacidad de entrega y su evolución. En este conjunto de datos coincide con `elementos_completados` y no distingue entre elementos planificados y no planificados.
 
-S12 debe identificarse como Sprint en curso y no compararse directamente con Sprints finalizados.
+### 3.6 Tiempo de ciclo (Cycle Time)
 
-### 3.6 Cycle Time
+**Definición:** mide el tiempo transcurrido desde que un elemento comienza su ejecución hasta que se completa.
 
-**Definición:** tiempo transcurrido desde que un elemento de trabajo comienza su ejecución activa hasta que queda completado.
-
-**Fórmula conceptual:**
-
-Cycle Time = Fecha y hora de finalización − Fecha y hora de inicio del trabajo activo.
-
-**Fuente:** `agile-delivery.csv`
-
-**Campo disponible:** `cycle_time_mediana_dias`.
+**Campo:** `cycle_time_mediana_dias`.
 
 **Unidad:** días.
 
-**Agregación:** mediana del Cycle Time de los elementos completados durante el Sprint.
+**Agregación:** mediana por equipo y Sprint.
 
-**Interpretación:** permite evaluar cuánto tiempo tarda el equipo en completar los elementos una vez iniciado el trabajo activo. Una reducción sostenida puede reflejar una mejora en el flujo de entrega, siempre que se mantengan criterios comparables de tamaño y complejidad.
+**Interpretación:** permite evaluar la fluidez del proceso de entrega. Un aumento puede reflejar bloqueos, dependencias o acumulación de trabajo en curso.
 
-**Consideraciones:**
-- La mediana reduce la influencia de elementos con tiempos excepcionalmente altos.
-- Debe analizarse junto con Lead Time, WIP, throughput y calidad.
-- No representa el tiempo total transcurrido desde que se solicita un elemento.
-- No debe confundirse con la duración del Sprint.
-- No debe utilizarse para comparar equipos sin considerar diferencias en sus procesos y tipos de trabajo.
-- S12 debe identificarse como Sprint en curso y no compararse directamente con Sprints finalizados.
+### 3.7 Tiempo de entrega (Lead Time)
 
-**Limitación de los datos DEMO:** el dataset contiene una mediana agregada por equipo y Sprint. No incluye las fechas individuales de inicio y finalización de cada elemento, por lo que no permite reconstruir ni recalcular la distribución individual del Cycle Time.
+**Definición:** mide el tiempo transcurrido desde que se registra una solicitud hasta que el elemento se completa.
 
-### 3.7 Lead Time
-
-**Definición:** tiempo transcurrido desde que un elemento de trabajo es solicitado o registrado hasta que queda completado.
-
-**Fórmula conceptual:**
-
-Lead Time = Fecha y hora de finalización − Fecha y hora de solicitud o registro.
-
-**Fuente:** `agile-delivery.csv`
-
-**Campo disponible:** `lead_time_mediana_dias`.
+**Campo:** `lead_time_mediana_dias`.
 
 **Unidad:** días.
 
-**Agregación:** mediana del Lead Time de los elementos completados durante el Sprint.
+**Agregación:** mediana por equipo y Sprint.
 
-**Interpretación:** permite evaluar el tiempo total que transcurre desde que surge una necesidad hasta que se entrega el resultado. Incluye tanto períodos de espera como períodos de ejecución activa.
+**Interpretación:** representa el tiempo de respuesta desde la solicitud hasta la entrega. Incluye el tiempo previo al inicio del trabajo, a diferencia del tiempo de ciclo.
 
-**Consideraciones:**
-- Incluye tiempos de espera, priorización y ejecución.
-- Debe analizarse junto con Cycle Time, WIP y throughput.
-- No debe confundirse con la duración del Sprint.
-- Una reducción sostenida puede indicar una mejora en la capacidad de respuesta, siempre que se mantengan criterios comparables.
-- No debe utilizarse para comparar equipos sin considerar sus procesos y tipos de trabajo.
-- S12 debe identificarse como Sprint en curso y no compararse directamente con Sprints finalizados.
+### 3.8 Trabajo en curso (WIP)
 
-**Limitación de los datos DEMO:** el dataset contiene una mediana agregada por equipo y Sprint. No incluye las fechas individuales de solicitud y finalización de cada elemento, por lo que no permite reconstruir ni recalcular la distribución individual del Lead Time.
+**Definición:** representa la cantidad promedio de elementos iniciados que permanecen sin completar.
 
-### 3.8 WIP (Work in Progress)
+**Campo:** `wip_promedio`.
 
-**Definición:** cantidad de elementos de trabajo que se encuentran iniciados y todavía no han sido completados en un momento determinado.
+**Unidad:** cantidad promedio de elementos.
 
-**Objetivo:** monitorear el volumen de trabajo en curso, identificar posibles situaciones de sobrecarga y analizar su relación con el flujo de entrega.
+**Interpretación:** permite observar la acumulación de trabajo en curso. Un valor elevado puede aumentar los tiempos de entrega y dificultar la identificación de bloqueos.
 
-**Fórmula conceptual:**
+### 3.9 Impedimentos
 
-\[
-WIP = \text{Cantidad de elementos iniciados y no completados}
-\]
+**Definición:** mide la cantidad de impedimentos registrados durante el Sprint.
 
-**Campo disponible:** `wip_promedio`, del dataset `agile-delivery.csv`.
+**Campo:** `impedimentos`.
 
-**Unidad de medida:** cantidad promedio de elementos en curso.
+**Unidad:** cantidad de impedimentos.
 
-**Interpretación:**
-- Un WIP elevado puede indicar acumulación de trabajo, sobrecarga o dificultades para finalizar elementos.
-- Un WIP reducido puede favorecer la concentración y el flujo de entrega, siempre que exista suficiente trabajo disponible.
-- Debe analizarse junto con Throughput, Cycle Time, impedimentos y capacidad del equipo.
-- No existe un límite universal de WIP. Para evaluar si el nivel es adecuado, se necesita conocer la política o límite de trabajo en curso definido por el equipo.
+**Interpretación:** permite identificar obstáculos que afectan el flujo de trabajo. El conjunto de datos contiene valores agregados, sin detalle de responsables, duración o estado individual.
 
-**Consideraciones sobre los datos:**
-- El dataset registra `wip_promedio` como un valor agregado por equipo y Sprint.
-- No contiene registros diarios ni el historial de entrada y salida de cada elemento.
-- Por lo tanto, no permite reconstruir la evolución diaria del WIP ni verificar cuánto tiempo permaneció cada elemento en curso.
-- Las comparaciones entre equipos deben considerar sus características, capacidad y políticas de trabajo.
-- El Sprint S12 está en curso y sus valores son parciales; no debe compararse directamente con Sprints finalizados.
+### 3.10 Defectos
 
-**Fuente:** `agile-delivery.csv`.
+**Definición:** mide la cantidad de defectos identificados durante el período.
 
-**Tipo de dato:** DEMO.
+**Campo:** `defectos`.
 
-### 3.9 Impedimentos (Impediments)
+**Unidad:** cantidad de defectos.
 
-**Definición:** cantidad de obstáculos registrados durante un Sprint que dificultan o bloquean el avance del equipo.
-
-**Objetivo:** monitorear las dificultades que afectan la ejecución del trabajo, identificar recurrencias y facilitar acciones de resolución o escalamiento.
-
-**Fórmula conceptual:**
-
-\[
-\text{Impedimentos} = \text{Cantidad de impedimentos registrados durante el Sprint}
-\]
-
-**Campo disponible:** `impedimentos`, del dataset `agile-delivery.csv`.
-
-**Unidad de medida:** cantidad de impedimentos por equipo y Sprint.
-
-**Interpretación:**
-- Un aumento puede señalar dependencias, problemas técnicos, decisiones pendientes o restricciones externas.
-- Una disminución puede reflejar una mejor gestión de obstáculos, pero no necesariamente una mejora del flujo de entrega.
-- Es importante analizar los impedimentos junto con Cycle Time, Lead Time, Carry-over y cumplimiento del Sprint Goal.
-- La cantidad por sí sola no mide la gravedad, duración ni impacto de los impedimentos.
-
-**Consideraciones sobre los datos:**
-- El dataset registra una cantidad agregada de impedimentos por equipo y Sprint.
-- No contiene detalle individual, fechas de apertura y resolución, responsable, severidad ni tiempo de bloqueo.
-- Por lo tanto, no permite calcular el tiempo promedio de resolución ni identificar la antigüedad de los impedimentos.
-- Para un análisis más completo se requiere un registro individual de impedimentos.
-- El Sprint S12 está en curso y sus valores son parciales; no debe compararse directamente con Sprints finalizados.
-
-**Fuente:** `agile-delivery.csv`.
-
-**Tipo de dato:** DEMO.
-
-### 3.10 Defectos (Defects)
-
-**Definición:** cantidad de defectos registrados durante un Sprint, asociados a problemas de calidad identificados en los elementos de trabajo.
-
-**Objetivo:** monitorear la calidad de los entregables, identificar tendencias y detectar posibles necesidades de mejora en los procesos de desarrollo y validación.
-
-**Fórmula conceptual:**
-
-\[
-\text{Defectos} = \text{Cantidad de defectos registrados durante el Sprint}
-\]
-
-**Campo disponible:** `defectos`, del dataset `agile-delivery.csv`.
-
-**Unidad de medida:** cantidad de defectos por equipo y Sprint.
-
-**Interpretación:**
-- Un aumento de defectos puede indicar problemas de calidad, validación insuficiente o mayor complejidad del trabajo.
-- Una disminución puede reflejar mejoras en las prácticas de calidad, aunque debe analizarse junto con el volumen de trabajo entregado.
-- Es importante observar su relación con Throughput, retrabajo y cumplimiento del Sprint Goal.
-- La cantidad de defectos no permite determinar por sí sola la severidad ni el impacto sobre los usuarios o el negocio.
-
-**Consideraciones sobre los datos:**
-- El dataset registra una cantidad agregada de defectos por equipo y Sprint.
-- No contiene identificación individual, severidad, fecha de detección, estado ni causa raíz de cada defecto.
-- Por lo tanto, no permite calcular tasas de defectos por entrega, tiempos de resolución ni distribución por severidad.
-- Para un análisis de calidad más completo se requiere un registro individual de defectos.
-- El Sprint S12 está en curso y sus valores son parciales; no debe compararse directamente con Sprints finalizados.
-
-**Fuente:** `agile-delivery.csv`.
-
-**Tipo de dato:** DEMO.
+**Interpretación:** permite monitorear señales de calidad del producto. El dato agregado no incluye severidad, causa raíz ni estado individual de cada defecto.
 
 ### 3.11 Retrabajo (Rework)
 
-**Definición:** cantidad de elementos de trabajo que requieren volver a ejecutarse, corregirse o modificarse debido a problemas detectados durante su desarrollo o validación.
+**Definición:** mide la cantidad de elementos de trabajo que requieren correcciones o ejecución adicional.
 
-**Objetivo:** identificar el esfuerzo adicional generado por correcciones y analizar su posible impacto en la capacidad y el flujo de entrega del equipo.
+**Campo:** `retrabajo_elementos`.
 
-**Fórmula conceptual:**
+**Unidad:** cantidad de elementos.
 
-\[
-\text{Retrabajo} = \text{Cantidad de elementos registrados como retrabajo durante el Sprint}
-\]
-
-**Campo disponible:** `retrabajo_elementos`, del dataset `agile-delivery.csv`.
-
-**Unidad de medida:** cantidad de elementos con retrabajo por equipo y Sprint.
-
-**Interpretación:**
-- Un aumento puede indicar problemas de calidad, requisitos poco claros, cambios de alcance o validaciones tardías.
-- Una disminución puede reflejar mejoras en la calidad y estabilidad de los entregables.
-- Debe analizarse junto con Defectos, Throughput, Cycle Time y cumplimiento del Sprint Goal.
-- El retrabajo representa elementos afectados, no necesariamente horas de esfuerzo ni costo adicional.
-
-**Consideraciones sobre los datos:**
-- El dataset registra una cantidad agregada de elementos con retrabajo por equipo y Sprint.
-- No contiene horas dedicadas, costo asociado, causa raíz ni identificación individual de los elementos.
-- Por lo tanto, no permite calcular el esfuerzo o costo real del retrabajo ni establecer sus causas.
-- No debe asumirse que cada defecto genera un elemento de retrabajo o que ambos indicadores tienen una relación directa.
-- El Sprint S12 está en curso y sus valores son parciales; no debe compararse directamente con Sprints finalizados.
-
-**Fuente:** `agile-delivery.csv`.
-
-**Tipo de dato:** DEMO.
+**Interpretación:** permite identificar trabajo adicional asociado a correcciones o ajustes. No representa horas ni costos de retrabajo y no debe asumirse que todo defecto genera retrabajo.
 
 ## 4. Entrega Técnica y DevOps — Métricas DORA
 
-Las métricas DORA permiten observar el desempeño de la entrega de software desde la perspectiva de velocidad y estabilidad.
+Esta categoría reúne indicadores para evaluar la frecuencia de despliegues, el tiempo de entrega de cambios y la estabilidad de las liberaciones en producción.
 
-Se consideran cuatro indicadores:
+**Fuentes principales:** `deployments.csv` e `incidents.csv`.
 
-1. Deployment Frequency.
-2. Lead Time for Changes.
-3. Change Failure Rate.
-4. Failed Deployment Recovery Time.
+**Consideración sobre los datos:** el conjunto DEMO contiene 48 registros de despliegues de cuatro servicios, correspondientes al período junio-septiembre de 2026. Se identifican siete despliegues fallidos y sus incidentes asociados. Los datos permiten ilustrar el análisis DORA, pero no representan una medición productiva validada.
 
-Deben analizarse conjuntamente y por servicio o aplicación cuando la información lo permita.
+### 4.1 Frecuencia de despliegue (Deployment Frequency)
 
-### 4.1 Deployment Frequency (Frecuencia de Despliegue)
+**Definición:** mide la frecuencia con que se realizan despliegues exitosos en producción durante un período.
 
-**Definición:** frecuencia con la que un servicio realiza despliegues exitosos en un entorno productivo durante un período determinado.
+**Criterio de cálculo:** contabilizar los despliegues con entorno de producción y estado exitoso, agrupados por servicio y período.
 
-**Objetivo:** monitorear la capacidad de los equipos para entregar cambios de software en producción de manera frecuente y sostenida.
+**Campos:** `fecha_despliegue`, `servicio`, `entorno`, `estado_despliegue`.
 
-**Fórmula:**
+**Unidad:** cantidad de despliegues por período.
 
-\[
-\text{Deployment Frequency} =
-\frac{\text{Cantidad de despliegues exitosos en producción}}{\text{Período de medición}}
-\]
+**Interpretación:** permite observar la capacidad de entrega de cambios en producción. Una mayor frecuencia no implica necesariamente mayor valor de negocio ni mejor calidad.
 
-**Campos disponibles:** `fecha_despliegue`, `servicio`, `entorno` y `estado_despliegue`, del dataset `deployments.csv`.
+### 4.2 Tiempo de entrega de cambios (Lead Time for Changes)
 
-**Unidad de medida:** despliegues exitosos por servicio y período.
+**Definición:** mide el tiempo transcurrido desde que un cambio se confirma en el repositorio hasta que se despliega en producción.
 
-**Criterio de cálculo:**
-- Considerar únicamente despliegues en producción.
-- Contabilizar como exitosos aquellos cuyo estado indique que finalizaron correctamente.
-- Excluir los despliegues fallidos del numerador.
-- Definir y mantener un período de medición consistente para facilitar el análisis de tendencias.
+**Campo:** `lead_time_cambios_horas`.
 
-**Interpretación:**
-- Una mayor frecuencia puede reflejar una capacidad de entrega más continua.
-- Una menor frecuencia puede estar relacionada con ciclos de liberación extensos, dependencias o procesos de aprobación.
-- Debe analizarse junto con Lead Time for Changes, Change Failure Rate y Failed Deployment Recovery Time.
-- Una frecuencia elevada no implica automáticamente mayor calidad ni mayor valor de negocio.
+**Unidad:** horas.
 
-**Consideraciones sobre los datos:**
-- El dataset contiene 48 registros de despliegues correspondientes a cuatro servicios.
-- Los registros corresponden a despliegues en producción entre junio y septiembre de 2026.
-- Se identifican siete despliegues fallidos.
-- `fecha_despliegue` contiene únicamente la fecha, sin hora de ejecución.
-- Por lo tanto, permite calcular frecuencias por día, semana o mes, pero no analizar horarios ni intervalos precisos entre despliegues.
-- Los resultados deben calcularse por servicio y período, evitando comparar servicios con contextos de entrega diferentes.
+**Agregación recomendada:** mediana por servicio y período.
 
-**Fuente:** `deployments.csv`.
+**Limitación:** el dataset contiene duraciones agregadas, pero no las marcas de tiempo individuales de cada commit y despliegue. Por tanto, este indicador es una aproximación DEMO y no permite validar el cálculo DORA original desde los eventos fuente.
 
-**Tipo de dato:** DEMO.
+**Interpretación:** permite observar la rapidez con que los cambios llegan a producción.
 
-### 4.2 Lead Time for Changes (Tiempo de Entrega de Cambios)
+### 4.3 Tasa de fallos de cambios (Change Failure Rate)
 
-**Definición:** tiempo transcurrido desde que un cambio de código se confirma en el sistema de control de versiones hasta que queda desplegado en producción.
-
-**Objetivo:** medir la velocidad del proceso de entrega de software e identificar demoras entre la incorporación de cambios y su disponibilidad en producción.
-
-**Fórmula conceptual:**
-
-\[
-\text{Lead Time for Changes} =
-\text{Fecha y hora del despliegue en producción}
--
-\text{Fecha y hora del commit}
-\]
-
-**Campo disponible:** `lead_time_cambios_horas`, del dataset `deployments.csv`.
-
-**Unidad de medida:** horas por cambio desplegado.
-
-**Criterio de cálculo:**
-- En una medición DORA estricta, se requiere la marca de tiempo del commit y la marca de tiempo del despliegue correspondiente en producción.
-- El indicador debe calcularse sobre cambios efectivamente desplegados.
-- Para analizar la tendencia, se recomienda utilizar la mediana del período, evitando que unos pocos valores extremos distorsionen la interpretación.
-
-**Interpretación:**
-- Un Lead Time menor puede reflejar un flujo de entrega más ágil y menos esperas entre etapas.
-- Un aumento puede señalar demoras en revisiones, pruebas, aprobaciones, integración o despliegue.
-- Debe analizarse junto con Deployment Frequency, Change Failure Rate y Failed Deployment Recovery Time.
-- Un Lead Time reducido no garantiza por sí solo calidad ni valor de negocio.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene el campo `lead_time_cambios_horas`, expresado en horas.
-- No dispone de fechas y horas individuales de commit ni de despliegue.
-- Por lo tanto, no es posible recalcular ni verificar el indicador mediante su fórmula DORA estricta.
-- El valor disponible debe tratarse como una aproximación DEMO y no como una medición DORA validada.
-- Para una medición rigurosa se requiere integrar información de control de versiones y despliegues, con marcas de tiempo correlacionables por cambio.
-
-**Fuente:** `deployments.csv`.
-
-**Tipo de dato:** DEMO — aproximación, no medición DORA estricta.
-
-### 4.3 Change Failure Rate (Tasa de Fallos de Cambios)
-
-**Definición:** porcentaje de despliegues en producción que generan fallos y requieren una intervención correctiva, como una reversión, hotfix o recuperación del servicio.
-
-**Objetivo:** evaluar la estabilidad y calidad del proceso de entrega de software, identificando qué proporción de los cambios desplegados genera problemas en producción.
+**Definición:** mide el porcentaje de despliegues en producción que generan una falla y requieren intervención correctiva.
 
 **Fórmula:**
 
 \[
-CFR =
-\frac{\text{Despliegues fallidos en producción}}
-{\text{Total de despliegues en producción}}
-\times 100
+\frac{\text{Despliegues fallidos en producción}}{\text{Total de despliegues en producción}} \times 100
 \]
 
-**Campos disponibles:** `fallo_cambio`, `estado_despliegue`, `entorno` e `incidente_id`, del dataset `deployments.csv`.
+**Campos:** `fallo_cambio`, `estado_despliegue`, `entorno`, `incidente_id`.
 
-**Unidad de medida:** porcentaje (%).
+**Unidad:** porcentaje (%).
 
-**Criterio de cálculo:**
-- Considerar únicamente despliegues en producción.
-- Identificar los despliegues fallidos mediante el campo `fallo_cambio` y validar su correspondencia con `estado_despliegue`.
-- Dividir la cantidad de despliegues fallidos por el total de despliegues del período.
-- Expresar el resultado como porcentaje.
-- Mantener un período de medición consistente para analizar tendencias.
+**Ejemplo DEMO:** se identifican siete despliegues fallidos. La tasa definitiva debe calcularse utilizando como denominador únicamente los despliegues realizados en producción durante el mismo período.
 
-**Ejemplo con datos DEMO:**
+**Limitación:** el dataset identifica fallas asociadas a despliegues, pero no contiene evidencia detallada de cada acción correctiva, como rollback, hotfix o restauración.
 
-\[
-CFR = \frac{7}{48}\times100 = 14,58\%
-\]
+**Interpretación:** permite evaluar la estabilidad de los cambios liberados en producción. Debe analizarse junto con la frecuencia de despliegue y los tiempos de recuperación.
 
-**Interpretación:**
-- Un CFR elevado puede indicar problemas de calidad, pruebas insuficientes, cambios de alto riesgo o debilidades en los controles de despliegue.
-- Una disminución sostenida puede reflejar mejoras en las prácticas de validación y estabilidad de las entregas.
-- Debe analizarse junto con Deployment Frequency, Lead Time for Changes y Failed Deployment Recovery Time.
-- Una tasa baja no garantiza ausencia de incidentes ni demuestra por sí sola la calidad del producto.
+### 4.4 Tiempo de recuperación de despliegues fallidos (Failed Deployment Recovery Time)
 
-**Consideraciones sobre los datos:**
-- El dataset contiene 48 despliegues en producción correspondientes a cuatro servicios.
-- Se identifican siete despliegues fallidos.
-- El CFR calculado para el conjunto de datos es 14,58%.
-- Los siete despliegues fallidos están asociados a identificadores de incidentes en `incidents.csv`.
-- La clasificación de fallo se basa en los campos disponibles en el dataset DEMO; no se dispone de evidencia detallada sobre reversión, hotfix o intervención requerida para cada caso.
-- Por lo tanto, el resultado debe interpretarse como una aproximación DEMO de Change Failure Rate, no como una medición DORA validada mediante registros operacionales completos.
+**Definición:** mide el tiempo transcurrido desde la detección del impacto de un despliegue fallido hasta la recuperación del servicio.
 
-**Fuente:** `deployments.csv`, con referencias cruzadas a `incidents.csv`.
+**Fuente:** `incidents.csv`, para incidentes asociados a despliegues fallidos.
 
-**Tipo de dato:** DEMO — aproximación basada en despliegues fallidos registrados.
+**Campos:** `fecha_deteccion`, `fecha_recuperacion`, `incidente_id`.
 
-### 4.4 Failed Deployment Recovery Time (Tiempo de Recuperación ante Fallos de Despliegue)
+**Unidad:** tiempo de recuperación.
 
-**Definición:** tiempo transcurrido desde que se detecta el impacto de un despliegue fallido hasta que el servicio afectado recupera su funcionamiento.
+**Limitación:** se utiliza la fecha de detección como referencia de inicio. El resultado depende de la disponibilidad y consistencia de las marcas de tiempo del dataset.
 
-**Objetivo:** evaluar la capacidad de los equipos para responder y recuperar servicios después de fallos asociados a cambios desplegados en producción.
+**Interpretación:** permite evaluar la capacidad de respuesta y recuperación ante fallas provocadas por despliegues. No debe confundirse con el MTTR operacional, cuya definición y alcance se presentan en la sección **6.2**.
 
-**Fórmula conceptual:**
+## 5. Monitoreo y Observabilidad Cloud
 
-\[
-\text{Recovery Time} =
-\text{Fecha y hora de recuperación}
--
-\text{Fecha y hora de detección del impacto}
-\]
+Esta categoría reúne indicadores para monitorear la disponibilidad, el rendimiento, el consumo de recursos y los costos de los servicios alojados en infraestructura cloud.
 
-**Campos disponibles:** `tiempo_recuperacion_minutos`, `fecha_deteccion`, `fecha_recuperacion` y `deployment_id`, del dataset `incidents.csv`.
+**Fuente principal:** `cloud-monitoring.csv`.
 
-**Unidad de medida:** minutos.
+**Consideración sobre los datos:** el dataset contiene 20 registros de cuatro servicios, distribuidos en cinco cortes semanales de septiembre de 2026. Los valores son agregados y corresponden a datos DEMO; no incluyen telemetría individual ni series temporales originales. Los volúmenes de tráfico y costos representan convenciones de demostración, no registros reales de facturación.
 
-**Criterio de cálculo:**
-- Considerar incidentes asociados a despliegues fallidos en producción.
-- Utilizar `fecha_deteccion` como referencia de inicio del impacto en este modelo DEMO.
-- Utilizar `fecha_recuperacion` como referencia de restablecimiento del servicio.
-- Calcular el tiempo transcurrido entre ambos momentos.
-- Para analizar el comportamiento del indicador, se recomienda utilizar la mediana y observar también los casos de mayor duración.
+### 5.1 Disponibilidad de servicios
 
-**Interpretación:**
-- Un tiempo menor puede reflejar una mayor capacidad de respuesta y recuperación.
-- Un aumento puede señalar dificultades en diagnóstico, coordinación, reversión, corrección o validación del servicio.
-- Debe analizarse junto con Change Failure Rate, Deployment Frequency y Lead Time for Changes.
-- Una recuperación rápida no significa necesariamente que se haya identificado y eliminado la causa raíz.
+**Definición:** mide el porcentaje de tiempo en que un servicio permanece disponible durante un período.
 
-**Consideraciones sobre los datos:**
-- El dataset `incidents.csv` contiene 15 incidentes resueltos.
-- Siete incidentes están relacionados con despliegues fallidos mediante `deployment_id`.
-- Para este indicador DORA se consideran únicamente esos siete incidentes asociados a despliegues fallidos.
-- `tiempo_recuperacion_minutos` representa el intervalo entre detección y recuperación, no desde la apertura del incidente.
-- Los valores de recuperación de los siete incidentes relacionados coinciden con los registrados en `deployments.csv`.
-- El modelo utiliza `fecha_deteccion` como aproximación al inicio del impacto; se debe validar este criterio con los registros operacionales en una implementación real.
-- No debe confundirse con el MTTR operacional, que considera la población de incidentes recuperados y utiliza un alcance distinto.
+**Campo:** `disponibilidad_pct`.
 
-**Fuente:** `incidents.csv`, con referencias cruzadas a `deployments.csv`.
+**Unidad:** porcentaje (%).
 
-**Tipo de dato:** DEMO — aproximación basada en incidentes asociados a despliegues fallidos.
+**Interpretación:** permite evaluar la continuidad del servicio y detectar variaciones que puedan afectar su operación.
 
-## 5. Cloud Monitoring & Observability
+### 5.2 Latencia de respuesta (p95)
 
-Este módulo permite observar la salud técnica y el comportamiento de los servicios desplegados en infraestructura cloud.
+**Definición:** representa el tiempo de respuesta por debajo del cual se encuentra el 95 % de las solicitudes observadas.
 
-### 5.1 Disponibilidad (Availability)
+**Campo:** `latencia_p95_ms`.
 
-**Definición:** porcentaje del tiempo en que un servicio estuvo operativo y accesible durante un período de medición.
+**Unidad:** milisegundos (ms).
 
-**Objetivo:** monitorear la continuidad de los servicios cloud e identificar degradaciones que puedan afectar su operación.
+**Interpretación:** permite evaluar el rendimiento percibido por los usuarios y detectar degradaciones en los tiempos de respuesta.
 
-**Fórmula conceptual:**
+### 5.3 Tasa de errores
 
-\[
-\text{Disponibilidad (\%)} =
-\frac{\text{Tiempo disponible}}
-{\text{Tiempo total de medición}}
-\times 100
-\]
+**Definición:** mide el porcentaje de solicitudes que generan errores respecto del total de solicitudes procesadas.
 
-**Campo disponible:** `disponibilidad_pct`, del dataset `cloud-monitoring.csv`.
+**Campo:** `tasa_errores_pct`.
 
-**Unidad de medida:** porcentaje (%).
+**Unidad:** porcentaje (%).
 
-**Criterio de cálculo:**
-- Utilizar el porcentaje de disponibilidad registrado para cada servicio y período.
-- Mantener una ventana de medición consistente.
-- Para calcular disponibilidad desde eventos operacionales, se requieren registros de tiempo disponible e indisponibilidad.
-- No asumir que el porcentaje registrado puede reconstruirse sin esos eventos.
+**Interpretación:** permite identificar problemas de estabilidad y calidad del servicio. Debe analizarse junto con la disponibilidad y la latencia.
 
-**Interpretación:**
-- Una disponibilidad elevada indica mayor continuidad operacional durante el período observado.
-- Una disminución puede señalar interrupciones, degradaciones o problemas de infraestructura o aplicación.
-- Debe analizarse junto con incidentes, SLA, latencia y tasa de errores.
-- La disponibilidad no equivale a ausencia de incidentes: pueden existir incidentes sin interrupción total del servicio.
+### 5.4 Utilización de CPU
 
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `disponibilidad_pct` es un valor agregado por servicio y corte semanal.
-- No se dispone de eventos individuales de caída, duración de interrupciones ni ventanas de mantenimiento.
-- Por lo tanto, no es posible recalcular ni auditar la disponibilidad desde eventos de monitoreo.
-- Los valores deben interpretarse como datos DEMO agregados, no como mediciones verificadas de una plataforma cloud real.
+**Definición:** representa el porcentaje promedio de utilización de la capacidad de procesamiento.
 
-**Fuente:** `cloud-monitoring.csv`.
+**Campo:** `cpu_promedio_pct`.
 
-**Tipo de dato:** DEMO.
+**Unidad:** porcentaje (%).
 
-### 5.2 Latencia p95 (Percentil 95 de Latencia)
+**Interpretación:** permite identificar niveles elevados de consumo de procesamiento y posibles necesidades de optimización o escalamiento.
 
-**Definición:** tiempo de respuesta por debajo del cual se completa el 95% de las solicitudes observadas durante un período de medición.
+### 5.5 Utilización de memoria
 
-**Objetivo:** monitorear el rendimiento y la capacidad de respuesta de los servicios, identificando degradaciones que pueden no ser visibles al analizar únicamente el promedio.
+**Definición:** representa el porcentaje promedio de memoria utilizada respecto de la capacidad disponible.
 
-**Fórmula conceptual:**
+**Campo:** `memoria_promedio_pct`.
 
-\[
-p95 = \text{Percentil 95 de los tiempos de respuesta registrados}
-\]
+**Unidad:** porcentaje (%).
 
-**Campo disponible:** `latencia_p95_ms`, del dataset `cloud-monitoring.csv`.
+**Interpretación:** permite detectar presión sobre la memoria y anticipar posibles problemas de rendimiento.
 
-**Unidad de medida:** milisegundos (ms).
+### 5.6 Utilización de almacenamiento
 
-**Criterio de cálculo:**
-- Utilizar los tiempos de respuesta individuales registrados durante la ventana de medición.
-- Ordenar las observaciones de menor a mayor.
-- Calcular el percentil 95 según el método estadístico definido por la herramienta de monitoreo.
-- Si se utiliza un valor p95 previamente agregado, conservar la definición y ventana de medición de su fuente.
+**Definición:** mide el porcentaje de capacidad de almacenamiento utilizada respecto de la capacidad disponible.
 
-**Interpretación:**
-- Una latencia p95 menor generalmente indica una mejor capacidad de respuesta para la mayoría de las solicitudes.
-- Un aumento puede señalar saturación de recursos, consultas lentas, dependencias externas o problemas de red.
-- Debe analizarse junto con disponibilidad, tasa de errores, CPU, memoria y tráfico.
-- El p95 no representa el tiempo máximo ni el promedio de respuesta: aproximadamente el 5% de las solicitudes puede superar ese valor.
+**Campo:** `almacenamiento_usado_pct`.
 
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `latencia_p95_ms` representa un valor agregado por servicio y corte semanal.
-- No se dispone de los tiempos de respuesta individuales que originaron cada percentil.
-- Por lo tanto, no es posible recalcular el p95 ni verificar su distribución estadística a partir del dataset disponible.
-- Los valores deben interpretarse como datos DEMO agregados, no como mediciones verificadas de una plataforma de observabilidad real.
+**Unidad:** porcentaje (%).
 
-**Fuente:** `cloud-monitoring.csv`.
+**Interpretación:** permite monitorear el consumo de almacenamiento y anticipar necesidades de ampliación de capacidad.
 
-**Tipo de dato:** DEMO.
+### 5.7 Tráfico de red
 
-### 5.3 Tasa de Errores (Error Rate)
+**Definición:** representa el volumen de datos que ingresan y salen de los servicios durante el período.
 
-**Definición:** porcentaje de solicitudes que generan errores respecto del total de solicitudes procesadas por un servicio durante un período determinado.
+**Campos:** `trafico_entrada_gb`, `trafico_salida_gb`.
 
-**Objetivo:** monitorear la estabilidad de los servicios y detectar problemas que puedan afectar la experiencia de los usuarios o la continuidad operacional.
+**Unidad:** gigabytes (GB) por período.
+
+**Interpretación:** permite observar el comportamiento del tráfico de red y detectar variaciones relevantes en el consumo.
+
+### 5.8 Costo de infraestructura Cloud
+
+**Definición:** representa el costo estimado de infraestructura cloud asociado a cada servicio durante el período.
+
+**Campo:** `costo_cloud_usd`.
+
+**Unidad:** dólares estadounidenses (USD) por período.
+
+**Interpretación:** permite ilustrar el seguimiento de costos y comparar su evolución entre servicios. Los valores DEMO no deben interpretarse como facturación real ni utilizarse para decisiones financieras.
+
+## 6. Operación de Servicios TI
+
+Esta categoría reúne indicadores para monitorear el volumen de incidentes, los tiempos de resolución, el cumplimiento de los niveles de servicio y la severidad de las interrupciones.
+
+**Fuente principal:** `incidents.csv`.
+
+**Consideración sobre los datos:** el dataset contiene 15 incidentes registrados entre junio y septiembre de 2026. Todos figuran como resueltos. Los datos son DEMO y no incluyen un contrato SLA real ni información sobre impacto económico o cantidad de usuarios afectados.
+
+### 6.1 Volumen de incidentes
+
+**Definición:** mide la cantidad de incidentes registrados durante un período.
+
+**Campo:** `incidente_id`.
+
+**Unidad:** cantidad de incidentes.
+
+**Interpretación:** permite observar la evolución de las interrupciones y detectar variaciones en la demanda de soporte. El dataset no contiene una fotografía histórica de incidentes abiertos al cierre de cada período.
+
+### 6.2 Tiempo medio de resolución (MTTR)
+
+**Definición:** mide el tiempo promedio transcurrido desde la apertura de un incidente hasta la recuperación del servicio.
+
+**Campo:** `tiempo_resolucion_minutos`.
 
 **Fórmula:**
 
 \[
-\text{Error Rate (\%)} =
-\frac{\text{Cantidad de solicitudes con error}}
-{\text{Total de solicitudes procesadas}}
-\times 100
+\frac{\text{Suma de tiempos de resolución}}{\text{Cantidad de incidentes resueltos}}
 \]
 
-**Campo disponible:** `tasa_errores_pct`, del dataset `cloud-monitoring.csv`.
+**Unidad:** minutos u horas.
 
-**Unidad de medida:** porcentaje (%).
+**Criterio de cálculo:** considerar los incidentes resueltos según su fecha de apertura. Los incidentes aún abiertos deben mantenerse separados y no incorporarse al promedio.
 
-**Criterio de cálculo:**
-- Considerar las solicitudes procesadas durante una ventana de medición definida.
-- Identificar las solicitudes que terminaron en error según los criterios de la plataforma de monitoreo.
-- Dividir las solicitudes con error por el total de solicitudes procesadas.
-- Mantener una clasificación consistente de errores y una ventana de medición comparable.
+**Interpretación:** permite evaluar la capacidad operacional para resolver incidentes. Debe analizarse considerando la severidad y el contexto de cada interrupción.
 
-**Interpretación:**
-- Una tasa de errores elevada puede indicar fallos de aplicación, problemas de integración, dependencias no disponibles o saturación de recursos.
-- Un aumento sostenido puede anticipar degradaciones del servicio.
-- Debe analizarse junto con latencia p95, disponibilidad, incidentes y alertas críticas.
-- Una tasa baja no garantiza que el servicio esté completamente libre de problemas; también deben considerarse la severidad y el impacto de los errores.
+### 6.3 MTTR operacional versus tiempo de recuperación DORA
 
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `tasa_errores_pct` representa un valor agregado por servicio y corte semanal.
-- No se dispone del número total de solicitudes ni del detalle individual de solicitudes exitosas y fallidas.
-- Por lo tanto, no es posible recalcular ni auditar la tasa de errores a partir de los datos disponibles.
-- Los valores deben interpretarse como datos DEMO agregados, no como mediciones verificadas de una plataforma de observabilidad real.
+Ambos indicadores miden tiempos de recuperación, pero utilizan poblaciones y puntos de inicio diferentes.
 
-**Fuente:** `cloud-monitoring.csv`.
-
-**Tipo de dato:** DEMO.
-
-### 5.4 Utilización de CPU (CPU Utilization)
-
-**Definición:** porcentaje promedio de capacidad de procesamiento utilizada por un recurso o servicio durante un período de medición.
-
-**Objetivo:** monitorear el consumo de recursos de procesamiento, identificar posibles situaciones de saturación y anticipar necesidades de optimización o escalabilidad de infraestructura.
-
-**Fórmula conceptual:**
-
-\[
-\text{CPU Utilization (\%)} =
-\frac{\text{Capacidad de CPU utilizada}}
-{\text{Capacidad total de CPU disponible}}
-\times 100
-\]
-
-**Campo disponible:** `cpu_promedio_pct`, del dataset `cloud-monitoring.csv`.
-
-**Unidad de medida:** porcentaje promedio (%).
-
-**Criterio de cálculo:**
-- Utilizar las mediciones de utilización de CPU registradas durante la ventana de monitoreo.
-- Calcular el promedio de utilización correspondiente al período.
-- Mantener una ventana de medición consistente para analizar tendencias.
-- Considerar la capacidad asignada al recurso y su configuración de escalabilidad.
-
-**Interpretación:**
-- Una utilización elevada y sostenida puede indicar saturación o necesidad de ampliar la capacidad disponible.
-- Una utilización muy baja puede representar capacidad ociosa y oportunidades de optimización de costos.
-- Las variaciones puntuales deben analizarse en contexto, considerando la demanda y los patrones de carga.
-- Debe analizarse junto con memoria, latencia p95, tasa de errores y tráfico.
-- Un porcentaje elevado no implica necesariamente un problema si el servicio mantiene sus objetivos de rendimiento y disponibilidad.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `cpu_promedio_pct` representa un valor promedio agregado por servicio y corte semanal.
-- No se dispone de mediciones individuales, máximos, mínimos ni series temporales de utilización.
-- Por lo tanto, no es posible identificar picos de consumo ni reconstruir la evolución de CPU dentro de cada semana.
-- Los valores deben interpretarse como datos DEMO agregados, no como mediciones verificadas de una plataforma cloud real.
-
-**Fuente:** `cloud-monitoring.csv`.
-
-**Tipo de dato:** DEMO.
-
-### 5.5 Utilización de Memoria (Memory Utilization)
-
-**Definición:** porcentaje promedio de memoria utilizada respecto de la memoria total disponible en un recurso de infraestructura durante un período de medición.
-
-**Objetivo:** monitorear el consumo de memoria, identificar posibles situaciones de presión o saturación y anticipar necesidades de optimización o ampliación de capacidad.
-
-**Fórmula conceptual:**
-
-\[
-\text{Memory Utilization (\%)} =
-\frac{\text{Memoria utilizada}}
-{\text{Memoria total disponible}}
-\times 100
-\]
-
-**Campo disponible:** `memoria_promedio_pct`, del dataset `cloud-monitoring.csv`.
-
-**Unidad de medida:** porcentaje promedio (%).
-
-**Criterio de cálculo:**
-- Utilizar las mediciones de memoria registradas durante la ventana de monitoreo.
-- Calcular el promedio de utilización correspondiente al período.
-- Mantener una ventana de medición consistente para analizar tendencias.
-- Considerar la memoria asignada al recurso y las características de la carga de trabajo.
-
-**Interpretación:**
-- Una utilización elevada y sostenida puede indicar presión de memoria o riesgo de degradación del servicio.
-- Una utilización baja puede representar capacidad disponible, aunque debe evaluarse según la demanda y los requerimientos de la aplicación.
-- Los aumentos repentinos pueden estar relacionados con cambios en la carga, procesos intensivos o posibles fugas de memoria.
-- Debe analizarse junto con CPU, latencia p95, tasa de errores y disponibilidad.
-- Un porcentaje elevado no implica necesariamente una falla si el servicio mantiene un comportamiento estable y cumple sus objetivos operacionales.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `memoria_promedio_pct` representa un valor promedio agregado por servicio y corte semanal.
-- No se dispone de mediciones individuales, máximos, mínimos ni series temporales de utilización.
-- Por lo tanto, no es posible identificar picos de consumo ni reconstruir la evolución de memoria dentro de cada semana.
-- Los valores deben interpretarse como datos DEMO agregados, no como mediciones verificadas de una plataforma cloud real.
-
-**Fuente:** `cloud-monitoring.csv`.
-
-**Tipo de dato:** DEMO.
-
-### 5.6 Utilización de Almacenamiento (Storage Utilization)
-
-**Definición:** porcentaje de capacidad de almacenamiento utilizada respecto de la capacidad total disponible en un recurso durante un período de medición.
-
-**Objetivo:** monitorear el consumo de almacenamiento, identificar tendencias de crecimiento y anticipar necesidades de ampliación, limpieza u optimización de capacidad.
-
-**Fórmula conceptual:**
-
-\[
-\text{Storage Utilization (\%)} =
-\frac{\text{Espacio de almacenamiento utilizado}}
-{\text{Capacidad total de almacenamiento disponible}}
-\times 100
-\]
-
-**Campo disponible:** `almacenamiento_usado_pct`, del dataset `cloud-monitoring.csv`.
-
-**Unidad de medida:** porcentaje (%).
-
-**Criterio de cálculo:**
-- Utilizar las mediciones de espacio ocupado y capacidad total disponible.
-- Calcular el porcentaje de utilización correspondiente al período.
-- Mantener una ventana de medición consistente para analizar tendencias.
-- Considerar la capacidad asignada, las políticas de retención y los requerimientos de crecimiento.
-
-**Interpretación:**
-- Una utilización elevada y sostenida puede anticipar riesgos de agotamiento de espacio.
-- Un crecimiento continuo puede indicar la necesidad de ampliar capacidad o revisar políticas de almacenamiento y retención.
-- Una utilización baja puede representar capacidad disponible, aunque debe evaluarse junto con la demanda proyectada y el costo asociado.
-- Debe analizarse junto con costos cloud, tráfico y comportamiento de los servicios.
-- Un porcentaje elevado no implica necesariamente una falla si existe capacidad suficiente y una planificación adecuada.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `almacenamiento_usado_pct` representa un valor agregado por servicio y corte semanal.
-- No se dispone de la capacidad total en GB o TB ni del volumen de almacenamiento utilizado.
-- Por lo tanto, no es posible determinar el espacio absoluto disponible ni proyectar una fecha de agotamiento de capacidad.
-- Los valores deben interpretarse como datos DEMO agregados, no como mediciones verificadas de una plataforma cloud real.
-
-**Fuente:** `cloud-monitoring.csv`.
-
-**Tipo de dato:** DEMO.
-
-### 5.7 Tráfico de Red (Network Traffic)
-
-**Definición:** volumen de datos transferidos hacia y desde los servicios alojados en infraestructura cloud durante un período determinado.
-
-**Objetivo:** monitorear el consumo de red, identificar variaciones en los patrones de tráfico y evaluar su posible impacto en el rendimiento y los costos de infraestructura.
-
-**Fórmulas conceptuales:**
-
-\[
-\text{Tráfico total} =
-\text{Tráfico de entrada} + \text{Tráfico de salida}
-\]
-
-\[
-\text{Variación del tráfico (\%)} =
-\frac{\text{Tráfico período actual} - \text{Tráfico período anterior}}
-{\text{Tráfico período anterior}}
-\times 100
-\]
-
-**Campos disponibles:**
-- `trafico_entrada_gb`: volumen de datos recibidos.
-- `trafico_salida_gb`: volumen de datos enviados.
-
-Ambos campos pertenecen al dataset `cloud-monitoring.csv`.
-
-**Unidad de medida:** GB/semana para cada tipo de tráfico y para el volumen total semanal.
-
-**Criterio de cálculo:**
-- Considerar los volúmenes de entrada y salida registrados durante cada período semanal.
-- Calcular el tráfico total sumando ambos valores.
-- Comparar períodos equivalentes para identificar tendencias.
-- Mantener la misma unidad y ventana de medición.
-
-**Interpretación:**
-- Un aumento del tráfico puede estar relacionado con mayor demanda, crecimiento de usuarios, transferencias de archivos o integración entre servicios.
-- Un aumento sostenido del tráfico de salida puede tener impacto en los costos de transferencia de datos cloud.
-- Una disminución puede reflejar menor demanda o cambios en los patrones de consumo; no necesariamente representa una mejora.
-- Debe analizarse junto con disponibilidad, latencia, tasa de errores y costos cloud.
-- Las variaciones deben interpretarse considerando la demanda y el comportamiento esperado de cada servicio.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `trafico_entrada_gb` y `trafico_salida_gb` representan volúmenes semanales, expresados en GB/semana.
-- Esta interpretación corresponde a una convención definida para el modelo DEMO; no ha sido validada contra registros reales de una plataforma cloud.
-- No se dispone del detalle de transferencias individuales, destinos, regiones, zonas o tipos de tráfico.
-- Por lo tanto, no es posible identificar transferencias específicas ni determinar su costo real.
-- Los valores deben interpretarse como datos DEMO agregados.
-
-**Fuente:** `cloud-monitoring.csv`.
-
-**Tipo de dato:** DEMO.
-
-### 5.8 Costo Cloud (Cloud Cost)
-
-**Definición:** costo asociado al consumo de recursos y servicios de infraestructura cloud durante un período determinado.
-
-**Objetivo:** monitorear la evolución del gasto cloud, identificar variaciones relevantes y detectar oportunidades de optimización financiera sin comprometer el rendimiento ni la disponibilidad de los servicios.
-
-**Fórmula conceptual:**
-
-\[
-\text{Costo Cloud} =
-\sum \text{Costos de los recursos y servicios cloud del período}
-\]
-
-**Campo disponible:** `costo_cloud_usd`, del dataset `cloud-monitoring.csv`.
-
-**Unidad de medida:** USD/semana.
-
-**Criterio de cálculo:**
-- Considerar los costos asociados a los recursos y servicios cloud durante el período semanal.
-- Mantener una moneda y ventana de medición consistentes.
-- Comparar períodos equivalentes para identificar tendencias y variaciones.
-- Para un análisis financiero completo, integrar los costos por servicio, recurso, ambiente y categoría de consumo.
-
-**Interpretación:**
-- Un aumento puede estar relacionado con mayor consumo, crecimiento de la demanda, ampliación de infraestructura o cambios en los precios de los servicios.
-- Una disminución puede reflejar optimización de recursos, menor demanda o cambios en el consumo.
-- Debe analizarse junto con tráfico de red, utilización de CPU, memoria, almacenamiento y demanda de los servicios.
-- La reducción de costos no debe evaluarse de manera aislada: debe conservarse el nivel de servicio y los objetivos de disponibilidad y rendimiento.
-- El análisis puede apoyar iniciativas de FinOps, como dimensionamiento adecuado de recursos, identificación de capacidad ociosa y control presupuestario.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 20 registros correspondientes a cuatro servicios y cinco cortes semanales de septiembre de 2026.
-- `costo_cloud_usd` representa un costo semanal por servicio, expresado en USD/semana.
-- Esta interpretación corresponde a una convención definida para el modelo DEMO; no ha sido validada contra facturación real de un proveedor cloud.
-- No se dispone del desglose por recurso, tipo de instancia, almacenamiento, transferencia, región ni descuentos aplicados.
-- Por lo tanto, no es posible identificar los componentes específicos del gasto ni verificar el costo facturado.
-- Los valores deben interpretarse como datos DEMO agregados, no como costos reales de AWS, Azure o Google Cloud.
-
-**Fuente:** `cloud-monitoring.csv`.
-
-**Tipo de dato:** DEMO.
-
-## 6. IT Service Operations
-
-Este módulo permite evaluar la gestión de incidentes, recuperación del servicio y cumplimiento de acuerdos de nivel de servicio.
-
-### 6.1 Volumen de Incidentes (Incident Volume)
-
-**Definición:** cantidad de incidentes registrados durante un período determinado, independientemente de su severidad o causa.
-
-**Objetivo:** monitorear la demanda operacional, identificar tendencias y detectar posibles aumentos en las interrupciones o degradaciones de los servicios TI.
-
-**Fórmula:**
-
-\[
-\text{Volumen de Incidentes} =
-\text{Cantidad de incidentes registrados durante el período}
-\]
-
-**Campo disponible:** `incidente_id`, del dataset `incidents.csv`.
-
-**Unidad de medida:** cantidad de incidentes por período.
-
-**Criterio de cálculo:**
-- Contabilizar cada incidente una sola vez.
-- Agrupar los incidentes según su fecha de apertura.
-- Definir períodos consistentes para analizar tendencias.
-- Segmentar los resultados por servicio, severidad, categoría u origen cuando la información esté disponible.
-
-**Interpretación:**
-- Un aumento puede indicar mayor inestabilidad, crecimiento de la demanda o cambios en la capacidad de detección y registro.
-- Una disminución puede reflejar mejoras operacionales, aunque también podría estar relacionada con cambios en los criterios de registro.
-- Debe analizarse junto con MTTR, cumplimiento de SLA, disponibilidad y severidad.
-- El volumen por sí solo no representa el impacto operacional: un incidente crítico puede ser más relevante que varios incidentes menores.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 15 incidentes registrados entre junio y septiembre de 2026.
-- Todos los incidentes disponibles figuran como resueltos.
-- El conjunto de datos permite analizar el volumen histórico registrado, pero no representa necesariamente la totalidad de los incidentes de una operación real.
-- No contiene una fotografía de incidentes abiertos al momento del corte.
-- Los resultados deben interpretarse como datos DEMO y no como evidencia de desempeño operacional real.
-
-**Fuente:** `incidents.csv`.
-
-**Tipo de dato:** DEMO.
-
-### 6.2 Tiempo Medio de Recuperación (MTTR)
-
-**Definición:** tiempo promedio transcurrido desde la apertura de un incidente hasta la recuperación del servicio.
-
-**Fórmula:**
-
-MTTR = Suma de los tiempos de recuperación de incidentes recuperados / Cantidad de incidentes recuperados
-
-**Campo utilizado:** `tiempo_resolucion_minutos`, del dataset `incidents.csv`.
-
-**Unidad:** minutos.
-
-**Criterio de cálculo:**
-- Agrupar los incidentes según su `fecha_apertura` para formar la cohorte correspondiente al período de análisis.
-- Considerar únicamente los incidentes que hayan sido recuperados para calcular el MTTR del período.
-- Utilizar el tiempo transcurrido desde `fecha_apertura` hasta `fecha_recuperacion`.
-- Si un incidente permanece abierto al cierre del período, debe identificarse como abierto o pendiente y excluirse del denominador de incidentes recuperados hasta que exista una recuperación.
-- La antigüedad y estado de los incidentes abiertos deben mantenerse como información complementaria para no ocultar interrupciones prolongadas.
-- Calcular el promedio de los tiempos de recuperación de los incidentes recuperados de la cohorte.
-- Mantener criterios consistentes de inicio y término para facilitar la comparación histórica.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 15 incidentes y todos figuran como resueltos.
-- `tiempo_resolucion_minutos` representa el intervalo entre `fecha_apertura` y `fecha_recuperacion`.
-- El cálculo por período debe formar cohortes según `fecha_apertura`.
-- Si en una implementación real existen incidentes abiertos al corte, estos deben mantenerse identificados por su estado y antigüedad, pero no incorporarse al denominador de incidentes recuperados hasta su recuperación.
-- Para este modelo, el MTTR operacional considera los incidentes recuperados, independientemente de si están relacionados con despliegues.
-- No debe confundirse con Failed Deployment Recovery Time de DORA, que considera únicamente incidentes asociados a despliegues fallidos y utiliza `fecha_deteccion` como inicio del impacto.
-- En los datos DEMO actuales no se observan incidentes pendientes, porque los 15 registros disponibles figuran como resueltos.
-- Los resultados deben interpretarse como datos DEMO y no como evidencia de desempeño operacional real.
-
-### 6.3 Tiempo de recuperación DORA versus MTTR operacional
-
-Ambos indicadores miden tiempos relacionados con la recuperación, pero no representan la misma población ni necesariamente el mismo punto de inicio.
-
-| Característica | Recovery Time DORA | MTTR operacional |
+| Criterio | MTTR operacional | Recuperación DORA |
 |---|---|---|
-| Población | Incidentes relacionados con despliegues fallidos | Incidentes operacionales evaluados |
-| Inicio | Detección del impacto | Apertura del incidente |
+| Población | Incidentes operacionales | Incidentes asociados a despliegues fallidos |
+| Inicio | Apertura del incidente | Detección del impacto del despliegue |
 | Término | Recuperación del servicio | Recuperación del servicio |
-| Fuente | Deployments e incidents | Incidents |
-| Propósito | Medir recuperación ante fallos de cambios | Medir desempeño de recuperación operacional |
+| Fuente | `incidents.csv` | `incidents.csv` |
+| Propósito | Evaluar la resolución operacional | Evaluar la capacidad de recuperación ante fallos de cambios |
 
-**Importante:** no deben mezclarse ambos resultados en un único indicador, porque sus criterios de inicio y población son diferentes.
+**Criterio:** no comparar directamente ambos valores sin considerar sus diferencias de alcance y metodología.
 
-### 6.4 Cumplimiento de SLA (SLA Compliance)
+### 6.4 Cumplimiento de SLA
 
-**Definición:** porcentaje de incidentes elegibles que fueron resueltos dentro del tiempo objetivo establecido en el Service Level Agreement (SLA).
-
-**Objetivo:** monitorear el cumplimiento de los compromisos de servicio, identificar desviaciones y apoyar decisiones de mejora en la gestión operacional.
+**Definición:** mide el porcentaje de incidentes resueltos dentro del tiempo objetivo de servicio.
 
 **Fórmula:**
 
 \[
-\text{SLA Compliance (\%)} =
-\frac{\text{Incidentes elegibles que cumplen el SLA}}
-{\text{Total de incidentes elegibles}}
-\times 100
+\frac{\text{Incidentes que cumplen el SLA}}{\text{Incidentes elegibles}} \times 100
 \]
 
-**Campos disponibles:** `sla_cumplido`, `tiempo_resolucion_minutos` y `sla_objetivo_minutos`, del dataset `incidents.csv`.
+**Campos:** `sla_cumplido`, `tiempo_resolucion_minutos`, `sla_objetivo_minutos`.
 
-**Unidad de medida:** porcentaje (%).
+**Unidad:** porcentaje (%).
 
-**Criterio de cálculo:**
-- Considerar los incidentes elegibles para evaluación de SLA.
-- Comparar `tiempo_resolucion_minutos` con `sla_objetivo_minutos`.
-- Contabilizar como cumplidos aquellos incidentes cuyo tiempo de resolución sea menor o igual al objetivo establecido.
-- Dividir los incidentes cumplidos por el total de incidentes elegibles.
-- Mantener criterios de elegibilidad y períodos de medición consistentes.
+**Interpretación:** permite evaluar el cumplimiento de los tiempos de resolución establecidos. En este dataset, el SLA es una referencia DEMO y no representa un compromiso contractual validado.
 
-**Interpretación:**
-- Un porcentaje elevado indica mayor cumplimiento de los compromisos de servicio.
-- Una disminución puede señalar problemas de capacidad, tiempos de respuesta, escalamiento o complejidad de los incidentes.
-- Debe analizarse junto con volumen de incidentes, MTTR, severidad y disponibilidad.
-- Un resultado global puede ocultar incumplimientos concentrados en servicios o incidentes críticos.
+Se consideran elegibles los incidentes resueltos que cuentan con un objetivo SLA válido para el período evaluado.
 
-**Consideraciones sobre los datos:**
-- El dataset contiene 15 incidentes y todos figuran como resueltos.
-- `sla_cumplido` registra el resultado del cumplimiento para cada incidente.
-- La evaluación utiliza `tiempo_resolucion_minutos`, calculado desde `fecha_apertura` hasta `fecha_recuperacion`.
-- `sla_objetivo_minutos` representa el tiempo objetivo de resolución definido para cada incidente.
-- No se dispone de contratos SLA reales ni de reglas de elegibilidad adicionales.
-- Por lo tanto, el indicador representa la convención del modelo DEMO y no evidencia de cumplimiento contractual real.
+### 6.5 Incidentes críticos
 
-**Fuente:** `incidents.csv`.
+**Definición:** mide la cantidad de incidentes clasificados como críticos según su severidad.
 
-**Tipo de dato:** DEMO.
+**Campos:** `incidente_id`, `severidad`, `fecha_apertura`.
 
-### 6.5 Incidentes Críticos (Critical Incidents)
+**Unidad:** cantidad de incidentes.
 
-**Definición:** cantidad de incidentes clasificados con severidad crítica durante un período determinado.
+**Interpretación:** permite identificar interrupciones de mayor severidad y monitorear su evolución. El dataset no incluye impacto económico ni cantidad de usuarios afectados.
 
-**Objetivo:** identificar eventos de alto impacto que requieren atención prioritaria, coordinación entre equipos y, cuando corresponda, escalamiento a niveles de gestión.
+## 7. Gobierno, Calidad y Trazabilidad de Indicadores
 
-**Fórmula:**
-
-\[
-\text{Incidentes Críticos} =
-\text{Cantidad de incidentes con severidad crítica}
-\]
-
-**Campos disponibles:** `incidente_id`, `severidad` y `fecha_apertura`, del dataset `incidents.csv`.
-
-**Unidad de medida:** cantidad de incidentes críticos por período.
-
-**Criterio de cálculo:**
-- Identificar los incidentes cuya clasificación de severidad corresponda a crítica.
-- Contabilizar cada incidente una sola vez.
-- Agruparlos según su fecha de apertura.
-- Mantener criterios de clasificación consistentes durante el período de análisis.
-
-**Interpretación:**
-- Un aumento puede indicar mayor exposición a riesgos operacionales o problemas relevantes en los servicios.
-- Una disminución puede reflejar mejoras en estabilidad y prevención, aunque también debe verificarse que los criterios de clasificación no hayan cambiado.
-- Debe analizarse junto con disponibilidad, MTTR, cumplimiento de SLA y servicios afectados.
-- La cantidad no representa por sí sola el impacto económico, duración ni alcance de cada incidente.
-
-**Consideraciones sobre los datos:**
-- El dataset contiene 15 incidentes registrados entre junio y septiembre de 2026.
-- El campo `severidad` permite segmentar los incidentes por nivel de criticidad.
-- No se dispone de una valoración cuantitativa del impacto económico, cantidad de usuarios afectados ni pérdida de negocio.
-- Por lo tanto, el indicador permite monitorear el volumen de incidentes críticos, pero no cuantificar su impacto total.
-- Los resultados deben interpretarse como datos DEMO y no como evidencia de desempeño operacional real.
-
-**Fuente:** `incidents.csv`.
-
-**Tipo de dato:** DEMO.
-
-## 7. Reglas de Gobierno, Calidad y Trazabilidad de Indicadores
+Esta sección establece los criterios para asegurar la consistencia, calidad, trazabilidad y mantenimiento de los indicadores del portafolio.
 
 ### 7.1 Clasificación de los datos
 
-Todos los indicadores deben identificar claramente el origen y la naturaleza de la información utilizada.
+Los indicadores deben identificar claramente el estado de validación de sus fuentes:
 
-- **DEMO:** datos ficticios utilizados para demostrar el funcionamiento del modelo.
-- **REAL:** datos provenientes de sistemas o fuentes operacionales verificables.
-- **PENDIENTE DE VALIDACIÓN:** información cuyo origen, consistencia o exactitud todavía no ha sido comprobada.
+| Clasificación | Descripción |
+|---|---|
+| DEMO | Datos de demostración utilizados para ilustrar el funcionamiento de los indicadores. |
+| REAL | Datos provenientes de fuentes operacionales verificadas. |
+| PENDIENTE DE VALIDACIÓN | Datos cuya integridad, origen o consistencia aún no han sido comprobados. |
 
-Los datos DEMO no deben presentarse como resultados reales de organizaciones o clientes.
+La clasificación debe estar disponible para interpretar correctamente los resultados y evitar presentar datos de demostración como mediciones reales.
 
 ### 7.2 Trazabilidad de los indicadores
 
-Cada indicador debe permitir identificar, cuando corresponda:
+Cada indicador debe contar, según la información disponible, con los siguientes atributos:
+
 - Nombre y definición.
-- Objetivo de medición.
-- Fórmula o criterio de cálculo.
-- Unidad de medida.
-- Línea base.
-- Valor actual.
-- Variación.
-- Meta.
-- Estado.
-- Tendencia.
-- Dataset y campos de origen.
-- Período de medición.
-- Responsable de seguimiento.
-- Limitaciones y supuestos conocidos.
+- Objetivo y fórmula de cálculo.
+- Unidad de medida y período.
+- Fuente de datos y responsable.
+- Línea base, valor actual y meta, cuando corresponda.
+- Estado, tendencia y calidad del dato.
+- Limitaciones metodológicas relevantes.
 
-**Consideración sobre los datos DEMO:** el modelo común define estos atributos, pero los datasets actuales no contienen necesariamente todos los atributos para todos los indicadores. Durante la implementación del dashboard deberán agregarse, calcularse o validarse los campos que no estén disponibles directamente.
+Los atributos que no estén disponibles deben identificarse explícitamente, sin completar información mediante supuestos no validados.
 
-Cuando un atributo no pueda determinarse con la información disponible, debe registrarse explícitamente como **“Sin dato”**, **“No medido”** o **“Pendiente de validación”**, según corresponda. No se debe inferir que todos estos atributos ya existen en los datasets DEMO.
+### 7.3 Calidad e integridad de los datos
 
-### 7.3 Calidad y consistencia de los datos
+Antes de utilizar un indicador, se deben considerar los siguientes controles:
 
-Antes de utilizar un indicador en un análisis ejecutivo se debe verificar:
+- Integridad de los registros y campos obligatorios.
+- Consistencia de fechas y períodos de medición.
+- Identificación de registros duplicados.
+- Coherencia de identificadores y relaciones entre datasets.
+- Consistencia de unidades, fórmulas y denominadores.
+- Identificación de valores faltantes o pendientes de validación.
 
-- Integridad de los registros.
-- Consistencia de fechas y períodos.
-- Ausencia de duplicados.
-- Correspondencia entre identificadores relacionados.
-- Unidades de medida.
-- Coherencia entre numeradores y denominadores.
-- Identificación de datos faltantes o no validados.
+**Tratamiento de información faltante:**
 
-### 7.4 Tratamiento de datos faltantes
+| Estado | Uso |
+|---|---|
+| Sin dato | El valor no está disponible en la fuente. |
+| No medido | No existe medición para el indicador en el período. |
+| Pendiente de validación | El valor requiere revisión antes de utilizarse. |
+| No aplica | El indicador no corresponde al contexto o período evaluado. |
 
-Cuando no exista información suficiente para calcular un indicador, se debe utilizar una clasificación explícita:
+Los valores faltantes no deben reemplazarse automáticamente por cero ni por estimaciones no identificadas.
 
-- **Sin dato:** no existe información disponible.
-- **No medido:** la fuente no registra el indicador requerido.
-- **Pendiente de validación:** existe información, pero no se ha confirmado su calidad.
-- **No aplica:** el indicador no corresponde al contexto analizado.
+### 7.4 Interpretación y comparabilidad
 
-No se deben sustituir datos faltantes por cero ni generar resultados estimados sin identificar explícitamente el supuesto utilizado.
+La interpretación de los indicadores debe considerar:
 
-### 7.5 Reglas de interpretación y uso
+- Comparar períodos y equipos con alcances equivalentes.
+- Identificar períodos parciales antes de evaluar tendencias.
+- Analizar las métricas en conjunto y no de manera aislada.
+- Evitar atribuir causalidad a relaciones que solo muestran correlación.
+- Considerar las limitaciones de las fuentes y los datos DEMO.
+- Diferenciar indicadores con definiciones o poblaciones distintas, como el MTTR operacional y el tiempo de recuperación DORA.
 
-Antes de utilizar un indicador para análisis o decisiones, se deben aplicar las siguientes reglas operativas:
+### 7.5 Mantenimiento y evolución
 
-- Validar que la población, alcance y período sean comparables.
-- Verificar calidad, completitud y trazabilidad de los datos.
-- No convertir datos faltantes en cero.
-- No comparar períodos parciales con períodos completos sin una justificación metodológica.
-- No comparar equipos o servicios sin considerar capacidad, contexto, complejidad y tipo de trabajo.
-- Analizar métricas relacionadas conjuntamente, sin asumir causalidad entre ellas.
-- Documentar supuestos, exclusiones, limitaciones y criterios de cálculo.
-- Diferenciar claramente indicadores que tienen poblaciones o puntos de inicio distintos, como MTTR operacional y Failed Deployment Recovery Time de DORA.
+El diccionario debe actualizarse cuando se incorporen nuevos indicadores, cambien las fuentes de datos o se modifiquen las fórmulas y criterios de medición.
 
-### 7.6 Evolución y mantenimiento
+Toda modificación debe mantener la trazabilidad de la definición, el origen del dato y la metodología utilizada.
 
-El diccionario debe mantenerse actualizado cuando:
+## 8. Principios Ejecutivos de Interpretación
 
-- Se incorporen nuevos indicadores.
-- Cambien las fuentes de información.
-- Se modifiquen fórmulas o criterios de cálculo.
-- Se incorporen nuevas plataformas o servicios.
-- Se identifiquen limitaciones o problemas de calidad en los datos.
+Los indicadores deben utilizarse como herramientas de análisis y toma de decisiones, considerando el contexto operativo y los objetivos del negocio.
 
-Toda modificación debe conservar la trazabilidad entre la fuente, el modelo de datos, el indicador y su representación en los dashboards.
+1. **Medir resultados y no solo actividad:** diferenciar los productos entregados (Output) del valor o impacto generado (Outcome).
 
-## 8. Principios ejecutivos de interpretación
+2. **Interpretar la capacidad de entrega en contexto:** analizar Throughput, velocidad y cumplimiento de compromisos considerando el tamaño, la complejidad y las condiciones de trabajo de cada equipo.
 
-Los indicadores deben utilizarse como instrumentos para comprender el desempeño y orientar decisiones, no como valores aislados.
+3. **Analizar las métricas técnicas en conjunto:** interpretar las métricas DORA, disponibilidad, incidentes y errores de forma complementaria, evitando conclusiones basadas en un único indicador.
 
-1. **Output no equivale a Outcome:** completar actividades o entregables no demuestra por sí solo la generación de valor de negocio.
-2. **Velocidad no equivale a productividad:** throughput y velocity deben interpretarse según contexto, capacidad y complejidad; no deben utilizarse para establecer comparaciones simplistas entre equipos.
-3. **Velocity es principalmente una métrica de planificación:** no debe utilizarse como medida de productividad individual ni como ranking entre equipos.
-4. **Deployment Frequency no equivale a valor de negocio:** mide frecuencia de despliegue, no impacto comercial.
-5. **DORA requiere análisis conjunto:** Deployment Frequency, Lead Time for Changes, Change Failure Rate y Recovery Time deben interpretarse como un sistema de desempeño de entrega y estabilidad.
-6. **Disponibilidad e incidentes son métricas relacionadas, pero distintas:** la existencia de incidentes no implica necesariamente pérdida total de disponibilidad.
-7. **Correlación no demuestra causalidad:** una variación simultánea de indicadores no demuestra que uno sea causa del otro.
-8. **El contexto es parte de la medición:** capacidad, alcance, complejidad, dependencias, cambios de prioridad y calidad de los datos deben considerarse antes de tomar decisiones.
-9. **Los períodos parciales requieren cautela:** un período incompleto no debe compararse directamente con uno completo.
-10. **La medición debe impulsar decisiones:** cada indicador debe contribuir a identificar desviaciones, riesgos, oportunidades o acciones de mejora.
+4. **Priorizar tendencias y contexto sobre comparaciones aisladas:** considerar períodos equivalentes, calidad de los datos, cambios operativos y limitaciones de las fuentes antes de comparar resultados.
 
-## 9. Mapa de indicadores por producto
+5. **Convertir las mediciones en decisiones:** utilizar los indicadores para identificar desviaciones, anticipar riesgos, priorizar mejoras y evaluar resultados.
 
-| Producto | Ámbito | Indicadores principales |
+## 9. Mapa de Indicadores por Producto
+
+El portafolio se organiza en tres productos de análisis, cada uno con un propósito de gestión específico.
+
+| Producto | Enfoque | Indicadores principales |
 |---|---|---|
-| 01 - Dashboard Ejecutivo de Gestión TI | Gestión ejecutiva | Predictibilidad, avance, hitos, riesgos, SLA y disponibilidad |
-| 02 - Gestión de Proyectos y Entrega Ágil | Delivery y agilidad | Sprint Goal, compromiso, carry-over, trabajo no planificado, throughput, Cycle Time, Lead Time, WIP, impedimentos y calidad |
-| 03 - Entrega Técnica y Operaciones TI | DevOps y operaciones | DORA, disponibilidad, latencia, errores, infraestructura cloud, costos, incidentes, MTTR y SLA |
+| Producto 01: Gestión Ejecutiva de TI | Seguimiento del desempeño y cumplimiento de iniciativas y servicios. | Predictibilidad, desviación del avance, riesgos críticos, cumplimiento de SLA y disponibilidad. |
+| Producto 02: Entrega Ágil | Seguimiento de compromisos, capacidad de entrega y flujo de trabajo. | Cumplimiento del objetivo del Sprint, confiabilidad del compromiso, Carry-over, trabajo no planificado, Throughput, Cycle Time, Lead Time, WIP, impedimentos, defectos y retrabajo. |
+| Producto 03: DevOps y Operaciones TI | Seguimiento de despliegues, estabilidad, observabilidad y continuidad operacional. | Métricas DORA, disponibilidad, latencia, errores, utilización de recursos, tráfico de red, costos cloud, volumen de incidentes, MTTR, SLA e incidentes críticos. |
 
-## 10. Fuentes de datos del portafolio
+## 10. Fuentes de Datos
 
-| Dataset | Producto | Contenido |
-|---|---|---|
-| `executive-kpis.csv` | 01 | Indicadores ejecutivos por iniciativa y corte |
-| `agile-delivery.csv` | 02 | Métricas de entrega ágil por equipo y Sprint |
-| `deployments.csv` | 03 | Historial DEMO de despliegues |
-| `cloud-monitoring.csv` | 03 | Observaciones semanales de monitoreo cloud |
-| `incidents.csv` | 03 | Registro DEMO de incidentes y recuperación |
+El portafolio utiliza cinco conjuntos de datos DEMO para representar las distintas dimensiones de gestión tecnológica.
 
----
+| Dataset | Propósito |
+|---|---|
+| `executive-kpis.csv` | Indicadores consolidados de gestión ejecutiva, avance, riesgos, SLA y disponibilidad. |
+| `agile-delivery.csv` | Métricas de planificación, cumplimiento y flujo de entrega de equipos ágiles. |
+| `deployments.csv` | Registro de despliegues y datos para el análisis de métricas DORA. |
+| `cloud-monitoring.csv` | Indicadores de disponibilidad, rendimiento, consumo de recursos y costos cloud. |
+| `incidents.csv` | Registro de incidentes, tiempos de resolución, cumplimiento de SLA y recuperación de servicios. |
 
-**Principio rector del portafolio:**
+Los datasets permiten ilustrar el modelo de medición y la relación entre indicadores, fuentes de información y decisiones de gestión. No representan registros operacionales reales.
 
-La gestión de TI debe permitir comprender qué se comprometió, qué se entregó, cómo evolucionó el desempeño, qué resultados se obtuvieron y qué decisiones deben tomarse para mejorar la entrega de valor.
+## Principio rector del portafolio
+
+Los indicadores de gestión TI deben transformar los datos en información útil para la toma de decisiones.
+
+El portafolio integra la gestión ejecutiva, la entrega ágil y la operación tecnológica bajo criterios comunes de medición, trazabilidad y calidad de datos.
+
+Su propósito es facilitar la identificación de desviaciones, anticipar riesgos, evaluar el desempeño y orientar acciones de mejora continua, considerando siempre el contexto y las limitaciones de la información disponible.

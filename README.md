@@ -38,7 +38,7 @@ Seguimiento del desempeño de la entrega tecnológica, monitoreo Cloud y confiab
 Incluye:
 - Métricas DORA.
 - Desempeño de despliegues en producción.
-- Cloud Monitoring y observabilidad.
+- Monitoreo Cloud y observabilidad, mediante observaciones semanales DEMO.
 - Gestión de incidentes y tiempos de recuperación.
 - Seguimiento de SLA y SLO, sujeto a la disponibilidad de datos.
 
@@ -53,7 +53,7 @@ El portafolio incluye cinco datasets ficticios para demostrar indicadores de ges
 | `executive-kpis.csv` | KPIs ejecutivos y seguimiento de iniciativas TI. |
 | `agile-delivery.csv` | Desempeño de equipos ágiles y Sprints. |
 | `deployments.csv` | Despliegues en producción y métricas de entrega técnica. |
-| `cloud-monitoring.csv` | Observaciones de monitoreo de servicios Cloud. |
+| `cloud-monitoring.csv` | Observaciones semanales DEMO de servicios Cloud, recursos y costos. |
 | `incidents.csv` | Tiempos de resolución de incidentes y cumplimiento de SLA. |
 
 [Explorar datasets DEMO](04-demo-data/README.md)

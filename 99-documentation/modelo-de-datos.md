@@ -277,9 +277,8 @@ Los valores numéricos originales se mantienen sin modificaciones.
 - El dataset contiene veinte registros.
 - Se consideran cuatro servicios y cinco cortes semanales de septiembre de 2026.
 - Los datos representan observaciones agregadas por corte y no telemetría continua.
-- Los campos de tráfico representan volúmenes semanales en GB, no tasas instantáneas de transferencia.
-- Para este modelo DEMO, los volúmenes de tráfico se interpretan como valores semanales. Esta convención es una definición del modelo y no una validación de una fuente real.
-- El costo cloud se interpreta como costo semanal en USD, conforme al criterio definido para este conjunto de datos DEMO.
+- Los campos de tráfico representan volúmenes DEMO expresados en GB/semana, según la convención definida para este modelo. Esta interpretación no ha sido contrastada con registros reales de la plataforma cloud.
+- El costo cloud se expresa en USD/semana como convención del modelo DEMO. No representa facturación real ni permite verificar el costo efectivo del proveedor.
 - No deben compararse costos o volúmenes de períodos de distinta duración sin normalización.
 - Los registros no permiten reconstruir por sí solos el comportamiento minuto a minuto del servicio.
 
@@ -431,7 +430,7 @@ Cada dataset debe permitir identificar:
 | Deployments | Sin timestamp de commit | Lead Time for Changes es una aproximación |
 | Deployments | Fecha de despliegue sin hora | No permite análisis de precisión horaria |
 | Cloud Monitoring | Cinco cortes semanales | No representa telemetría continua |
-| Cloud Monitoring | Período semanal definido como convención DEMO | No constituye validación de datos de una fuente real |
+| Cloud Monitoring | Períodos de costo y tráfico definidos como convenciones DEMO | Interpretar los valores como GB/semana y USD/semana, sin considerarlos mediciones o facturación real |
 | Incidents | Todos los incidentes resueltos | No permite analizar incidentes abiertos |
 | Incidents | Inicio del impacto aproximado por detección | Recovery Time DORA es una aproximación DEMO |
 

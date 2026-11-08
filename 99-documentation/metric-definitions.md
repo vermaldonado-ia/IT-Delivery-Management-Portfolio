@@ -14,6 +14,8 @@ Los indicadores se organizan en tres dimensiones:
 
 Los datos utilizados en este portafolio son de carácter demostrativo (DEMO) y tienen como finalidad ilustrar la aplicación de los indicadores. No representan resultados operacionales reales.
 
+---
+
 ## 2. Modelo común de medición
 
 ### 2.1 Definición de un indicador
@@ -72,6 +74,8 @@ Su análisis debe considerar:
 
 Un resultado porcentual favorable no necesariamente representa una mejora operacional si existen diferencias en la población evaluada o en los criterios de medición.
 
+---
+
 ## 3. Indicadores de Gestión Ejecutiva TI
 
 ### 3.1 Cumplimiento de hitos (Milestone Predictability)
@@ -83,7 +87,7 @@ Un resultado porcentual favorable no necesariamente representa una mejora operac
 **Fórmula:**
 
 \[
-\text{Cumplimiento de hitos} =
+\text{Cumplimiento de hitos (\%)} =
 \frac{\text{Hitos cumplidos a tiempo}}
 {\text{Hitos planificados}}
 \times 100
@@ -106,11 +110,12 @@ Debe analizarse considerando cambios de alcance, reprogramaciones y modificacion
 **Fórmula:**
 
 \[
-\text{Desviación del avance} =
-\text{Avance real} - \text{Avance planificado}
+\text{Desviación del avance (pp)} =
+\text{Avance real (\%)} -
+\text{Avance planificado (\%)}
 \]
 
-**Unidad de medida:** puntos porcentuales.
+**Unidad de medida:** puntos porcentuales (pp).
 
 **Fuente:** `executive-kpis.csv`.
 
@@ -152,7 +157,7 @@ Este indicador debe complementarse con el seguimiento de responsables, acciones 
 **Fórmula:**
 
 \[
-\text{Cumplimiento SLA} =
+\text{Cumplimiento SLA (\%)} =
 \frac{\text{Casos elegibles que cumplen el SLA}}
 {\text{Total de casos elegibles}}
 \times 100
@@ -175,7 +180,7 @@ El cálculo debe considerar exclusivamente los casos elegibles y las reglas de m
 **Fórmula general:**
 
 \[
-\text{Disponibilidad} =
+\text{Disponibilidad (\%)} =
 \frac{\text{Tiempo disponible}}
 {\text{Tiempo total del período}}
 \times 100
@@ -189,6 +194,8 @@ El cálculo debe considerar exclusivamente los casos elegibles y las reglas de m
 
 **Limitación:** no se debe calcular ni atribuir disponibilidad ejecutiva directamente desde los datos de monitoreo si no existe un mapeo completo entre iniciativas, servicios y períodos de observación compatibles.
 
+---
+
 ## 4. Indicadores de Gestión de Proyectos y Entrega Ágil
 
 ### 4.1 Cumplimiento del objetivo del Sprint (Sprint Goal Achievement)
@@ -200,7 +207,7 @@ El cálculo debe considerar exclusivamente los casos elegibles y las reglas de m
 **Fórmula:**
 
 \[
-\text{Cumplimiento del objetivo del Sprint} =
+\text{Sprint Goal Achievement (\%)} =
 \frac{\text{Sprints con objetivo alcanzado}}
 {\text{Total de Sprints cerrados}}
 \times 100
@@ -218,6 +225,20 @@ En el conjunto de datos DEMO, el Sprint S12 se encuentra en curso al corte del 7
 
 Por lo tanto, debe excluirse de las comparaciones de Sprints cerrados.
 
+En los datos DEMO:
+
+- Sprints cerrados: 44.
+- Sprints con objetivo alcanzado: 33.
+- Sprints con objetivo no alcanzado: 11.
+
+**Resultado DEMO:**
+
+\[
+\frac{33}{44}\times100 = 75\%
+\]
+
+El cumplimiento del objetivo del Sprint es del 75 %.
+
 ### 4.2 Fiabilidad del compromiso del Sprint (Sprint Commitment Reliability)
 
 **Objetivo:** evaluar la capacidad del equipo para completar los elementos comprometidos al inicio del Sprint.
@@ -227,7 +248,7 @@ Por lo tanto, debe excluirse de las comparaciones de Sprints cerrados.
 **Fórmula:**
 
 \[
-\text{Fiabilidad del compromiso} =
+\text{Sprint Commitment Reliability (\%)} =
 \frac{\text{Elementos comprometidos completados}}
 {\text{Elementos comprometidos inicialmente}}
 \times 100
@@ -252,7 +273,7 @@ No debe confundirse con el cumplimiento del objetivo del Sprint, ya que ambos in
 **Fórmula:**
 
 \[
-\text{Carry-over} =
+\text{Carry-over (\%)} =
 \frac{\text{Elementos pendientes trasladados}}
 {\text{Elementos comprometidos}}
 \times 100
@@ -275,7 +296,7 @@ Debe analizarse junto con la fiabilidad del compromiso y el cumplimiento del obj
 **Fórmula general:**
 
 \[
-\text{Trabajo no planificado} =
+\text{Trabajo no planificado (\%)} =
 \frac{\text{Trabajo no planificado}}
 {\text{Trabajo total considerado}}
 \times 100
@@ -287,7 +308,7 @@ Debe analizarse junto con la fiabilidad del compromiso y el cumplimiento del obj
 
 **Interpretación:** un valor elevado puede reflejar interrupciones, incidentes, cambios de prioridad o deficiencias en la planificación.
 
-**Limitación:** no debe calcularse si el conjunto de datos no permite identificar de manera diferenciada el trabajo planificado y el no planificado.
+**Limitación:** no debe calcularse si el conjunto de datos no permite identificar de manera diferenciada el trabajo planificado y el no planificado. Un conteo de trabajo no planificado, por sí solo, no permite obtener este porcentaje.
 
 ### 4.5 Elementos completados (Throughput)
 
@@ -304,11 +325,13 @@ Debe analizarse junto con la fiabilidad del compromiso y el cumplimiento del obj
 
 **Unidad de medida:** cantidad de elementos.
 
-**Fuente:** `agile-delivery.csv`, cuando se dispone de información de elementos completados.
+**Fuente:** `agile-delivery.csv`, campo `elementos_completados`.
 
 **Interpretación:** permite observar la evolución del flujo de entrega del equipo.
 
 No debe utilizarse como medida aislada de productividad ni compararse entre equipos con tamaños de elementos o criterios de estimación diferentes.
+
+**Limitación:** el valor corresponde a un agregado registrado por equipo y Sprint. No permite reconstruir el detalle de cada elemento ni separar automáticamente trabajo planificado y no planificado.
 
 ### 4.6 Tiempo de ciclo (Cycle Time)
 
@@ -316,21 +339,25 @@ No debe utilizarse como medida aislada de productividad ni compararse entre equi
 
 **Definición:** representa la duración del trabajo en curso hasta su finalización.
 
-**Fórmula:**
+**Fórmula conceptual:**
 
 \[
-\text{Tiempo de ciclo} =
+\text{Cycle Time} =
 \text{Fecha de finalización} -
 \text{Fecha de inicio del trabajo}
 \]
 
 **Unidad de medida:** horas o días.
 
-**Fuente:** registros de gestión de trabajo, como Jira, cuando se dispone de fechas de inicio y finalización.
+**Fuente:** `agile-delivery.csv`, campo `cycle_time_mediana_dias`.
 
 **Interpretación:** permite identificar demoras y oportunidades de mejora en el flujo de trabajo.
 
-**Limitación:** no debe calcularse si los datos disponibles no contienen las fechas necesarias para determinar el período de ejecución.
+**Limitación:** el conjunto de datos contiene un valor agregado de mediana por equipo y Sprint. No dispone del detalle de fechas de inicio y finalización de cada elemento para reconstruir el cálculo individual.
+
+El valor registrado debe interpretarse como una métrica agregada y no como un cálculo recalculable desde eventos individuales.
+
+---
 
 ## 5. Indicadores de Entrega Técnica y Operaciones TI
 
@@ -343,7 +370,7 @@ No debe utilizarse como medida aislada de productividad ni compararse entre equi
 **Fórmula:**
 
 \[
-\text{Frecuencia de despliegues} =
+\text{Deployment Frequency} =
 \text{Cantidad de despliegues exitosos en producción}
 \]
 
@@ -361,7 +388,7 @@ No debe utilizarse como medida aislada de productividad ni compararse entre equi
 
 **Definición:** representa el tiempo necesario para llevar un cambio desde su origen en el desarrollo hasta su despliegue en producción.
 
-**Fórmula:**
+**Fórmula conceptual:**
 
 \[
 \text{Lead Time for Changes} =
@@ -371,7 +398,7 @@ No debe utilizarse como medida aislada de productividad ni compararse entre equi
 
 **Unidad de medida:** horas o días.
 
-**Fuente:** `deployments.csv`.
+**Fuente:** `deployments.csv`, campo `lead_time_cambios_horas`.
 
 **Interpretación:** permite evaluar la velocidad del proceso de entrega técnica.
 
@@ -388,7 +415,7 @@ Por esta razón, el valor debe interpretarse como una aproximación registrada y
 **Fórmula:**
 
 \[
-\text{Change Failure Rate} =
+\text{Change Failure Rate (\%)} =
 \frac{\text{Despliegues fallidos}}
 {\text{Total de despliegues en producción}}
 \times 100
@@ -402,11 +429,11 @@ Por esta razón, el valor debe interpretarse como una aproximación registrada y
 
 En el conjunto de datos DEMO se registran:
 
-- 48 despliegues en producción.
-- 41 despliegues exitosos.
-- 7 despliegues fallidos.
+- Total de despliegues en producción: 48.
+- Despliegues exitosos: 41.
+- Despliegues fallidos: 7.
 
-Por lo tanto:
+**Resultado DEMO:**
 
 \[
 \frac{7}{48}\times100 = 14,58\%
@@ -430,20 +457,28 @@ El resultado representa una tasa de fallas por cambios del 14,58 %.
 
 **Unidad de medida:** minutos.
 
-**Fuente:** `deployments.csv`.
+**Fuente:** `deployments.csv`, campo `tiempo_recuperacion_minutos`.
 
 **Interpretación:** un menor tiempo de recuperación refleja una mayor capacidad de respuesta ante fallas de despliegue.
 
 En los datos DEMO se registran siete despliegues fallidos, con los siguientes tiempos de recuperación:
 
-95, 140, 110, 85, 75, 65 y 55 minutos.
+- 95 minutos.
+- 140 minutos.
+- 110 minutos.
+- 85 minutos.
+- 75 minutos.
+- 65 minutos.
+- 55 minutos.
 
-El promedio es:
+**Resultado DEMO:**
 
 \[
 \frac{95+140+110+85+75+65+55}{7}
 = 89,29 \text{ minutos}
 \]
+
+El tiempo promedio de recuperación de despliegues fallidos es de aproximadamente 89,3 minutos.
 
 Este indicador debe diferenciarse del tiempo de resolución operacional de incidentes, ya que ambos pueden utilizar puntos de inicio distintos.
 
@@ -463,16 +498,16 @@ Este indicador debe diferenciarse del tiempo de resolución operacional de incid
 
 **Unidad de medida:** minutos.
 
-**Fuente:** `incidents.csv`.
+**Fuente:** `incidents.csv`, campo `tiempo_resolucion_minutos`.
 
 **Interpretación:** permite evaluar la capacidad operacional para resolver incidentes.
 
 En los datos DEMO se registran:
 
-- 15 incidentes resueltos.
-- 1.736 minutos acumulados de resolución.
+- Incidentes resueltos: 15.
+- Tiempo acumulado de resolución: 1.736 minutos.
 
-Por lo tanto:
+**Resultado DEMO:**
 
 \[
 \frac{1736}{15} = 115,73 \text{ minutos}
@@ -491,7 +526,7 @@ El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 **Fórmula:**
 
 \[
-\text{Cumplimiento SLA de incidentes} =
+\text{Incident SLA Compliance (\%)} =
 \frac{\text{Incidentes que cumplen el SLA}}
 {\text{Total de incidentes elegibles}}
 \times 100
@@ -505,10 +540,10 @@ El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
 En los datos DEMO:
 
-- 15 incidentes registrados.
-- 12 incidentes que cumplen el SLA.
+- Incidentes evaluados: 15.
+- Incidentes que cumplen el SLA: 12.
 
-Por lo tanto:
+**Resultado DEMO:**
 
 \[
 \frac{12}{15}\times100 = 80\%
@@ -537,16 +572,18 @@ El cumplimiento del SLA de incidentes es del 80 %.
 
 **Criterio de clasificación:** deben contabilizarse exclusivamente los incidentes cuya severidad esté registrada como `Crítica`. Los incidentes clasificados como `Alta` no deben incorporarse a este indicador.
 
+En los datos DEMO se registra un incidente con severidad Crítica.
+
 ### 5.8 Disponibilidad de servicios Cloud (Cloud Service Availability)
 
 **Objetivo:** medir la disponibilidad de los servicios tecnológicos alojados en infraestructura Cloud.
 
 **Definición:** representa el porcentaje de tiempo durante el cual un servicio se encuentra disponible respecto del período total de observación.
 
-**Fórmula:**
+**Fórmula general:**
 
 \[
-\text{Disponibilidad Cloud} =
+\text{Disponibilidad Cloud (\%)} =
 \frac{\text{Tiempo disponible}}
 {\text{Tiempo total observado}}
 \times 100
@@ -565,8 +602,7 @@ El cumplimiento del SLA de incidentes es del 80 %.
 - La fuente de monitoreo es CloudWatch.
 - Los datos corresponden a infraestructura AWS en ambiente de producción.
 - No deben interpretarse como mediciones en tiempo real.
-
-La disponibilidad calculada debe considerar la granularidad de las observaciones y no asumir que los registros representan automáticamente todo el tiempo del período.
+- La disponibilidad calculada debe considerar la granularidad de las observaciones y no asumir que los registros representan automáticamente todo el tiempo del período.
 
 ### 5.9 Utilización de recursos Cloud (Cloud Resource Utilization)
 
@@ -577,7 +613,7 @@ La disponibilidad calculada debe considerar la granularidad de las observaciones
 **Fórmula general:**
 
 \[
-\text{Utilización del recurso} =
+\text{Utilización del recurso (\%)} =
 \frac{\text{Recurso utilizado}}
 {\text{Capacidad total del recurso}}
 \times 100
@@ -590,6 +626,8 @@ La disponibilidad calculada debe considerar la granularidad de las observaciones
 **Interpretación:** permite identificar posibles situaciones de saturación, subutilización o necesidad de optimización de recursos.
 
 La interpretación debe considerar el tipo de recurso, la capacidad provisionada y el comportamiento del servicio.
+
+**Limitación:** los valores agregados de monitoreo permiten analizar las observaciones registradas, pero no deben interpretarse como una medición continua de utilización si la fuente no proporciona esa granularidad.
 
 ### 5.10 Costo de infraestructura Cloud (Cloud Cost)
 
@@ -606,11 +644,13 @@ La interpretación debe considerar el tipo de recurso, la capacidad provisionada
 
 **Unidad de medida:** dólares estadounidenses (USD).
 
-**Fuente:** `cloud-monitoring.csv`.
+**Fuente:** `cloud-monitoring.csv`, campo `costo_cloud_usd`.
 
 **Interpretación:** permite observar la evolución de los costos y detectar variaciones que puedan requerir análisis de optimización.
 
 **Limitación:** los valores de `costo_cloud_usd` del conjunto de datos son demostrativos. No representan facturación real de AWS ni deben utilizarse como evidencia de ahorro o gasto operacional.
+
+---
 
 ## 6. Gobierno de los Indicadores
 
@@ -672,8 +712,7 @@ Por lo tanto:
 - Los incidentes y despliegues son registros de ejemplo.
 - Los resultados porcentuales representan exclusivamente los datos contenidos en los archivos DEMO.
 - Las conclusiones deben limitarse al alcance del escenario demostrado.
-
-Los tableros y reportes deben identificar claramente el carácter demostrativo de la información.
+- Los tableros y reportes deben identificar claramente el carácter demostrativo de la información.
 
 ### 6.5 Frecuencia de actualización y fecha de corte
 
@@ -688,6 +727,8 @@ Cada indicador debe tener una frecuencia de actualización acorde con su natural
 La frecuencia indicada es una referencia de gestión. La disponibilidad efectiva depende de la actualización de las fuentes de datos.
 
 Los resultados deben identificar la fecha de corte utilizada para evitar comparaciones entre períodos incompatibles.
+
+---
 
 ## 7. Principios de Interpretación Ejecutiva
 
@@ -741,9 +782,23 @@ En los datos DEMO, los siete despliegues fallidos tienen incidentes asociados:
 | DEP-034 | INC-006 | 65 |
 | DEP-043 | INC-007 | 55 |
 
+**Promedio de recuperación de despliegues fallidos:**
+
+\[
+\frac{95+140+110+85+75+65+55}{7}
+= 89,29 \text{ minutos}
+\]
+
 El promedio de recuperación de despliegues fallidos es de aproximadamente 89,3 minutos.
 
-El MTTR operacional se calcula utilizando los tiempos de resolución de los 15 incidentes registrados y alcanza aproximadamente 115,7 minutos.
+**MTTR operacional:**
+
+\[
+\frac{1736}{15}
+= 115,73 \text{ minutos}
+\]
+
+El MTTR operacional promedio es de aproximadamente 115,7 minutos.
 
 Aunque existe relación entre ambos indicadores, no deben compararse directamente como si midieran exactamente el mismo intervalo temporal.
 
@@ -752,6 +807,8 @@ Aunque existe relación entre ambos indicadores, no deben compararse directament
 Los indicadores deben utilizarse para facilitar la toma de decisiones y promover mejoras en los procesos.
 
 No deben emplearse de manera aislada para evaluar el desempeño individual de las personas ni para establecer comparaciones entre equipos sin considerar diferencias de contexto, alcance y complejidad.
+
+---
 
 ## 8. Aplicación del Diccionario en el Portafolio
 
@@ -778,8 +835,7 @@ El portafolio utiliza cinco conjuntos de datos demostrativos.
 | `deployments.csv` | 48 | Registro de despliegues técnicos. |
 | `cloud-monitoring.csv` | 20 | Observaciones de monitoreo Cloud. |
 | `incidents.csv` | 15 | Registro y resolución de incidentes. |
-
-**Total:** 167 registros demostrativos.
+| **Total** | **167** | **Registros demostrativos.** |
 
 ### 8.3 Criterios de utilización de las fuentes
 
@@ -809,6 +865,7 @@ Para evitar interpretaciones incorrectas, se deben considerar las siguientes lim
 - El Sprint S12 se encuentra en curso al corte del 7 de noviembre de 2026.
 - Los Sprints en curso no deben incorporarse a los indicadores de cumplimiento de Sprints cerrados.
 - El cumplimiento del objetivo del Sprint no equivale al porcentaje de tareas completadas.
+- Los indicadores agregados no permiten reconstruir el detalle individual de cada elemento de trabajo.
 
 **Entrega Técnica**
 
@@ -846,6 +903,8 @@ Las futuras mejoras pueden considerar:
 
 Toda incorporación debe mantener la trazabilidad entre la fuente, la fórmula y el resultado presentado.
 
+---
+
 ## 9. Principio de Gestión
 
 Los indicadores de Gestión TI deben permitir transformar los datos en información útil para la toma de decisiones.
@@ -854,8 +913,8 @@ Su valor no reside únicamente en medir resultados, sino en facilitar la identif
 
 Un modelo de medición efectivo debe mantener tres principios fundamentales:
 
-1. **Consistencia:** utilizar definiciones y fórmulas homogéneas.
-2. **Trazabilidad:** garantizar que cada resultado pueda relacionarse con su fuente de información.
-3. **Contexto:** interpretar los resultados considerando las condiciones reales de ejecución y operación.
+- **Consistencia:** utilizar definiciones y fórmulas homogéneas.
+- **Trazabilidad:** garantizar que cada resultado pueda relacionarse con su fuente de información.
+- **Contexto:** interpretar los resultados considerando las condiciones reales de ejecución y operación.
 
 El objetivo final es disponer de una visión integrada de la gestión ejecutiva, la entrega ágil y las operaciones TI, promoviendo una cultura de mejora continua basada en evidencia.

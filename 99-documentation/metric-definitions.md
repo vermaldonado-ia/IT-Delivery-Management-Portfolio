@@ -45,6 +45,8 @@ Cada indicador debe considerar los siguientes elementos:
 
 Predictibilidad (%) = (Hitos cumplidos a tiempo / Hitos planificados del período) × 100
 
+Si no existen hitos planificados y evaluables en el período, el indicador debe registrarse como **“No aplica”** y no como 0%.
+
 **Fuente:** `executive-kpis.csv`
 
 **Interpretación:** permite evaluar la capacidad de cumplimiento de los compromisos establecidos.
@@ -52,6 +54,7 @@ Predictibilidad (%) = (Hitos cumplidos a tiempo / Hitos planificados del períod
 **Consideraciones:**
 - El indicador se calcula sobre hitos cuyo cumplimiento puede evaluarse en el período.
 - Un hito no cumplido dentro de su fecha comprometida no se considera cumplido a tiempo.
+- Si el denominador es cero, no corresponde calcular el porcentaje.
 - Debe analizarse junto con cambios de alcance, dependencias y riesgos.
 
 ### 2.2 Desviación del avance respecto del plan
@@ -73,17 +76,22 @@ La desviación se expresa en puntos porcentuales (pp), no como porcentaje relati
 
 ### 2.3 Riesgos críticos abiertos
 
-**Definición:** cantidad de riesgos clasificados como críticos que permanecen abiertos al momento del corte.
+**Definición:** cantidad agregada de riesgos clasificados como críticos que permanecen abiertos al momento del corte.
 
 **Fórmula:**
 
-Riesgos críticos abiertos = Valor registrado en el campo `riesgos_criticos_abiertos`.
+Riesgos críticos abiertos = `riesgos_criticos_abiertos`
+
+El indicador utiliza directamente el valor agregado disponible en `executive-kpis.csv`.
 
 **Fuente:** `executive-kpis.csv`
 
-**Limitación de los datos DEMO:**
+**Interpretación:** permite identificar exposición relevante para la continuidad y los compromisos de las iniciativas.
 
-El dataset contiene un valor agregado por iniciativa y fecha de corte. No incluye el detalle individual de los riesgos, su severidad, estado, responsable ni fecha de apertura. Por lo tanto, no permite auditar ni recalcular el conteo desde registros individuales.
+**Limitación de los datos DEMO:**
+- `executive-kpis.csv` contiene el indicador agregado `riesgos_criticos_abiertos`.
+- No existe un dataset individual de riesgos con severidad, estado, responsable, fecha de apertura y fecha de cierre.
+- Por lo tanto, el indicador permite visualizar el nivel agregado reportado, pero no auditar ni analizar individualmente los registros de riesgo.
 
 ### 2.4 Cumplimiento de SLA
 
@@ -93,7 +101,9 @@ El dataset contiene un valor agregado por iniciativa y fecha de corte. No incluy
 
 Cumplimiento SLA (%) = (Casos SLA cumplidos / Casos SLA elegibles) × 100
 
-**Fuente:** `executive-kpis.csv` y `incidents.csv`
+**Fuentes y roles de los datos:**
+- `executive-kpis.csv`: contiene los valores consolidados de gestión ejecutiva, incluyendo `casos_sla_elegibles` y `casos_sla_cumplidos`.
+- `incidents.csv`: contiene el detalle operacional de incidentes, incluyendo `sla_cumplido`, `tiempo_resolucion_minutos` y `sla_objetivo_minutos`.
 
 **Criterio aplicado en los datos DEMO:**
 - El cumplimiento se determina utilizando el tiempo de resolución.
@@ -101,6 +111,9 @@ Cumplimiento SLA (%) = (Casos SLA cumplidos / Casos SLA elegibles) × 100
 - Se compara con el objetivo de SLA definido para el incidente.
 
 **Consideraciones:**
+- Para el reporte ejecutivo se deben utilizar los valores consolidados de `executive-kpis.csv`.
+- `incidents.csv` puede utilizarse para análisis y trazabilidad operacional cuando el alcance y período correspondan.
+- No se deben sumar ni combinar indiscriminadamente ambos datasets, ya que podría producir doble conteo.
 - El denominador debe incluir únicamente los casos elegibles.
 - Los casos sin información suficiente no deben clasificarse automáticamente como cumplidos.
 - La regla de cálculo debe mantenerse consistente entre períodos.
@@ -113,17 +126,21 @@ Cumplimiento SLA (%) = (Casos SLA cumplidos / Casos SLA elegibles) × 100
 
 Disponibilidad (%) = (Tiempo disponible / Tiempo total medido) × 100
 
-**Fuente:** `executive-kpis.csv` y `cloud-monitoring.csv`
+**Fuentes y niveles de agregación:**
+- `executive-kpis.csv`: contiene el KPI consolidado utilizado para la visión ejecutiva.
+- `cloud-monitoring.csv`: contiene observaciones agregadas semanalmente por servicio para el análisis técnico.
 
 **Interpretación:** permite evaluar la continuidad del servicio.
 
 **Consideraciones:**
+- Los dos datasets tienen diferentes niveles de agregación y alcance.
+- No se deben combinar, promediar ni comparar directamente sin validar servicios incluidos, períodos, ponderaciones y reglas de cálculo.
+- Para la visión ejecutiva debe utilizarse el valor consolidado previamente validado.
+- Para el análisis técnico por servicio puede utilizarse `cloud-monitoring.csv`.
 - Se debe documentar el período de medición.
 - Debe definirse cómo se consideran las ventanas de mantenimiento.
 - La disponibilidad no equivale a ausencia de incidentes.
 - Los datos DEMO disponibles representan cortes agregados, no telemetría continua.
-- Los valores de `executive-kpis.csv` y `cloud-monitoring.csv` tienen diferentes niveles de agregación y alcance. No deben combinarse directamente en un único cálculo sin validar previamente su correspondencia.
-- Para el análisis ejecutivo se debe utilizar el indicador consolidado de `executive-kpis.csv`; para el análisis técnico por servicio se debe utilizar `cloud-monitoring.csv`.
 
 ## 3. Gestión de Proyectos y Entrega Ágil
 
@@ -1042,48 +1059,36 @@ Este módulo permite evaluar la gestión de incidentes, recuperación del servic
 
 **Tipo de dato:** DEMO.
 
-### 6.2 MTTR (Mean Time to Recover)
+### 6.2 Tiempo Medio de Recuperación (MTTR)
 
-**Definición:** tiempo promedio transcurrido desde la apertura de un incidente hasta la recuperación del servicio afectado.
-
-**Objetivo:** evaluar la capacidad de respuesta y recuperación operacional, identificando oportunidades para reducir los tiempos de interrupción y mejorar la continuidad de los servicios.
+**Definición:** tiempo promedio transcurrido desde la apertura de un incidente hasta la recuperación del servicio.
 
 **Fórmula:**
 
-\[
-MTTR =
-\frac{\sum \text{Tiempos de resolución de incidentes recuperados}}
-{\text{Cantidad de incidentes recuperados}}
-\]
+MTTR = Suma de los tiempos de recuperación de incidentes recuperados / Cantidad de incidentes recuperados
 
-**Campo disponible:** `tiempo_resolucion_minutos`, del dataset `incidents.csv`.
+**Campo utilizado:** `tiempo_resolucion_minutos`, del dataset `incidents.csv`.
 
-**Unidad de medida:** minutos.
+**Unidad:** minutos.
 
 **Criterio de cálculo:**
-- Considerar los incidentes cuyo servicio haya sido recuperado.
+- Agrupar los incidentes según su `fecha_apertura` para formar la cohorte correspondiente al período de análisis.
+- Considerar únicamente los incidentes que hayan sido recuperados para calcular el MTTR del período.
 - Utilizar el tiempo transcurrido desde `fecha_apertura` hasta `fecha_recuperacion`.
-- Calcular el promedio de los tiempos de resolución de los incidentes incluidos en el período.
+- Si un incidente permanece abierto al cierre del período, debe identificarse como abierto o pendiente y excluirse del denominador de incidentes recuperados hasta que exista una recuperación.
+- La antigüedad y estado de los incidentes abiertos deben mantenerse como información complementaria para no ocultar interrupciones prolongadas.
+- Calcular el promedio de los tiempos de recuperación de los incidentes recuperados de la cohorte.
 - Mantener criterios consistentes de inicio y término para facilitar la comparación histórica.
-
-**Interpretación:**
-- Un MTTR menor puede reflejar una mayor capacidad de respuesta y resolución operacional.
-- Un aumento puede indicar dificultades de diagnóstico, escalamiento, coordinación o recuperación.
-- Debe analizarse junto con volumen de incidentes, severidad, cumplimiento de SLA y disponibilidad.
-- Un promedio puede ocultar incidentes de larga duración; conviene complementar el análisis con mediana y segmentación por severidad.
-- Una recuperación rápida no implica necesariamente que se haya eliminado la causa raíz.
 
 **Consideraciones sobre los datos:**
 - El dataset contiene 15 incidentes y todos figuran como resueltos.
 - `tiempo_resolucion_minutos` representa el intervalo entre `fecha_apertura` y `fecha_recuperacion`.
+- El cálculo por período debe formar cohortes según `fecha_apertura`.
+- Si en una implementación real existen incidentes abiertos al corte, estos deben mantenerse identificados por su estado y antigüedad, pero no incorporarse al denominador de incidentes recuperados hasta su recuperación.
 - Para este modelo, el MTTR operacional considera los incidentes recuperados, independientemente de si están relacionados con despliegues.
 - No debe confundirse con Failed Deployment Recovery Time de DORA, que considera únicamente incidentes asociados a despliegues fallidos y utiliza `fecha_deteccion` como inicio del impacto.
-- El conjunto de datos no incluye incidentes abiertos ni permite analizar tiempos de recuperación pendientes.
+- En los datos DEMO actuales no se observan incidentes pendientes, porque los 15 registros disponibles figuran como resueltos.
 - Los resultados deben interpretarse como datos DEMO y no como evidencia de desempeño operacional real.
-
-**Fuente:** `incidents.csv`.
-
-**Tipo de dato:** DEMO.
 
 ### 6.3 Tiempo de recuperación DORA versus MTTR operacional
 
@@ -1197,16 +1202,25 @@ Los datos DEMO no deben presentarse como resultados reales de organizaciones o c
 
 ### 7.2 Trazabilidad de los indicadores
 
-Cada indicador debe permitir identificar:
-
+Cada indicador debe permitir identificar, cuando corresponda:
 - Nombre y definición.
 - Objetivo de medición.
 - Fórmula o criterio de cálculo.
 - Unidad de medida.
+- Línea base.
+- Valor actual.
+- Variación.
+- Meta.
+- Estado.
+- Tendencia.
 - Dataset y campos de origen.
 - Período de medición.
 - Responsable de seguimiento.
 - Limitaciones y supuestos conocidos.
+
+**Consideración sobre los datos DEMO:** el modelo común define estos atributos, pero los datasets actuales no contienen necesariamente todos los atributos para todos los indicadores. Durante la implementación del dashboard deberán agregarse, calcularse o validarse los campos que no estén disponibles directamente.
+
+Cuando un atributo no pueda determinarse con la información disponible, debe registrarse explícitamente como **“Sin dato”**, **“No medido”** o **“Pendiente de validación”**, según corresponda. No se debe inferir que todos estos atributos ya existen en los datasets DEMO.
 
 ### 7.3 Calidad y consistencia de los datos
 
@@ -1231,19 +1245,18 @@ Cuando no exista información suficiente para calcular un indicador, se debe uti
 
 No se deben sustituir datos faltantes por cero ni generar resultados estimados sin identificar explícitamente el supuesto utilizado.
 
-### 7.5 Interpretación y uso ejecutivo
+### 7.5 Reglas de interpretación y uso
 
-Los indicadores deben interpretarse considerando el contexto operacional, el período de medición y las características de cada equipo o servicio.
+Antes de utilizar un indicador para análisis o decisiones, se deben aplicar las siguientes reglas operativas:
 
-Se deben respetar los siguientes principios:
-
-- Diferenciar Output de Outcome.
-- No interpretar Velocity como una medida de productividad comparable entre equipos.
-- No asumir causalidad a partir de correlaciones.
-- No interpretar Deployment Frequency como una medida directa de valor de negocio.
-- No confundir disponibilidad con ausencia de incidentes.
-- Diferenciar MTTR operacional de Failed Deployment Recovery Time de DORA.
-- Evitar comparaciones entre períodos completos y períodos parciales.
+- Validar que la población, alcance y período sean comparables.
+- Verificar calidad, completitud y trazabilidad de los datos.
+- No convertir datos faltantes en cero.
+- No comparar períodos parciales con períodos completos sin una justificación metodológica.
+- No comparar equipos o servicios sin considerar capacidad, contexto, complejidad y tipo de trabajo.
+- Analizar métricas relacionadas conjuntamente, sin asumir causalidad entre ellas.
+- Documentar supuestos, exclusiones, limitaciones y criterios de cálculo.
+- Diferenciar claramente indicadores que tienen poblaciones o puntos de inicio distintos, como MTTR operacional y Failed Deployment Recovery Time de DORA.
 
 ### 7.6 Evolución y mantenimiento
 
@@ -1257,17 +1270,19 @@ El diccionario debe mantenerse actualizado cuando:
 
 Toda modificación debe conservar la trazabilidad entre la fuente, el modelo de datos, el indicador y su representación en los dashboards.
 
-## 8. Principios de interpretación
+## 8. Principios ejecutivos de interpretación
+
+Los indicadores deben utilizarse como instrumentos para comprender el desempeño y orientar decisiones, no como valores aislados.
 
 1. **Output no equivale a Outcome:** completar actividades o entregables no demuestra por sí solo la generación de valor de negocio.
-2. **Velocidad no equivale a productividad:** una mayor cantidad de entregas no necesariamente representa mayor valor.
-3. **Velocity no permite comparar productividad entre equipos:** debe utilizarse como herramienta de planificación del propio equipo.
+2. **Velocidad no equivale a productividad:** throughput y velocity deben interpretarse según contexto, capacidad y complejidad; no deben utilizarse para establecer comparaciones simplistas entre equipos.
+3. **Velocity es principalmente una métrica de planificación:** no debe utilizarse como medida de productividad individual ni como ranking entre equipos.
 4. **Deployment Frequency no equivale a valor de negocio:** mide frecuencia de despliegue, no impacto comercial.
-5. **Disponibilidad no equivale a ausencia de incidentes:** un servicio puede presentar incidentes sin perder completamente su disponibilidad.
-6. **Correlación no demuestra causalidad:** una variación simultánea de indicadores no demuestra que uno sea causa del otro.
-7. **Los indicadores requieren contexto:** capacidad, alcance, complejidad, dependencias y calidad de los datos deben considerarse antes de tomar decisiones.
-8. **Las métricas DORA deben analizarse conjuntamente:** la velocidad de entrega debe interpretarse junto con la estabilidad y recuperación.
-9. **Los datos parciales requieren cautela:** un período incompleto no debe compararse directamente con uno completo.
+5. **DORA requiere análisis conjunto:** Deployment Frequency, Lead Time for Changes, Change Failure Rate y Recovery Time deben interpretarse como un sistema de desempeño de entrega y estabilidad.
+6. **Disponibilidad e incidentes son métricas relacionadas, pero distintas:** la existencia de incidentes no implica necesariamente pérdida total de disponibilidad.
+7. **Correlación no demuestra causalidad:** una variación simultánea de indicadores no demuestra que uno sea causa del otro.
+8. **El contexto es parte de la medición:** capacidad, alcance, complejidad, dependencias, cambios de prioridad y calidad de los datos deben considerarse antes de tomar decisiones.
+9. **Los períodos parciales requieren cautela:** un período incompleto no debe compararse directamente con uno completo.
 10. **La medición debe impulsar decisiones:** cada indicador debe contribuir a identificar desviaciones, riesgos, oportunidades o acciones de mejora.
 
 ## 9. Mapa de indicadores por producto

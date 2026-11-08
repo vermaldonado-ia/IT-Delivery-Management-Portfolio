@@ -142,7 +142,8 @@ Demostrar el seguimiento de infraestructura cloud y la integración de informaci
 **Consideraciones:**
 
 - Los registros corresponden a observaciones semanales, no a telemetría continua ni monitoreo en tiempo real.
-- Los valores de costo son DEMO y no representan facturación real.
+- Los campos de tráfico representan volúmenes DEMO expresados en GB/semana, según la convención definida para este modelo. Esta interpretación no ha sido contrastada con registros reales de la plataforma cloud.
+- El costo cloud se expresa en USD/semana como convención del modelo DEMO. No representa facturación real ni permite verificar el costo efectivo del proveedor.
 - Las observaciones disponibles no permiten calcular disponibilidad temporal continua.
 - No existe un mapeo completo entre las iniciativas ejecutivas y los servicios monitoreados.
 
